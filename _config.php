@@ -8,14 +8,13 @@ class MyAutoload
 {
     public static function start()
     {
-        
         spl_autoload_register(array(__CLASS__, 'autoload'));
         
         $root = $_SERVER['DOCUMENT_ROOT'];
         $host = $_SERVER['HTTP_HOST'];
 
-        define('HOST', 'http://'.$host.'/OpenDesignSchool/');
-        define('ROOT', $root.'OpenDesignSchool/');
+        define('HOST', 'http://'.$host.DIRECTORY_SEPARATOR.basename(__DIR__).DIRECTORY_SEPARATOR);
+        define('ROOT', $root.basename(__DIR__).DIRECTORY_SEPARATOR);
 
         define('CONTROLLER', ROOT.'controller/');
         define('VIEW', ROOT.'view/');
