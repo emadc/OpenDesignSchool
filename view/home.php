@@ -1,4 +1,4 @@
-<div id="container">
+<section id="home">
     <h2>Liste des devinettes</h2>
 
     <?php foreach($devinettes as $devinette):?>
@@ -25,7 +25,7 @@
         </div>
     <?php endforeach;?>
 
-</div>
+</section>
 
 <script type="text/javascript">
     $('.showAnswer').click(function(){

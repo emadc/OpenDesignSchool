@@ -1,0 +1,29 @@
+/* ----------------------------- */
+/*  Open Design School project
+/* ----------------------------- */
+
+/* common parts of document */
+
+body { 
+	padding: 0; 
+	margin: 0;
+    background-image: url(../img/bg_top.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;	
+}
+
+/* header menu */
+
+header  {
+	height: 90px;
+}
+
+/* nav bar */
+.navbar {
+	width: 100%
+}
+
+/* home */
+#home {
+
+}

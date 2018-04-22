@@ -19,7 +19,7 @@ class View
         ob_start();
         include(VIEW.$template.'.php');
         $contentPage = ob_get_clean();
-        include_once (VIEW.'_gabarit.php');
+        include_once (VIEW.'layout.php');
     }
 
     public function redirect($route)

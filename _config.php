@@ -12,8 +12,8 @@ class MyAutoload
         
         $root = $_SERVER['DOCUMENT_ROOT'];
         $host = $_SERVER['HTTP_HOST'];
-
-        define('HOST', 'http://'.$host.DIRECTORY_SEPARATOR.basename(__DIR__).DIRECTORY_SEPARATOR);
+// 		echo "<pre>"; var_dump($_SERVER); exit;
+        define('HOST', $_SERVER['REQUEST_SCHEME'].'://'.$host.DIRECTORY_SEPARATOR.basename(__DIR__).DIRECTORY_SEPARATOR);
         define('ROOT', $root.basename(__DIR__).DIRECTORY_SEPARATOR);
 
         define('CONTROLLER', ROOT.'controller/');
