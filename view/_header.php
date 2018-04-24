@@ -1,6 +1,6 @@
 			<header class="row justify-content-xl-center fixed-top">
-				<div class="col-xl-9">
-					<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+				<div class="col-xl-9 header_container">
+					<nav class="navbar navbar-expand-lg navbar-dark">
 						<a class="navbar-brand" href="<?php echo HOST;?>"><img alt="" src="<?php echo HOST;?>/assets/img/logo.png"/></a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
