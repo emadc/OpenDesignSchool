@@ -11,3 +11,4 @@
 		<link rel="stylesheet" href="<?php echo ASSETS;?>/css/style.css" />
 	</head>
 	<body>
+		<div class="conainer_fluid">
