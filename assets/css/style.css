@@ -4,8 +4,10 @@
 
 /* common parts of document */
 body {
+	font-family: 'Raleway', sans-serif;
 	padding: 0;
 	margin: 0;
+	background-attachment: fixed;
 	background-image: url(../img/bg_top.jpg);
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -96,22 +98,27 @@ main {
 	margin: 30px 0 15px;
 	font-size: 15px;
 	text-transform: uppercase;
+	font-weight: bold;
 }
 
 #gallery_home .row div {
 	background-color: green;
 	position: relative;
+	overflow: hidden;
 }
 
 #gallery_home .row div div {
-	background-color: #ff000000;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	transition: background-color 1s;
-	padding-top: 130px;
+    background-color: #ff000000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: background-color 1s;
+    padding-top: 150px;
+    max-width: 470px;
+    right: 0;
+    margin: auto;
 }
 
 #gallery_home .row div div>* {
@@ -126,15 +133,24 @@ main {
 }
 
 #gallery_home .row div div h3 {
-	margin-right: 100px; 
+	margin-right: 100px;
+	text-transform: uppercase;
+	font-size: 15px;
+    font-weight: bold;
 }
 
 #gallery_home .row div div p {
 	margin-left: 100px;
+    font-size: 15px;
 }
 
 #gallery_home .row div div:hover {
 	background-color: #ff000080;
+}
+
+#bottom p {
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 footer {

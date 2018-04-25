@@ -1,5 +1,5 @@
 			</main>
-			<footer class="row justify-content-center text-center">
+			<footer class="row justify-content-center text-center no-gutters">
 				<div class="col-md-2 col-sm-2">
 					<h3>Location</h3>
 					<p></p>

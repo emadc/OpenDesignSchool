@@ -1,4 +1,4 @@
-			<header class="row justify-content-xl-center fixed-top">
+			<header class="row justify-content-xl-center fixed-top no-gutters">
 				<div class="col-xl-9 header_container">
 					<nav class="navbar navbar-expand-lg navbar-dark">
 						<a class="navbar-brand" href="<?php echo HOST;?>"><img alt="" src="<?php echo HOST;?>/assets/img/logo.png"/></a>
@@ -49,4 +49,4 @@
 				</div>					
 			</header>
 			<!--- cotent ---->
-			<main class="row justify-content-center">
+			<main class="row justify-content-center no-gutters">
