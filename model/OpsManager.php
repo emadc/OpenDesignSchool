@@ -1,7 +1,7 @@
 <?php
 
 
-class DevinetteManager
+class OpsManager
 {
 
     private $bdd;

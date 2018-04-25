@@ -12,7 +12,7 @@ class Estimate
     public function showHome($params)
     {
         
-        $manager = new DevinetteManager();
+        $manager = new OpsManager();
         $devinettes = $manager->findAll();
 
         $myView = new View('home');
@@ -33,7 +33,7 @@ class Estimate
 
         if(isset($id)) {
 
-            $manager = new DevinetteManager();
+            $manager = new OpsManager();
             $devinette = $manager->find($id);
 
         } else {
@@ -49,7 +49,7 @@ class Estimate
     {
         extract($params);
 
-        $manager = new DevinetteManager();
+        $manager = new OpsManager();
         $manager->save($values);
 
         $myView = new View();
@@ -60,7 +60,7 @@ class Estimate
     public function delDev($params)
     {
         extract($params);
-        $manager = new DevinetteManager();
+        $manager = new OpsManager();
         $manager->delete($id);
 
         $myView = new View();
