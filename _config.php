@@ -21,7 +21,6 @@ class MyAutoload
         define('MODEL', ROOT.'model/');
         define('CLASSES', ROOT.'classes/');
 
-
         define('ASSETS', HOST.'assets/');
     }
 

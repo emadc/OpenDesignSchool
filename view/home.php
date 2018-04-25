@@ -51,11 +51,11 @@
 						<button>ccc</button>
 					</div>
 					<?php foreach($devinettes as $devinette):?>
-        <div class="question">
-        	<h3>{{getName}}</h3>
-            <h3><?php echo $devinette->getName();?></h3>
-
-
-        </div>
-    <?php endforeach;?>
+                        <div class="question">
+                        	<h3>{{getName}}</h3>
+                            <h3><?php echo $devinette->getName();?></h3>
+                
+                
+                        </div>
+                    <?php endforeach;?>
 				</section>

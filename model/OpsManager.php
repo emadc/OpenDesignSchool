@@ -8,8 +8,9 @@ class OpsManager
 
     public function __construct()
     {
-        $this->bdd = new PDO("mysql:host=localhost;dbname=devinette;charset=utf8", "root", "");
-
+        $config = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true);
+//         echo "<pre>"; print_r($config); exit();
+        $this->bdd = new PDO("mysql:host=".$config['sql']['ods']['host']."; dbname=".$config['sql']['ods']['base']."; charset=utf8", $config['sql']['ods']['user'], $config['sql']['ods']['pass']);
     }
 
     public function findAll()
