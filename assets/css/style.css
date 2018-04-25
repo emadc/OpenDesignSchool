@@ -115,7 +115,11 @@ main {
     width: 100%;
     height: 100%;
     transition: background-color 1s;
+<<<<<<< HEAD
     padding-top: 150px;
+=======
+    padding-top: 130px;
+>>>>>>> branch 'master' of https://github.com/emadc/OpenDesignSchool.git
     max-width: 470px;
     right: 0;
     margin: auto;
@@ -135,8 +139,11 @@ main {
 #gallery_home .row div div h3 {
 	margin-right: 100px;
 	text-transform: uppercase;
+<<<<<<< HEAD
 	font-size: 15px;
     font-weight: bold;
+=======
+>>>>>>> branch 'master' of https://github.com/emadc/OpenDesignSchool.git
 }
 
 #gallery_home .row div div p {
