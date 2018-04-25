@@ -100,13 +100,11 @@ main {
 
 #gallery_home .row div {
 	background-color: green;
-	border: 1px solid;
 	position: relative;
 }
 
 #gallery_home .row div div {
 	background-color: #ff000000;
-	border: 1px solid;
 	position: absolute;
 	top: 0;
 	left: 0;
