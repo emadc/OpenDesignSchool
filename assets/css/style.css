@@ -13,9 +13,13 @@ body {
 
 /* header menu */
 header {
-	height: 90px;
 	width: 100%;
 	height: 100px;
+	text-transform: uppercase;
+}
+
+header a {
+	font-size: 13px;
 }
 
 .header_container {
@@ -31,7 +35,7 @@ main {
 .navbar {
 	width: 100%;
 	height: 100%;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid #505369;
 }
 
 /* home */
@@ -58,7 +62,7 @@ main {
 }
 
 #welcame p {
-	font-size: 20px;
+	font-size: 22px;
 	width: 885px;
 	margin: 30px auto 50px;
 }
@@ -71,6 +75,7 @@ main {
 	width: 200px;
 	border-radius: 3px;
 	height: 40px;
+	font-size: 13px;
 }
 
 #services {
@@ -91,6 +96,40 @@ main {
 	margin: 30px 0 15px;
 	font-size: 15px;
 	text-transform: uppercase;
+}
+
+#gallery_home .row div {
+	background-color: green;
+	border: 1px solid;
+	position: relative;
+}
+
+#gallery_home .row div div {
+	background-color: #ff000000;
+	border: 1px solid;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transition: background-color 1s;
+}
+
+#gallery_home .row div div > *{
+	display: none;
+	color: #fff
+}
+
+#gallery_home .row div div:hover > * {
+	display: inherit;
+}
+
+#gallery_home .row div div p{
+	display: none;
+}
+
+#gallery_home .row div div:hover {
+	background-color: #ff000080;
 }
 
 footer {
