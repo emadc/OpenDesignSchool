@@ -25,7 +25,7 @@ header a {
 	font-size: 13px;
 }
 
-header img{
+header img {
 	height: 80px;
 	transition: height 1s;
 }
@@ -116,14 +116,24 @@ main {
 	font-weight: bold;
 }
 
+#gallery_home {
+	background-color: #fff;
+}
+
+#gallery_home .row.no-gutters {
+	max-width: 1880px;
+	margin: auto;
+}
+
 #gallery_home .row div {
-	background-color: green;
+	background-color: #fff;
 	position: relative;
 	overflow: hidden;
 }
 
 #gallery_home .row div div {
 	background-color: #ff000000;
+	border: 1px solid #fff;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -163,9 +173,25 @@ main {
 	background-color: #ff000080;
 }
 
+#bottom {
+	background-color: #fff;
+	width: 100%;
+}
+
 #bottom p {
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+#bottom button {
+	border: none;
+	background-color: #e84546;
+	color: #fff;
+	text-transform: uppercase;
+	width: 200px;
+	border-radius: 3px;
+	height: 40px;
+	font-size: 13px;
 }
 
 footer {
