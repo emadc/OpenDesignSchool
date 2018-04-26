@@ -10,9 +10,7 @@
 				</div>
 				<div class="col-md-2 col-sm-2">
 					<h3>About activebox</h3>
-					<p>
-
-Cicero writing letters; from an early edition by Hieronymus Scotus Sed ut perspiciatis, unde omnis.</p>
+					<p>Cicero writing letters; from an early edition by Hieronymus Scotus Sed ut perspiciatis, unde omnis.</p>
 				</div>
 				<div class="col-md-12 text-center">Copy</div>
 			</footer>
