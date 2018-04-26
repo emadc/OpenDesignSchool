@@ -2,7 +2,7 @@
 			<footer class="row justify-content-center text-center no-gutters">
 				<div class="col-md-2 col-sm-2">
 					<h3>Location</h3>
-					<p></p>
+					<p>52 rue de l'Arbre Sec<br>75001 paris 01.75.85.85.68</p>
 				</div>
 				<div class="col-md-2 col-sm-2">
 					<h3>Share with love</h3>
@@ -10,7 +10,9 @@
 				</div>
 				<div class="col-md-2 col-sm-2">
 					<h3>About activebox</h3>
-					<p></p>
+					<p>
+
+Cicero writing letters; from an early edition by Hieronymus Scotus Sed ut perspiciatis, unde omnis.</p>
 				</div>
 				<div class="col-md-12 text-center">Copy</div>
 			</footer>

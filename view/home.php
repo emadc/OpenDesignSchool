@@ -46,56 +46,56 @@
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
     					</div>
     					<div class="text-center col-xl-3 col-md-6 col-12">
     						<div>
         						<h3>Project name</h3>
         						<p>User Interface Design</p>    						
     						</div>
-    						<img alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
+    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
     					</div>    										    					    					
 					</div>
 					<?php //foreach($devinettes as $devinette):?>
