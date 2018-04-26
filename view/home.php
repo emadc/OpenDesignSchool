@@ -1,6 +1,6 @@
 				<section id="welcame" class="col-12">
 					<div class="text-center align-middle">
-						<h1>Your favourite buisiness site multi purpose template</h1>
+						<h1>Your favorite buisiness site multi purpose template</h1>
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 						<button>Find out more</button>
 					</div>
@@ -110,5 +110,5 @@
 				<section id="bottom" class="text-center">
 					<h2>Découvrez l'expérience The Open Design Scool</h2>
 					<p>Apud has gentes, quarum exordiens initium ab Assyriis</p>
-					<button>ccc</button>
+					<button>Demande de devis</button>
 				</section>

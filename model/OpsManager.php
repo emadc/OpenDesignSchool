@@ -16,7 +16,8 @@ class OpsManager
     public function findAll()
     {
         $bdd = $this->bdd;
-
+        $devinettes = new ArrayObject();
+        
         /*** accès au model ***/
         $query = "SELECT * FROM devinette";
 
