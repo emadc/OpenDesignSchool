@@ -12,6 +12,10 @@ body {
 	background-repeat: no-repeat;
 }
 
+button{
+	cursor: pointer;	
+}
+
 /* header menu */
 header {
 	width: 100%;
@@ -33,7 +37,6 @@ header img {
 	height: 50px;
 	background-color: #313455;
 	border-bottom: 1px solid #505369;
-	
 }
 
 .header_s  img {
@@ -224,9 +227,14 @@ footer h3 {
 
 footer p {
 	color: #9ea3b6;
+	font-size: 15px;
 }
 
-footer .col-md-2.col-sm-2 {
+footer img {
+	margin: 3px;
+}
+
+footer .col-md-2.col-sm-12 {
 	margin: 0 35px
 }
 

@@ -6,9 +6,9 @@
 				</div>
 				<div class="col-md-2 col-sm-12">
 					<h3>Share with love</h3>
-					<img alt="facebook" src="<?php echo ASSETS?>img/fb.png"/>
-					<img alt="twitter" src="<?php echo ASSETS?>img/tw.png"/>
-					<img alt="linkedin" src="<?php echo ASSETS?>img/in.png"/>
+					<a href="#"><img alt="facebook" src="<?php echo ASSETS?>img/fb.png"/></a>
+					<a href="#"><img alt="twitter" src="<?php echo ASSETS?>img/tw.png"/></a>
+					<a href="#"><img alt="linkedin" src="<?php echo ASSETS?>img/in.png"/></a>
 				</div>
 				<div class="col-md-2 col-sm-12">
 					<h3>About activebox</h3>
