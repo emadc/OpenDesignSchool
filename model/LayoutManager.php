@@ -46,31 +46,31 @@ class LayoutManager
 
     /**
      * restituisce un oggetto footer
-     * @return ArrayObject MenuItem
+     * @return ArrayObject FooterItem
      */
     public function getFooter()
     {
     	$bdd = $this->bdd;
-    	$menu = new ArrayObject();
+    	$footer = new ArrayObject();
     	
     	/*** accès au model ***/
-    	$query = "SELECT * FROM menu";
+    	$query = "SELECT * FROM footer";
     	
     	$req = $bdd->prepare($query);
     	$req->execute();
     	while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
     		
-    		$menuItem = new MenuItem();
-    		$menuItem->setId($row['id']);
-    		$menuItem->setItemText($row['item_text']);
-    		$menuItem->setItemLink($row['item_link']);
-    		$menuItem->setParent($row['parent']);
+    		$footerItem = new FooterItem();  
+    		$footerItem->setId($row['id']);
+    		$footerItem->setTitle($row['title']);
+    		$footerItem->setText($row['text']);
+    		$footerItem->setSocials($row['socials']);
     		
-    		$menu[] = $menuItem; // tableau d'objet
+    		$footer[] = $footerItem; // tableau d'objet
     		
     	};
-    	
-    	return $menu;
+
+    	return $footer;
     }
     
     public function find($id)

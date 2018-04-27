@@ -1,26 +1,22 @@
 			</main>
 			<footer class="row justify-content-center text-center no-gutters">
-				<div class="col-md-2 col-sm-12">
-					<h3>Location</h3>
-					<p>52 rue de l'Arbre Sec<br>75001 paris 01.75.85.85.68</p>
-				</div>
-				<div class="col-md-2 col-sm-12">
-					<h3>Share with love</h3>
-					<a href="#"><img alt="facebook" src="<?php echo ASSETS?>img/fb.png"/></a>
-					<a href="#"><img alt="twitter" src="<?php echo ASSETS?>img/tw.png"/></a>
-					<a href="#"><img alt="linkedin" src="<?php echo ASSETS?>img/in.png"/></a>
-				</div>
-				<div class="col-md-2 col-sm-12">
-					<h3>About activebox</h3>
-					<p>Cicero writing letters; from an early edition by Hieronymus Scotus Sed ut perspiciatis, unde omnis.</p>
-				</div>
-				<div class="col-md-12 text-center">
-				    <div class="copy">
-				    	<p>Copyright © 2016 THE OPEN DESIGN SCHOOL. All Rights Reserved</p>
-				    </div>
-				</div>
+				<?php foreach ($footer as $footerItem):?>
+					<?php if ($footerItem->getTitle()!="<%>copyright<%>"):?>
+						<div class="col-md-2 col-sm-12">
+							<h3><?php echo $footerItem->getTitle();?></h3>
+							<p><?php echo $footerItem->getText();?></p>
+							<p><?php echo $footerItem->getSocials();?></p>
+						</div>
+					<?php else:?>
+						<div class="col-md-12 text-center">
+						    <div class="copy">
+						    	<p><?php echo $footerItem->getText();?></p>
+						    </div>
+						</div>
+					<?php endif;?>
+				<?php endforeach;?>
 			</footer>
-		</div>
+		</div><?php echo  ASSETS?>
 		<!-- Bootstrap core JavaScript-->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
