@@ -23,19 +23,6 @@ class Home
 
     }
 
-    public function showContact($params)
-    {
-
-    	$manager = new LayoutManager();
-    	
-    	$menu = $manager->getMenu();
-    	
-    	$footer = $manager->getFooter();
-    	
-        $myView = new View('contact');
-        $myView->render(array('menu' => $menu, 'footer' => $footer));
-    }
-
     public function editDev($params)
     {
         extract($params);

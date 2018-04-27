@@ -9,23 +9,18 @@
 class Contact
 {
 
-    public function showHome($params)
-    {
-        
-        $manager = new OpsManager();
-        $devinettes = $manager->findAll();
-
-        $myView = new View('home');
-        $myView->render(array('devinettes' => $devinettes));
-
-    }
-
-    public function showContact($params)
-    {
-
-        $myView = new View('contact');
-        $myView->render();
-    }
+	public function showContact($params)
+	{
+		
+		$manager = new LayoutManager();
+		
+		$menu = $manager->getMenu();
+		
+		$footer = $manager->getFooter();
+		
+		$myView = new View('contact');
+		$myView->render(array('menu' => $menu, 'footer' => $footer));
+	}
 
     public function editDev($params)
     {

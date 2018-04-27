@@ -10,13 +10,13 @@ class Routeur
     private $request;
 
     private $routes = [
-    						""					=> ["controller" => 'Home', "method" => 'showHome'],
-                            "home"             	=> ["controller" => 'Home', "method" => 'showHome'],
-                            "contact"          	=> ["controller" => 'Home', "method" => 'showContact'],
-                            "create-devinette"	=> ["controller" => 'Home', "method" => 'editDev'],
-                            "ajout"            	=> ["controller" => 'Home', "method" => 'addDev'],
-                            "delete"           	=> ["controller" => 'Home', "method" => 'delDev'],
-                            "modification"     	=> ["controller" => 'Home', "method" => 'editDev'],
+    						""					=> ["controller" => 'Home', 	"method" => 'showHome'],
+                            "home"             	=> ["controller" => 'Home', 	"method" => 'showHome'],
+                            "contact"          	=> ["controller" => 'Contact', 	"method" => 'showContact'],
+                            "create-devinette"	=> ["controller" => 'Home', 	"method" => 'editDev'],
+                            "ajout"            	=> ["controller" => 'Home', 	"method" => 'addDev'],
+                            "delete"           	=> ["controller" => 'Home', 	"method" => 'delDev'],
+                            "modification"     	=> ["controller" => 'Home', 	"method" => 'editDev'],
 
     ];
 
