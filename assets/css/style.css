@@ -249,9 +249,12 @@ footer .col-md-12 {
 }
 
 @media ( max-width : 1200px) {
+	#services {
+		height: unset;
+	}
 }
 
-@media ( max-width : 992px) {
+@media ( max-width : 991px) {
 	header {
 		height: 50px;
 		background-color: #313455;
@@ -262,6 +265,21 @@ footer .col-md-12 {
 	#navbarCollapse {
 		background-color: #313455;
 		padding-left: 35px;
+	}
+	#welcame {
+		height: unset;
+		padding: 0 10px 50px;
+	}
+	#welcame div {
+		display: block;
+	}
+	#welcame h1 {
+		font-size: 45px;
+		max-width: unset;
+		margin: auto;
+	}
+	#welcame p {
+		width: unset;
 	}
 }
 
