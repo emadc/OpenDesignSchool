@@ -4,36 +4,27 @@
 /**
  * Class Home
  *
- * use to show the home page
+ * use to show the general layout elemets
  */
-class Home
+class Layout
 {
 
     public function showHome($params)
     {
         
-        $manager = new LayoutManager();
-       
-        $menu = $manager->getMenu();
-        
-        $footer = $manager->getFooter();
+        $manager = new OpsManager();
+        $devinettes = $manager->findAll();
 
         $myView = new View('home');
-        $myView->render(array('menu' => $menu, 'footer' => $footer));
+        $myView->render(array('devinettes' => $devinettes));
 
     }
 
     public function showContact($params)
     {
 
-    	$manager = new LayoutManager();
-    	
-    	$menu = $manager->getMenu();
-    	
-    	$footer = $manager->getFooter();
-    	
         $myView = new View('contact');
-        $myView->render(array('menu' => $menu, 'footer' => $footer));
+        $myView->render();
     }
 
     public function editDev($params)

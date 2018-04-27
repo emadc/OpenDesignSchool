@@ -1,45 +1,19 @@
 			<header class="row justify-content-xl-center fixed-top no-gutters" id="target">
 				<div class="col-xl-9 header_container">
 					<nav class="navbar navbar-expand-lg navbar-dark">
-						<a class="navbar-brand" href="<?php echo HOST;?>"><img alt="" src="<?php echo HOST;?>/assets/img/logo.png"/></a>
+						<a class="navbar-brand" href="<?php echo HOST;?>home"><img alt="" src="<?php echo HOST;?>/assets/img/logo.png"/></a>
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 						<div class="collapse navbar-collapse" id="navbarCollapse">
 							<ul class="navbar-nav ml-auto">
-								<li class="nav-item active">
-									<a class="nav-link" href="<?php echo HOST;?>">
-										Accueil
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>
-								<li class="nav-item active">
-									<a class="nav-link" href="<?php echo HOST;?>">
-										Qui sommes nous?
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>
-								<li class="nav-item active">
-									<a class="nav-link" href="<?php echo HOST;?>">
-										Nos services
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>
-								<li class="nav-item active">
-									<a class="nav-link" href="<?php echo HOST;?>">
-										Galerie photos
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>	
-								<li class="nav-item active">
-									<a class="nav-link" href="<?php echo HOST;?>">
-										Contact
-										<span class="sr-only">(current)</span>
-									</a>
-								</li>																			
-								<li class="nav-item">
-									<a class="nav-link" href="<?php echo HOST;?>create-devinette.html">Devis en ligne</a>
-								</li>
+								<?php foreach ($menu as $itemMenu):?>
+									<li class="nav-item <?php echo $template==$itemMenu->getItemLink()?'active':''?>">
+										<a class="nav-link" href="<?php echo HOST.$itemMenu->getItemLink();?>">
+											<?php echo $itemMenu->getItemText();?>
+										</a>
+									</li>
+								<?php endforeach;?>
 							</ul>
 						</div>
 					</nav>

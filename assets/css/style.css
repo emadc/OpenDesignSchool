@@ -24,8 +24,8 @@ header {
 	transition: all 1s;
 }
 
-header a {
-	font-size: 13px;
+header a:hover {
+	color: #fff;
 }
 
 header img {
@@ -57,6 +57,16 @@ header img {
 	height: 100%;
 	border-bottom: 1px solid #505369;
 	transition: border-bottom 1s;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffffbf;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #fff;
 }
 
 main {
@@ -261,6 +271,9 @@ footer .col-md-12 {
 	}
 	header img {
 		height: 40px;
+	}
+	.navbar {
+		padding: 0px 5px;
 	}
 	#navbarCollapse {
 		background-color: #313455;

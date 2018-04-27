@@ -5,4 +5,4 @@
 ods[host] = localhost;
 ods[user] = "root";
 ods[pass] = "";
-ods[base] = devinette;
+ods[base] = ods_db;
