@@ -12,8 +12,8 @@ body {
 	background-repeat: no-repeat;
 }
 
-button{
-	cursor: pointer;	
+button {
+	cursor: pointer;
 }
 
 /* header menu */
@@ -266,7 +266,17 @@ footer .col-md-12 {
 }
 
 @media ( max-width : 768px) {
+	footer {
+		padding-top: 15px;
+		height: unset;
+	}
+	.copy {
+		height: unset;
+	}
 }
 
 @media ( max-width : 576px) {
+	footer h3 {
+		margin-top: 10px;
+	}
 }
