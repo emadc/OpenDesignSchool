@@ -1,18 +1,24 @@
 			</main>
 			<footer class="row justify-content-center text-center no-gutters">
-				<div class="col-md-2 col-sm-2">
+				<div class="col-md-2 col-sm-12">
 					<h3>Location</h3>
 					<p>52 rue de l'Arbre Sec<br>75001 paris 01.75.85.85.68</p>
 				</div>
-				<div class="col-md-2 col-sm-2">
+				<div class="col-md-2 col-sm-12">
 					<h3>Share with love</h3>
-					<img alt="" src=""/>
+					<img alt="facebook" src="<?php echo ASSETS?>img/fb.png"/>
+					<img alt="twitter" src="<?php echo ASSETS?>img/tw.png"/>
+					<img alt="linkedin" src="<?php echo ASSETS?>img/in.png"/>
 				</div>
-				<div class="col-md-2 col-sm-2">
+				<div class="col-md-2 col-sm-12">
 					<h3>About activebox</h3>
 					<p>Cicero writing letters; from an early edition by Hieronymus Scotus Sed ut perspiciatis, unde omnis.</p>
 				</div>
-				<div class="col-md-12 text-center">Copy</div>
+				<div class="col-md-12 text-center">
+				    <div class="copy">
+				    	<p>Copyright © 2016 THE OPEN DESIGN SCHOOL. All Rights Reserved</p>
+				    </div>
+				</div>
 			</footer>
 		</div>
 		<!-- Bootstrap core JavaScript-->

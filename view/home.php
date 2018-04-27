@@ -108,7 +108,7 @@
                     <?php //endforeach;?>
 				</section>
 				<section id="bottom" class="text-center">
-					<h2>Découvrez l'expérience The Open Design Scool</h2>
-					<p>Apud has gentes, quarum exordiens initium ab Assyriis</p>
+					<h2>Découvrez l'expérience The Open Design School</h2>
+					<p>Apud has gentes, quarum exordiens initium</p>
 					<button>Demande de devis</button>
 				</section>

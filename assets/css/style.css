@@ -10,7 +10,6 @@ body {
 	background-attachment: fixed;
 	background-image: url(../img/bg_top.jpg);
 	background-repeat: no-repeat;
-	background-size: 100%;
 }
 
 /* header menu */
@@ -33,10 +32,16 @@ header img {
 .header_s {
 	height: 50px;
 	background-color: #313455;
+	border-bottom: 1px solid #505369;
+	
 }
 
 .header_s  img {
 	height: 40px;
+}
+
+.header_s  .navbar {
+	border-bottom: none;
 }
 
 .header_container {
@@ -48,6 +53,7 @@ header img {
 	width: 100%;
 	height: 100%;
 	border-bottom: 1px solid #505369;
+	transition: border-bottom 1s;
 }
 
 main {
@@ -184,6 +190,7 @@ main {
 	text-transform: uppercase;
 	font-weight: bold;
 	margin-bottom: 30px;
+	font-size: 13px;
 }
 
 #bottom button {
@@ -219,8 +226,18 @@ footer p {
 	color: #9ea3b6;
 }
 
+footer .col-md-2.col-sm-2 {
+	margin: 0 35px
+}
+
 footer .col-md-12 {
 	background-color: #313455;
+}
+
+.copy {
+	margin-top: 30px;
+	height: 20px;
+	font-size: 15px;
 }
 
 @media ( max-width : 1200px) {

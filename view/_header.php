@@ -38,10 +38,7 @@
 									</a>
 								</li>																			
 								<li class="nav-item">
-									<a class="nav-link" href="<?php echo HOST;?>create-devinette.html"> Ajouter une devinette </a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="#">Devis en ligne</a>
+									<a class="nav-link" href="<?php echo HOST;?>create-devinette.html">Devis en ligne</a>
 								</li>
 							</ul>
 						</div>
