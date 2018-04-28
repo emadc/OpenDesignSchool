@@ -17,7 +17,7 @@ class Routeur
                             "ajout"            	=> ["controller" => 'Home', 	"method" => 'addDev'],
                             "delete"           	=> ["controller" => 'Home', 	"method" => 'delDev'],
                             "modification"     	=> ["controller" => 'Home', 	"method" => 'editDev'],
-    						"404"     			=> ["controller" => 'NotFound',	"method" => 'notFound'],
+    						"404"     			=> ["controller" => 'Home',	"method" => 'notFound'],
 
     ];
 
