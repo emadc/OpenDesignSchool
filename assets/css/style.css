@@ -10,6 +10,8 @@ body {
 	background-attachment: fixed;
 	background-image: url(../img/bg_top.jpg);
 	background-repeat: no-repeat;
+    background-position: center top;
+	background-color: #313455;
 }
 
 button {
@@ -60,13 +62,13 @@ header img {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    font-size: 13px;
-    font-weight: bold;
-    color: #ffffffbf;
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffffbf;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #fff;
+	color: #fff;
 }
 
 main {
@@ -256,6 +258,11 @@ footer .col-md-12 {
 	margin-top: 30px;
 	height: 20px;
 	font-size: 15px;
+}
+
+/** page 404 **/
+#not_found h2 {
+	color: #fff;
 }
 
 @media ( max-width : 1200px) {
