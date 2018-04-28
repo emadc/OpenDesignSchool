@@ -17,6 +17,7 @@ class Routeur
                             "ajout"            	=> ["controller" => 'Home', 	"method" => 'addDev'],
                             "delete"           	=> ["controller" => 'Home', 	"method" => 'delDev'],
                             "modification"     	=> ["controller" => 'Home', 	"method" => 'editDev'],
+    						"404"     			=> ["controller" => 'NotFound',	"method" => 'notFound'],
 
     ];
 
@@ -76,7 +77,7 @@ class Routeur
             $currentController->$method($params);
 
         } else {
-            echo '404';
+        	header("Location: ".HOST."404");
         }
 
     }

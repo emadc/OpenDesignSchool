@@ -53,7 +53,7 @@ class Layout
         $manager->save($values);
 
         $myView = new View();
-        $myView->redirect('home.html');
+        $myView->redirect('home');
         
     }
 
@@ -64,7 +64,7 @@ class Layout
         $manager->delete($id);
 
         $myView = new View();
-        $myView->redirect('home.html');
+        $myView->redirect('home');
     }
 
 

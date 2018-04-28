@@ -48,7 +48,7 @@ class Contact
         $manager->save($values);
 
         $myView = new View();
-        $myView->redirect('home.html');
+        $myView->redirect('home');
         
     }
 
@@ -59,7 +59,7 @@ class Contact
         $manager->delete($id);
 
         $myView = new View();
-        $myView->redirect('home.html');
+        $myView->redirect('home');
     }
 
 
