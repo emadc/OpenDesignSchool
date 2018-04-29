@@ -22,7 +22,7 @@ class Contact
 		$myView->render(array('menu' => $menu, 'footer' => $footer));
 	}
 
-    public function editDev($params)
+    public function save($params)
     {
         extract($params);
 

@@ -13,6 +13,7 @@ class Routeur
     						""					=> ["controller" => 'Home', 	"method" => 'showHome'],
                             "home"             	=> ["controller" => 'Home', 	"method" => 'showHome'],
                             "contact"          	=> ["controller" => 'Contact', 	"method" => 'showContact'],
+    						"contact"          	=> ["controller" => 'Contact', 	"method" => 'save'],
                             "create-devinette"	=> ["controller" => 'Home', 	"method" => 'editDev'],
                             "ajout"            	=> ["controller" => 'Home', 	"method" => 'addDev'],
                             "delete"           	=> ["controller" => 'Home', 	"method" => 'delDev'],

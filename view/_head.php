@@ -10,5 +10,5 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link rel="stylesheet" href="<?php echo ASSETS;?>/css/style.css" />
 	</head>
-	<body>
+	<body onload="resizeHeaderOnScroll()">
 		<div class="conainer_fluid">

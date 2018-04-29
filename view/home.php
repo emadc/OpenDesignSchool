@@ -98,17 +98,4 @@
     						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
     					</div>    										    					    					
 					</div>
-					<?php //foreach($devinettes as $devinette):?>
-<!--                         <div class="question"> -->
-<!--                         	<h3>{{getName}}</h3> -->
-                            <h3><?php //echo $devinette->getName();?></h3>
-                
-                
-<!--                         </div> -->
-                    <?php //endforeach;?>
-				</section>
-				<section id="bottom" class="text-center">
-					<h2>Découvrez l'expérience The Open Design School</h2>
-					<p>Apud has gentes, quarum exordiens initium</p>
-					<button>Demande de devis</button>
 				</section>
