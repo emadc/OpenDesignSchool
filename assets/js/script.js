@@ -11,6 +11,9 @@ function resizeHeaderOnScroll() {
 window.addEventListener('scroll', resizeHeaderOnScroll);
 
 function initMap() {
+	if (!document.getElementById('map')) {
+		return;
+	}
 	var uluru = {
 		lat : 48.8609185,
 		lng : 2.3404709
