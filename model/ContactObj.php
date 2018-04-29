@@ -1,13 +1,15 @@
 <?php
 
-class HomeObj
+class ContactObj
 {
 
     private $id;
-    private $name;
-    private $question;
-    private $answer;
-    private $createdAt;
+    private $nomPrenom;
+    private $email;
+    private $tel;
+    private $societe;
+    private $message;
+    private $dateCreation;
 
     /**
      * @return mixed
@@ -28,68 +30,96 @@ class HomeObj
     /**
      * @return mixed
      */
-    public function getName()
+    public function getNomPrenom()
     {
-        return $this->name;
+        return $this->nomPrenom;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $nomPrenom
      */
-    public function setName($name)
+    public function setNomPrenom($nomPrenom)
     {
-        $this->name = $name;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
-     * @param mixed $question
-     */
-    public function setQuestion($question)
-    {
-        $this->question = $question;
+    	$this->nomPrenom = $nomPrenom;
     }
 
     /**
      * @return mixed
      */
-    public function getAnswer()
+    public function getEmail()
     {
-        return $this->answer;
+        return $this->email;
     }
 
     /**
-     * @param mixed $answer
+     * @param mixed $email
      */
-    public function setAnswer($answer)
+    public function setEmail($email)
     {
-        $this->answer = $answer;
+    	$this->email = $email;
     }
 
     /**
      * @return mixed
      */
-    public function getCreatedAt()
+    public function getTel()
     {
-        return $this->createdAt;
+        return $this->tel;
     }
 
     /**
-     * @param mixed $createdAt
+     * @param mixed $tel
      */
-    public function setCreatedAt($createdAt)
+    public function setTel($tel)
     {
-        $this->createdAt = $createdAt;
+    	$this->tel = $tel;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSociete()
+    {
+        return $this->societe;
+    }
 
-
-
+    /**
+     * @param mixed $societe
+     */
+    public function setSociete($societe)
+    {
+    	$this->societe = $societe;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getMessage()
+    {
+    	return $this->message;
+    }
+    
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message)
+    {
+    	$this->message = $message;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getDateCreation()
+    {
+    	return $this->dateCreation;
+    }
+    
+    /**
+     * @param mixed $dateCreation
+     */
+    public function setDateCreation($dateCreation)
+    {
+    	$this->dateCreation = $dateCreation;
+    }
 }

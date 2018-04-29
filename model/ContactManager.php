@@ -1,7 +1,7 @@
 <?php
 
 
-class LayoutManager
+class ContactManager
 {
 
     private $bdd;
@@ -95,26 +95,27 @@ class LayoutManager
 
     public function save($values)
     {
-        $bdd = $this->bdd;
-
-        if(isset($values['id']))
-        {
-            $query = "UPDATE contact SET nom_prenom = :nom_prenom, email = :email, tel = :tel, societe = :societe,  message  = :message  WHERE id = :id; ";
-        } else {
-            $query = "INSERT INTO contact (nom_prenom, email, tel, societe, message) 
+    	
+    	$bdd = $this->bdd;
+    	
+    	if(isset($values['id']))
+    	{
+    		$query = "UPDATE contacts SET nom_prenom = :nom_prenom, email = :email, tel = :tel, societe = :societe,  message  = :message  WHERE id = :id; ";
+    	} else {
+    		$query = "INSERT INTO contacts (nom_prenom, email, tel, societe, message)
             VALUES (:nom_prenom, :email, :tel, :societe, :message);";
-        }
-
-        $req = $bdd->prepare($query);
-
-        if(isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
-        $req->bindValue(':nom_prenom',	$values['nom_prenom'], PDO::PARAM_STR);
-        $req->bindValue(':email',		$values['email'], PDO::PARAM_STR);
-        $req->bindValue(':tel',			$values['tel'], PDO::PARAM_STR);
-        $req->bindValue(':societe',		$values['societe'], PDO::PARAM_STR);
-        $req->bindValue(':message',		$message['tel'], PDO::PARAM_STR);
-        $req->execute();
-
+    	}
+    	
+    	$req = $bdd->prepare($query);
+    	
+    	if(isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+    	$req->bindValue(':nom_prenom',	$values['nom_prenom'], PDO::PARAM_STR);
+    	$req->bindValue(':email',		$values['email'], PDO::PARAM_STR);
+    	$req->bindValue(':tel',			$values['tel'], PDO::PARAM_STR);
+    	$req->bindValue(':societe',		$values['societe'], PDO::PARAM_STR);
+    	$req->bindValue(':message',		$values['message'], PDO::PARAM_STR);
+    	$req->execute();
+    	
     }
 
     public function delete($id)
