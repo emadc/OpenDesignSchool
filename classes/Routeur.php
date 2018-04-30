@@ -10,15 +10,19 @@ class Routeur
     private $request;
 
     private $routes = [
-    						""					=> ["controller" => 'Home', 	"method" => 'showHome'],
-                            "home"             	=> ["controller" => 'Home', 	"method" => 'showHome'],
-                            "contact"          	=> ["controller" => 'Contact', 	"method" => 'showContact'],
-    						"contact-save"     	=> ["controller" => 'Contact', 	"method" => 'save'],
-                            "create-devinette"	=> ["controller" => 'Home', 	"method" => 'editDev'],
-                            "ajout"            	=> ["controller" => 'Home', 	"method" => 'addDev'],
-                            "delete"           	=> ["controller" => 'Home', 	"method" => 'delDev'],
-                            "modification"     	=> ["controller" => 'Home', 	"method" => 'editDev'],
-    						"404"     			=> ["controller" => 'Home',		"method" => 'notFound'],
+    						""					=> ["controller" => 'Home', 			"method" => 'showHome'],
+                            "home"             	=> ["controller" => 'Home', 			"method" => 'showHome'],
+                            "contact"          	=> ["controller" => 'Contact', 			"method" => 'showContact'],
+    						"contact-save"     	=> ["controller" => 'Contact', 			"method" => 'save'],
+    						"admin"		     	=> ["controller" => 'Administration', 	"method" => 'showAdmin'],
+    						"login"		     	=> ["controller" => 'Administration', 	"method" => 'login'],
+				    		"register"		    => ["controller" => 'Administration', 	"method" => 'register'],
+				    		"forgot"		    => ["controller" => 'Administration', 	"method" => 'forgot'],
+                            "create-devinette"	=> ["controller" => 'Home', 			"method" => 'editDev'],
+                            "ajout"            	=> ["controller" => 'Home', 			"method" => 'addDev'],
+                            "delete"           	=> ["controller" => 'Home', 			"method" => 'delDev'],
+                            "modification"     	=> ["controller" => 'Home', 			"method" => 'editDev'],
+    						"404"     			=> ["controller" => 'Home',				"method" => 'notFound'],
 
     ];
 

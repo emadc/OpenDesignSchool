@@ -1,28 +1,34 @@
 <?php
 
 /**
- * Class Contact
+ * Class Administration
  *
  * use to show the contact page
  */
-class Contact {
-	public function showContact($params) {
-		$manager = new LayoutManager ();
-		
-		$menu = $manager->getMenu ();
-		
-		$footer = $manager->getFooter ();
-		
-		$valid = !empty($params['valid']) ? $params['valid'] : null;
-		
-		$myView = new View ( 'contact' );
-		$myView->render ( array (
-				'menu' => $menu,
-				'footer' => $footer,
-				'valid' => $valid
-		) );
+class Administration {
+	public function showAdmin($params) {
+		$myView = new View ( 'admin', 'admin/' );
+		$myView->render ( array () );
 	}
 	
+	/**
+	 */
+	public function login() {
+		$myView = new View ( 'login', 'admin/' );
+		$myView->render ( array () );
+	}
+	/**
+	 */
+	public function register() {
+		$myView = new View ( 'register', 'admin/' );
+		$myView->render ( array () );
+	}
+	/**
+	 */
+	public function forgot() {
+		$myView = new View ( 'forgot', 'admin/' );
+		$myView->render ( array () );
+	}
 	/**
 	 *
 	 * @param unknown $params        	
@@ -57,7 +63,7 @@ class Contact {
 			$valuesClean [key ( $values )] = $this->test_input ( $value );
 			next ( $values );
 		}
-// 		echo "values<pre>"; var_dump ( $valuesClean ); exit ();
+		// echo "values<pre>"; var_dump ( $valuesClean ); exit ();
 		$manager = new ContactManager ();
 		$manager->save ( $valuesClean );
 		
@@ -73,8 +79,8 @@ class Contact {
 	public function test_input($data) {
 		$data = trim ( $data );
 		$data = stripslashes ( $data );
-		$data = filter_var($data, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$data = filter_var($data, FILTER_SANITIZE_STRING);
+		$data = filter_var ( $data, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$data = filter_var ( $data, FILTER_SANITIZE_STRING );
 		return $data;
 	}
 }
