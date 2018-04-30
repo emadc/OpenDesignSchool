@@ -1,6 +1,12 @@
-<?php 
-	include_once '_head.php';
+<?php
+include_once '_head.php';
 
-	echo $contentPage;
+if($role == "ADMIN"){
+	include_once '_header.php';
+}
+	
+echo $contentPage;
 
+if($role == "ADMIN"){
 	include_once '_footer.php';
+}

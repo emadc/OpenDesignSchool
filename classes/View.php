@@ -16,7 +16,6 @@ class View
     public function render($params = array())
     {
         extract($params); 
-
         $template = $this->template;
         ob_start();
         include(VIEW.$this->path.$template.'.php');

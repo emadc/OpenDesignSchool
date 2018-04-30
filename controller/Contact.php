@@ -50,14 +50,12 @@ class Contact {
 	 */
 	public function save($params) {
 		extract ( $params );
-		echo "values<pre>";
-		var_dump ( $values );
 		
 		while ( $value = current ( $values ) ) {
 			$valuesClean [key ( $values )] = $this->test_input ( $value );
 			next ( $values );
 		}
-// 		echo "values<pre>"; var_dump ( $valuesClean ); exit ();
+
 		$manager = new ContactManager ();
 		$manager->save ( $valuesClean );
 		

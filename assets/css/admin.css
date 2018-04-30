@@ -5,6 +5,11 @@ html {
 
 body {
 	overflow-x: hidden;
+	background-attachment: fixed;
+	background-image: url(../img/bg_top.jpg);
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-color: #313455;
 }
 
 body.sticky-footer {
@@ -21,7 +26,7 @@ body.fixed-nav {
 
 .content-wrapper {
 	min-height: calc(100vh - 56px);
-	padding-top: 1rem;
+	padding-top: 5rem;
 }
 
 .scroll-to-top {
@@ -155,7 +160,7 @@ body.fixed-nav {
 		-webkit-flex-direction: column;
 		-ms-flex-direction: column;
 		flex-direction: column;
-		margin-top: 56px;
+		margin-top: 100px;
 	}
 	#mainNav .navbar-collapse .navbar-sidenav>.nav-item {
 		width: 250px;
@@ -418,12 +423,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 	.card-columns {
 		column-count: 1;
 	}
-	.card-login {
-		margin-top: 70px;
-	}
-	.card-register {
-		margin-top: 70px;
-	}
 }
 
 @media ( min-width : 768px) {
@@ -440,6 +439,14 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 .card-login {
 	max-width: 25rem;
+}
+
+.card-login {
+	margin-top: 55px;
+}
+
+.card-register {
+	margin-top: 55px;
 }
 
 .card-register {
@@ -472,4 +479,66 @@ footer.sticky-footer {
 	.card-register {
 		margin-top: 135px;
 	}
+	.content-wrapper {
+		padding-top: 7rem;
+	}
+}
+
+@media ( max-width : 992px) {
+	#mainNav a img {
+		height: 40px;
+	}
+}
+
+header#target {
+	width: 100%;
+	height: 100px;
+	text-transform: uppercase;
+	transition: all 1s;
+}
+
+header#target a:hover {
+	color: #fff;
+}
+
+header#target img {
+	height: 80px;
+	transition: height 1s;
+}
+
+.header_s {
+	height: 50px;
+	background-color: #313455;
+	border-bottom: 1px solid #505369;
+}
+
+.header_s  img {
+	height: 40px;
+}
+
+.header_s  .navbar {
+	border-bottom: none;
+}
+
+.header_container {
+	max-width: 1235px;
+}
+
+/* nav bar */
+header#target .navbar {
+	width: 100%;
+	height: 100%;
+	border-bottom: 1px solid #505369;
+	transition: border-bottom 1s;
+	padding: 0 30px;
+}
+
+header#target .navbar-dark .navbar-nav .nav-link {
+	font-size: 13px;
+	font-weight: bold;
+	color: #ffffffbf;
+}
+
+header#target .navbar-dark .navbar-nav .nav-link:hover {
+	color: #fff;
 }

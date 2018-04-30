@@ -8,14 +8,14 @@
 class Administration {
 	public function showAdmin($params) {
 		$myView = new View ( 'admin', 'admin/' );
-		$myView->render ( array () );
+		$myView->render ( array ('role' => $_SESSION['role']) );
 	}
 	
 	/**
 	 */
 	public function login() {
 		$myView = new View ( 'login', 'admin/' );
-		$myView->render ( array () );
+		$myView->render ( array ('role' => null) );
 	}
 	/**
 	 */
@@ -28,6 +28,38 @@ class Administration {
 	public function forgot() {
 		$myView = new View ( 'forgot', 'admin/' );
 		$myView->render ( array () );
+	}
+	/**
+	 */
+	public function logout() {
+		session_unset(); 
+		session_destroy();
+		$myView = new View ( 'login', 'admin/' );
+		$myView->render ( array ('role' => null) );
+	}
+	
+	public function checkUser($params){
+		
+		extract ( $params );
+// 		echo "values<pre>"; var_dump ( $values ); exit ();
+		$manager = new UserManager();
+				
+		$role = null;
+		
+		if($user = $manager->getUser($values['login'], $values['password'])) {
+			$role = $user['role'];
+			$username = $user['username'];
+			$template = "admin";
+			$_SESSION['role']     = $role;
+			$_SESSION['username'] = $username;
+			$myView = new View ( $template, 'admin/' );
+			$myView->render ( array ('role' => $role) );
+		}
+		else{
+			$myView = new View();
+			$myView->redirect ( 'login' );
+		}
+		
 	}
 	/**
 	 *
