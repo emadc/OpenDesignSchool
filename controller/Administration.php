@@ -21,13 +21,13 @@ class Administration {
 	 */
 	public function register() {
 		$myView = new View ( 'register', 'admin/' );
-		$myView->render ( array () );
+		$myView->render ( array ('role' => null) );
 	}
 	/**
 	 */
 	public function forgot() {
 		$myView = new View ( 'forgot', 'admin/' );
-		$myView->render ( array () );
+		$myView->render ( array ('role' => null) );
 	}
 	/**
 	 */
