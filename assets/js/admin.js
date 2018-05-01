@@ -20,7 +20,13 @@ $(document).ready(function() {
 	        aria: {
 	            sortAscending:  ": activer pour trier la colonne par ordre croissant",
 	            sortDescending: ": activer pour trier la colonne par ordre décroissant"
-	        }
+	        },
+	        data:           data,
+            deferRender:    true,
+            scrollY:        200,
+            scrollCollapse: true,
+            scroller:       true,
+            "autoWidth": 	false
 	    }
 	});
 });

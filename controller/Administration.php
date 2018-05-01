@@ -61,6 +61,15 @@ class Administration {
 		}
 		
 	}
+	
+	public function showContacts(){
+		$manager= new ContactManager();
+		$contacts = $manager->getContacts();
+		
+		$myView = new View ( 'contacts', 'admin/' );
+		$myView->render ( array ('role' => $_SESSION['role'], 'contacts' => $contacts) );
+	}
+	
 	/**
 	 *
 	 * @param unknown $params        	

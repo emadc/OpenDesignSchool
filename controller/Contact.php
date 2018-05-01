@@ -6,6 +6,7 @@
  * use to show the contact page
  */
 class Contact {
+	
 	public function showContact($params) {
 		$manager = new LayoutManager ();
 		

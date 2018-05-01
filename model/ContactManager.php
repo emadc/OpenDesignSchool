@@ -14,34 +14,37 @@ class ContactManager
     }
 
     /**
-     * restituisce un array di oggetti menuItem
-     * @return ArrayObject MenuItem
+     * restituisce un array di oggetti ContactObj
+     * @return ArrayObject ContactObj
      */
-    public function getMenu()
+    public function getContacts()
     {
         $bdd = $this->bdd;
-        $menu = new ArrayObject();
+        $contacts = new ArrayObject();
         
         /*** accès au model ***/
-        $query = "SELECT * FROM menu";
+        $query = "SELECT * FROM contacts";
 
         $req = $bdd->prepare($query);
         $req->execute();
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
-			$menuItem = new MenuItem();       	
-			$menuItem->setId($row['id']);
-			$menuItem->setItemText($row['item_text']);
-			$menuItem->setItemLink($row['item_link']);
-			$menuItem->setParent($row['parent']);
+        	$contact = new ContactObj();
+        	$contact->setId($row['id']);
+        	$contact->setNomPrenom($row['nom_prenom']);
+        	$contact->setEmail($row['email']);
+        	$contact->setTel($row['tel']);
+        	$contact->setSociete($row['societe']);
+        	$contact->setMessage($row['message']);
+        	$contact->setDateCreation($row['date_creation']);
 
-            $menu[] = $menuItem; // tableau d'objet
+        	$contacts[] = $contact;
 
         };
 
 //         echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
         
-        return $menu;
+        return $contacts;
     }
 
     /**
