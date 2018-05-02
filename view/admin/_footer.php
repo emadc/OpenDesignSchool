@@ -23,10 +23,62 @@
 	        </div>
 	      </div>
 	    </div>
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	    <!-- Logout Modal 2-->
+	    <div class="modal fade" id="edit_contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="exampleModalLabel">Voulez vous enregistrer le contact du message n° <span id="n_msg"></span> ?</h5>
+	            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+	              <span aria-hidden="true">×</span>
+	            </button>
+	          </div>
+	          <div class="modal-body">
+				<section id="contact" class="col-12 ">
+					<div class="form_container">
+						<form name="contact" class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'set_contact');?>" method="post">
+							<div class="form-group col-12">
+								<input type="text" class="form-control" id="nom_prenom" name="values[nom_prenom]" aria-describedby="emailHelp" placeholder="Nom & prénom" autocomplete="off" required>
+								<input type="email" class="form-control" id="email" name="values[email]" aria-describedby="emailHelp" placeholder="Email" autocomplete="off" required>
+								<input type="text" class="form-control" id="tel" name="values[tel]" aria-describedby="emailHelp" placeholder="Théléphone">
+								<input type="text" class="form-control" id="societe" name="values[societe]" aria-describedby="emailHelp" placeholder="Société">
+							</div>
+						</form>
+					</div>
+				</section>
+			  </div>
+	          <div class="modal-footer">
+	            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+	            <button class="btn btn-primary" type="button" onclick="document.contact.submit()">Enregistrer</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	   <!-- Logout Modal 3-->
+	    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="exampleModalLabel">Ready to ciccio?</h5>
+	            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+	              <span aria-hidden="true">×</span>
+	            </button>
+	          </div>
+	          <div class="modal-body">
+                  <form name="delete" action="" method="post">
+	            	<input id="id" type="hidden" name="id" />
+				 </form>
+			  </div>
+	          <div class="modal-footer">
+				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+				<button class="btn btn-primary" type="button" onclick="document.delete.submit()">Ok</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 		<script src="<?php echo ASSETS;?>js/admin.js"></script>
 	</body>
 </html>

@@ -6,9 +6,17 @@
  * use to show the contact page
  */
 class Administration {
+	
+	private $newMsgs;
+	
+	public function __construct(){
+		$newMsgs = new MessageManager();
+		$this->newMsgs = $newMsgs->getMessages(true);
+	}
+	
 	public function showAdmin($params) {
 		$myView = new View ( 'admin', 'admin/' );
-		$myView->render ( array ('role' => $_SESSION['role']) );
+		$myView->render ( array ('role' => $_SESSION['role'], 'newMsgs' => $this->newMsgs) );
 	}
 	
 	/**
@@ -62,12 +70,34 @@ class Administration {
 		
 	}
 	
+	/**
+	 * 
+	 */
+	public function showMessages(){
+		$manager= new MessageManager();
+		$messages = $manager->getMessages();
+		
+		$myView = new View ( 'messages', 'admin/' );
+		$myView->render ( array ('role' => $_SESSION['role'], 'messages' => $messages, 'newMsgs' => $this->newMsgs) );
+	}
+	
+	/**
+	 *
+	 */
 	public function showContacts(){
 		$manager= new ContactManager();
 		$contacts = $manager->getContacts();
 		
 		$myView = new View ( 'contacts', 'admin/' );
-		$myView->render ( array ('role' => $_SESSION['role'], 'contacts' => $contacts) );
+		$myView->render ( array ('role' => $_SESSION['role'], 'contacts' => $contacts, 'newMsgs' => $this->newMsgs) );
+	}
+	
+	/**
+	 *
+	 */
+	public function showGallery(){
+		$myView = new View ( 'gallery', 'admin/' );
+		$myView->render ( array ('role' => $_SESSION['role'], 'newMsgs' => $this->newMsgs) );
 	}
 	
 	/**

@@ -1,6 +1,6 @@
 <?php
 
-class ContactObj
+class MessageObj
 {
 
     private $id;
@@ -8,12 +8,9 @@ class ContactObj
     private $email;
     private $tel;
     private $societe;
-    private $address1;
-    private $address2;
-    private $city;
-    private $zip;
-    private $country;
+    private $message;
     private $dateCreation;
+    private $read;
 
     /**
      * @return mixed
@@ -98,6 +95,22 @@ class ContactObj
     /**
      * @return mixed
      */
+    public function getMessage()
+    {
+    	return $this->message;
+    }
+    
+    /**
+     * @param mixed $message
+     */
+    public function setMessage($message)
+    {
+    	$this->message = $message;
+    }
+    
+    /**
+     * @return mixed
+     */
     public function getDateCreation()
     {
     	return $this->dateCreation;
@@ -114,80 +127,16 @@ class ContactObj
     /**
      * @return mixed
      */
-    public function getAddress1()
+    public function isRead()
     {
-    	return $this->address1;
+    	return $this->read;
     }
     
     /**
-     * @param mixed $address1
+     * @param mixed $dateCreation
      */
-    public function setAddress1($address1)
+    public function setRead($read)
     {
-    	$this->address1 = $address1;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getAddress2()
-    {
-    	return $this->address2;
-    }
-    
-    /**
-     * @param mixed $address2
-     */
-    public function setAddress2($address2)
-    {
-    	$this->address2 = $address2;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCity()
-    {
-    	return $this->city;
-    }
-    
-    /**
-     * @param mixed $city
-     */
-    public function setCity($city)
-    {
-    	$this->city = $city;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getZip()
-    {
-    	return $this->zip;
-    }
-    
-    /**
-     * @param mixed $zip
-     */
-    public function setZip($zip)
-    {
-    	$this->zip = $zip;
-    }
-    
-    /**
-     * @return mixed
-     */
-    public function getCountry()
-    {
-    	return $this->country;
-    }
-    
-    /**
-     * @param mixed $country
-     */
-    public function setCountry($country)
-    {
-    	$this->country = $country;
+    	$this->read = $read;
     }
 }

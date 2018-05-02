@@ -9,7 +9,7 @@
 							</div>
 						<?php endif;?>
 						<h1 class="h1_title">Contact</h1>
-						<form class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'contact-save');?>" method="post">
+						<form class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'message');?>" method="post">
 							<div class="form-group col-md-4 col-12">
 								<input type="text" class="form-control" name="values[nom_prenom]" aria-describedby="emailHelp" placeholder="Nom & prénom" autocomplete="off" required>
 								<input type="email" class="form-control" name="values[email]" aria-describedby="emailHelp" placeholder="Email" autocomplete="off" required>

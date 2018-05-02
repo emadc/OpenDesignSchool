@@ -19,34 +19,38 @@ class ContactManager
      */
     public function getContacts()
     {
-        $bdd = $this->bdd;
-        $contacts = new ArrayObject();
-        
-        /*** accès au model ***/
-        $query = "SELECT * FROM contacts";
-
-        $req = $bdd->prepare($query);
-        $req->execute();
-        while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
-
-        	$contact = new ContactObj();
-        	$contact->setId($row['id']);
-        	$contact->setNomPrenom($row['nom_prenom']);
-        	$contact->setEmail($row['email']);
-        	$contact->setTel($row['tel']);
-        	$contact->setSociete($row['societe']);
-        	$contact->setMessage($row['message']);
-        	$contact->setDateCreation($row['date_creation']);
-
-        	$contacts[] = $contact;
-
-        };
-
-//         echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
-        
-        return $contacts;
+    	$bdd = $this->bdd;
+    	$contacts = new ArrayObject();
+    	
+    	/*** accès au model ***/
+    	$query = "SELECT * FROM contacts";
+    	
+    	$req = $bdd->prepare($query);
+    	$req->execute();
+    	while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
+    		
+    		$contact = new ContactObj();
+    		$contact->setId($row['id']);
+    		$contact->setNomPrenom($row['nom_prenom']);
+    		$contact->setAddress1($row['address_1']);
+    		$contact->setAddress2($row['address_2']);
+    		$contact->setCity($row['city']);
+    		$contact->setZip($row['zip']);
+    		$contact->setCountry($row['country']);
+    		$contact->setEmail($row['email']);
+    		$contact->setTel($row['tel']);
+    		$contact->setSociete($row['societe']);
+    		$contact->setDateCreation($row['date_creation']);
+    		
+    		$contacts[] = $contact;
+    		
+    	};
+    	
+    	//         echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
+    	
+    	return $contacts;
     }
-
+    
     /**
      * restituisce un oggetto footer
      * @return ArrayObject FooterItem
@@ -75,39 +79,18 @@ class ContactManager
 
     	return $footer;
     }
-    
-    public function find($id)
-    {
-        $bdd = $this->bdd;
 
-        $query = "SELECT * FROM devinette WHERE id = :id";
-        $req = $bdd->prepare($query);
-        $req->bindValue(':id', $id, PDO::PARAM_INT);
-        $req->execute();
-        $row = $req->fetch(PDO::FETCH_ASSOC);
-        
-        $devinette = new Devinette();
-        $devinette->setId($row['id']);
-        $devinette->setName($row['name']);
-        $devinette->setQuestion($row['question']);
-        $devinette->setAnswer($row['answer']);
-        $devinette->setCreatedAt($row['created_at']);
-        
-        return $devinette;
-    }
-
-    public function save($values)
+    /**
+     * 
+     * @param unknown $values
+     */
+    public function setMessage($values)
     {
     	
     	$bdd = $this->bdd;
     	
-    	if(isset($values['id']))
-    	{
-    		$query = "UPDATE contacts SET nom_prenom = :nom_prenom, email = :email, tel = :tel, societe = :societe,  message  = :message  WHERE id = :id; ";
-    	} else {
-    		$query = "INSERT INTO contacts (nom_prenom, email, tel, societe, message)
-            VALUES (:nom_prenom, :email, :tel, :societe, :message);";
-    	}
+    	$query = "INSERT INTO messages (nom_prenom, email, tel, societe, message)
+    		       VALUES (:nom_prenom, :email, :tel, :societe, :message);";
     	
     	$req = $bdd->prepare($query);
     	
@@ -120,11 +103,52 @@ class ContactManager
     	$req->execute();
     	
     }
+    
+    public function setContact($values)
+    {
+    	
+    	$bdd = $this->bdd;
+    	
+    	if(isset($values['id']))
+    	{
+    		$query = "UPDATE contacts SET nom_prenom = :nom_prenom, email = :email, tel = :tel, societe = :societe  WHERE id = :id; ";
+    	} else {
+    		$query = "INSERT INTO contacts (nom_prenom, email, tel, societe)
+            VALUES (:nom_prenom, :email, :tel, :societe);";
+    	}
+    	
+    	$req = $bdd->prepare($query);
+    	
+    	if(isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+    	$req->bindValue(':nom_prenom',	$values['nom_prenom'], PDO::PARAM_STR);
+    	$req->bindValue(':email',		$values['email'], PDO::PARAM_STR);
+    	$req->bindValue(':tel',			$values['tel'], PDO::PARAM_STR);
+    	$req->bindValue(':societe',		$values['societe'], PDO::PARAM_STR);
+    	$req->execute();
+    	
+    }
 
+    public function find($id)
+    {
+    	$bdd = $this->bdd;
+    	
+    	$query = "SELECT * FROM contacts WHERE id=:id";
+    	$req = $bdd->prepare($query);
+    	$req->bindValue(':id', $id, PDO::PARAM_INT);
+    	$req->execute();
+    	
+    	$results = $req->fetchAll(PDO::FETCH_ASSOC);
+    	$json = '{ "data": '.json_encode($results).'}';
+    	
+//     	echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
+    	
+    	return $json;
+    }
+    
     public function delete($id)
     {
         $bdd = $this->bdd;
-        $query = "DELETE FROM devinette WHERE id = :id";
+        $query = "DELETE FROM contacts WHERE id = :id";
 
         $req = $bdd->prepare($query);
         $req->bindValue(':id', $id, PDO::PARAM_INT);
