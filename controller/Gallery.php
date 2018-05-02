@@ -76,6 +76,8 @@ class Gallery {
 						echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
 						$manager = new GalleryManager();
 						$manager->setImage($values, basename( $_FILES["fileToUpload"]["name"]));
+						$myView = new View ();
+						$myView->redirect ( 'gallery' );
 					} else {
 						echo "Sorry, there was an error uploading your file.";
 					}
