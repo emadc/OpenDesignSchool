@@ -37,7 +37,7 @@
 								<a href="gallery-grid"><i class="fa fa-table"></i> list</a>
 							</li>
 							<li>
-								<a href="gallery-upload"><i class="fa fa-cloud-upload"></i> Téléverser</a>
+								<a href="gallery"><i class="fa fa-cloud-upload"></i> Téléverser</a>
 							</li>
 						</ul>
 					</li>

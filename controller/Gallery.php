@@ -7,23 +7,6 @@
  */
 class Gallery {
 	
-	public function showUpload($params) {
-		$manager = new LayoutManager ();
-		
-		$menu = $manager->getMenu ();
-		
-		$footer = $manager->getFooter ();
-		
-		$valid = !empty($params['valid']) ? $params['valid'] : null;
-		
-		$myView = new View ( 'contact' );
-		$myView->render ( array (
-				'menu' => $menu,
-				'footer' => $footer,
-				'valid' => $valid
-		) );
-	}
-	
 	/**
 	 *
 	 * @param unknown $params        	
@@ -51,7 +34,8 @@ class Gallery {
 	 */
 	public function galleyUpload($params) {
 		extract ( $params );
-		
+// 		echo "values<pre>"; var_dump ( $params); exit ();
+		echo $values['title']." - ".$values['desc'];
 		$target_dir = ROOT."uploads/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
@@ -90,6 +74,8 @@ class Gallery {
 				} else {
 					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 						echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+						$manager = new GalleryManager();
+						$manager->setImage($values, basename( $_FILES["fileToUpload"]["name"]));
 					} else {
 						echo "Sorry, there was an error uploading your file.";
 					}
@@ -118,11 +104,11 @@ class Gallery {
 	/**
 	 * 
 	 */
-	public function getContact($params){
+	public function getGallery($params){
 		extract ( $params );
 		
-		$manager = new ContactManager ();
-		echo $manager->find($id);
+		$manager = new GalleryManager();
+		echo $manager->getGallery();
 	}
 	
 	/**

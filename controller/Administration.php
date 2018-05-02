@@ -96,8 +96,11 @@ class Administration {
 	 *
 	 */
 	public function showGallery(){
+		$manager = new GalleryManager();
+		$gallery = $manager->getGallery();
+		
 		$myView = new View ( 'gallery', 'admin/' );
-		$myView->render ( array ('role' => $_SESSION['role'], 'newMsgs' => $this->newMsgs) );
+		$myView->render ( array ('role' => $_SESSION['role'], 'gallery' => $gallery, 'newMsgs' => $this->newMsgs) );
 	}
 	
 	/**

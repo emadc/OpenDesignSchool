@@ -1,7 +1,7 @@
 <?php
 
 
-class MessageManager
+class GalleryManager
 {
 
     private $bdd;
@@ -17,58 +17,47 @@ class MessageManager
      * restituisce un array di oggetti ContactObj
      * @return ArrayObject ContactObj
      */
-    public function getMessages($new = false)
+    public function getGallery()
     {
         $bdd = $this->bdd;
-        $messages = new ArrayObject();
-        $newStr = "WHERE 1";
-        
-        if($new) {
-        	$newStr = "WhERE is_read = 0";
-        }
+        $gallery = new ArrayObject();
         	
         /*** accès au model ***/
-        $query = "SELECT * FROM messages ".$newStr;
+        $query = "SELECT * FROM gallery ";
 
         $req = $bdd->prepare($query);
         $req->execute();
         while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
 
-        	$message = new MessageObj();
-        	$message->setId($row['id']);
-        	$message->setNomPrenom($row['nom_prenom']);
-        	$message->setEmail($row['email']);
-        	$message->setTel($row['tel']);
-        	$message->setSociete($row['societe']);
-        	$message->setMessage($row['message']);
-        	$message->setDateCreation($row['date_creation']);
-        	$message->setRead($row['is_read']);
+        	$galleryObj = new GalleryObj();
+        	$galleryObj->setId($row['id']);
+        	$galleryObj->setFileName($row['file_name']);
+        	$galleryObj->setTitle($row['title']);
+        	$galleryObj->setDescription($row['description']);
 
-        	$messages[] = $message;
+        	$gallery[] = $galleryObj;
 
         };
 
 //         echo "getMessages<pre>"; print_r($req->errorInfo()); var_dump($messages); exit();
         
-        return $messages;
+        return $gallery;
     }
 
 
-    public function setMessage($values)
+    public function setImage($values, $fileName)
     {
     	
     	$bdd = $this->bdd;
     	
-    	$query = "INSERT INTO messages (nom_prenom, email, tel, societe, message)
-    		       VALUES (:nom_prenom, :email, :tel, :societe, :message);";
+    	$query = "INSERT INTO gallery (file_name, title, description)
+    		       VALUES (:file_name, :title, :description);";
     	
     	$req = $bdd->prepare($query);
     	
-    	$req->bindValue(':nom_prenom',	$values['nom_prenom'], PDO::PARAM_STR);
-    	$req->bindValue(':email',		$values['email'], PDO::PARAM_STR);
-    	$req->bindValue(':tel',			$values['tel'], PDO::PARAM_STR);
-    	$req->bindValue(':societe',		$values['societe'], PDO::PARAM_STR);
-    	$req->bindValue(':message',		$values['message'], PDO::PARAM_STR);
+    	$req->bindValue(':file_name',	$fileName, PDO::PARAM_STR);
+    	$req->bindValue(':title',		$values['title'], PDO::PARAM_STR);
+    	$req->bindValue(':description',	$values['desc'], PDO::PARAM_STR);
     	$req->execute();
     	
     }
@@ -153,7 +142,7 @@ class MessageManager
     public function delete($id)
     {
         $bdd = $this->bdd;
-        $query = "DELETE FROM messages WHERE id = :id";
+        $query = "DELETE FROM gallery WHERE id = :id";
 
         $req = $bdd->prepare($query);
         $req->bindValue(':id', $id, PDO::PARAM_INT);

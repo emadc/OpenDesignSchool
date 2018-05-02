@@ -24,6 +24,7 @@ class Routeur
     		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',		"area" => 'PUBLIC',	"role" => ''],
     		"messages"	     	=> ["controller" => 'Administration', 	"method" => 'showMessages',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"contacts"	     	=> ["controller" => 'Administration', 	"method" => 'showContacts',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery-upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"ajout"            	=> ["controller" => 'Home', 			"method" => 'addDev',		"area" => 'PRIVATE',"role" => ''],
     		"delete"           	=> ["controller" => 'Home', 			"method" => 'delDev',		"area" => 'PRIVATE',"role" => ''],
