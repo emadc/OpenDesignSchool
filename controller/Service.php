@@ -9,112 +9,96 @@ class Service {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param unknown $params        	
 	 */
 	public function serviceUpload($params) {
 		extract ( $params );
-// 		echo "values<pre>"; var_dump ( $params); exit ();
-		$target_dir = UPOLOADS."services/";
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-		$uploadOk = 1;
+		// echo "values<pre>"; var_dump ( $params); exit ();
+		$target_dir = UPOLOADS . "services/";
+		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		
 		// Check if file already exists
-		if (file_exists($target_file)) {
-			echo "<script>alert('Sorry, file already exists.'); location.assign('services');</script>";
-			die();
-			exit();
-			$uploadOk = 0;
+		if (file_exists ( $target_file )) {
+			echo "<script>alert('Sorry, file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " already exists.'); location.assign('services');</script>";
+			die ();
+			exit ();
 		}
 		
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		$imageFileType = strtolower ( pathinfo ( $target_file, PATHINFO_EXTENSION ) );
 		// Check if image file is a actual image or fake image
-		if(isset($_POST["submit"])) {
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-			if($check !== false) {
-				echo "File is an image - " . $check["mime"] . ".";
-				$uploadOk = 1;
+		if (isset ( $_POST ["submit"] )) {
+			$check = getimagesize ( $_FILES ["fileToUpload"] ["tmp_name"] );
+			if ($check !== false) {
 			} else {
-				echo "File is not an image.";
-				$uploadOk = 0;
+				echo "<script>alert('File " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is not an image.'); location.assign('services');</script>";
+				die ();
+				exit ();
 			}
 		}
-
+		
 		// Check file size
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
-			echo "Sorry, your file is too large.";
-			$uploadOk = 0;
+		if ($_FILES ["fileToUpload"] ["size"] > 500000) {
+			echo "<script>alert('Sorry, your file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is too large.'); location.assign('services');</script>";
+			die ();
+			exit ();
 		}
 		// Allow certain file formats
-		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif" ) {
-					echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-					$uploadOk = 0;
-				}
-				// Check if $uploadOk is set to 0 by an error
-				if ($uploadOk == 0) {
-					echo "Sorry, your file was not uploaded.";
-					// if everything is ok, try to upload file
-				} else {
-					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-						echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-						$manager = new ServicesManager();
-						$manager->setService($values, basename( $_FILES["fileToUpload"]["name"]));
-						$myView = new View ();
-						$myView->redirect ( 'services' );
-					} else {
-						echo "Sorry, there was an error uploading your file.";
-					}
-				}
-	}
-	
-	/**
-	 *
-	 * @param unknown $params
-	 */
-	public function setContact($params) {
-		extract ( $params );
-		
-		while ( $value = current ( $values ) ) {
-			$valuesClean [key ( $values )] = $this->test_input ( $value );
-			next ( $values );
+		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+			echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.'); location.assign('services');</script>";
+			die ();
+			exit ();
 		}
-		
-		$manager = new ContactManager ();
-		$manager->setContact( $valuesClean );
-		
-		$myView = new View ();
-		$myView->redirect ( 'contacts' );
-	}
-	
-	/**
-	 * 
-	 */
-	public function getGallery($params){
-		extract ( $params );
-		
-		$manager = new GalleryManager();
-		echo $manager->getGallery();
+		// Check if $uploadOk is set to 0 by an error
+		if (move_uploaded_file ( $_FILES ["fileToUpload"] ["tmp_name"], $target_file )) {
+			$manager = new ServicesManager ();
+			$manager->setService ( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
+			$myView = new View ();
+			$myView->redirect ( 'services' );
+		} else {
+			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('services');</script>";
+		}
 	}
 	
 	/**
 	 *
+	 * @param unknown $params        	
 	 */
-	public function getService($params){
+	public function setPage($params) {
 		extract ( $params );
 		
-		$manager = new ServicesManager();
-		echo $manager->find($id);
+		$manager = new ServicesManager ();
+		$manager->setPage( $values );
+		$myView = new View ();
+		$myView->redirect ( 'services' );
 	}
 	
 	/**
-	 * 
-	 * @param unknown $id
+	 */
+	public function getPage($params) {
+		extract ( $params );
+		$manager = new ServicesManager ();
+		$page = $manager->getPage( $id );
+		return $page;
+	}
+	
+	/**
+	 */
+	public function getService($params) {
+		extract ( $params );
+		
+		$manager = new ServicesManager ();
+		echo $manager->find ( $id );
+	}
+	
+	/**
+	 *
+	 * @param unknown $id        	
 	 */
 	public function deleteService($params) {
 		extract ( $params );
 		
-		$manager = new ServicesManager();
-		$manager->delete($id);
+		$manager = new ServicesManager ();
+		$manager->delete ( $id );
 		
 		$myView = new View ();
 		$myView->redirect ( 'services' );
@@ -128,8 +112,8 @@ class Service {
 	public function test_input($data) {
 		$data = trim ( $data );
 		$data = stripslashes ( $data );
-		$data = filter_var($data, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$data = filter_var($data, FILTER_SANITIZE_STRING);
+		$data = filter_var ( $data, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$data = filter_var ( $data, FILTER_SANITIZE_STRING );
 		return $data;
 	}
 }

@@ -5,7 +5,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+				<ul class="navbar-nav navbar-sidenav" id="navbarAccordion">
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
 						<a class="nav-link" href="admin">
 							<i class="fa fa-fw fa-dashboard"></i>
@@ -37,7 +37,7 @@
 						</a>
 					</li>					
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#navbarAccordion">
 							<i class="fa fa-fw fa-sitemap"></i>
 							<span class="nav-link-text">Page accueil</span>
 						</a>
@@ -57,7 +57,7 @@
 						</ul>
 					</li>										
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#navbarAccordion">
 							<i class="fa fa-fw fa-camera"></i>
 							<span class="nav-link-text">Gallery</span>
 						</a>

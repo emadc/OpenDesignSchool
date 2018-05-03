@@ -98,9 +98,9 @@ class Administration {
 	public function showServices(){
 		$manager= new ServicesManager();
 		$services = $manager->getServices();
-		
+		$page = $manager->getPage('services');
 		$myView = new View ( 'services', 'admin/' );
-		$myView->render ( array ('role' => $_SESSION['role'], 'services' => $services, 'newMsgs' => $this->newMsgs) );
+		$myView->render ( array ('role' => $_SESSION['role'], 'services' => $services, 'page' => $page, 'newMsgs' => $this->newMsgs) );
 	}
 	
 	/**

@@ -7,6 +7,7 @@ class ServiceObj
     private $title;
     private $texte;
     private $image;
+    private $dateModif;
 
     /**
      * @return mixed
@@ -70,5 +71,21 @@ class ServiceObj
     public function setImage($image)
     {
     	$this->image = $image;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function GetDateModif()
+    {
+    	return $this->dateModif;
+    }
+    
+    /**
+     * @param mixed $dateModif
+     */
+    public function setDateModif($dateModif)
+    {
+    	$this->dateModif = $dateModif;
     }
 }

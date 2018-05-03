@@ -571,5 +571,17 @@ h5#exampleModalLabel {
 }
 
 .dataTable .fa-2x {
-    font-size: 25px;
+	font-size: 25px;
+}
+
+.container-fluid {
+	margin-bottom: 75px;
+}
+
+#navbarAccordion {
+	padding-top: 20px;
+}
+
+.form_services div {
+	margin: 25px;
 }

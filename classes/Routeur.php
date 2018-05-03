@@ -12,6 +12,7 @@ class Routeur
     private $routes = [
     		""					=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => ''],
     		"home"             	=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => ''],
+    		"404"     			=> ["controller" => 'Home',				"method" => 'notFound',		"area" => 'PUBLIC',	"role" => ''],
     		"contact"          	=> ["controller" => 'Contact', 			"method" => 'showContact',	"area" => 'PUBLIC',	"role" => ''],
     		"message"     		=> ["controller" => 'Contact', 			"method" => 'setMessage',	"area" => 'PUBLIC',	"role" => ''],
     		"contact_delete"    => ["controller" => 'Contact', 			"method" => 'deleteContact',"area" => 'PRIVATE',"role" => 'ADMIN'],
@@ -27,10 +28,6 @@ class Routeur
     		"services"	     	=> ["controller" => 'Administration', 	"method" => 'showServices',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery_upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
-    		"ajout"            	=> ["controller" => 'Home', 			"method" => 'addDev',		"area" => 'PRIVATE',"role" => ''],
-    		"delete"           	=> ["controller" => 'Home', 			"method" => 'delDev',		"area" => 'PRIVATE',"role" => ''],
-    		"modification"     	=> ["controller" => 'Home', 			"method" => 'editDev',		"area" => 'PRIVATE',"role" => ''],
-    		"404"     			=> ["controller" => 'Home',				"method" => 'notFound',		"area" => 'PUBLIC',	"role" => ''],
     		"get_contact"  		=> ["controller" => 'Contact',			"method" => 'getContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"get_message" 		=> ["controller" => 'Contact',			"method" => 'getMessage',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"set_contact"	    => ["controller" => 'Contact', 			"method" => 'setContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
@@ -39,7 +36,7 @@ class Routeur
     		"service_upload"	=> ["controller" => 'Service', 			"method" => 'serviceUpload',"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"get_service"		=> ["controller" => 'Service', 			"method" => 'getService',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_delete"	=> ["controller" => 'Service', 			"method" => 'deleteService',"area" => 'PRIVATE',"role" => 'ADMIN'],
-
+    		"service_page"		=> ["controller" => 'Service', 			"method" => 'setPage',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     ];
 
     private $username;
