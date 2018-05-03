@@ -25,7 +25,7 @@ class Routeur
     		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',		"area" => 'PUBLIC',	"role" => ''],
     		"messages"	     	=> ["controller" => 'Administration', 	"method" => 'showMessages',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"contacts"	     	=> ["controller" => 'Administration', 	"method" => 'showContacts',	"area" => 'PRIVATE',"role" => 'ADMIN'],
-    		"services"	     	=> ["controller" => 'Administration', 	"method" => 'showServices',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"services_admin"   	=> ["controller" => 'Administration', 	"method" => 'showServices',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery_upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"get_contact"  		=> ["controller" => 'Contact',			"method" => 'getContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
@@ -37,6 +37,7 @@ class Routeur
     		"get_service"		=> ["controller" => 'Service', 			"method" => 'getService',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_delete"	=> ["controller" => 'Service', 			"method" => 'deleteService',"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_page"		=> ["controller" => 'Service', 			"method" => 'setPage',		"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"services"			=> ["controller" => 'Service', 			"method" => 'showServices',	"area" => 'PUBLIC',"role" => ''],
     ];
 
     private $username;

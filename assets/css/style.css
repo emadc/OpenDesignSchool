@@ -5,6 +5,7 @@
 /* common parts of document */
 body {
 	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
 	padding: 0;
 	margin: 0;
 	background-attachment: fixed;
@@ -123,6 +124,11 @@ main {
 	max-height: 690px;
 }
 
+#services.page {
+	max-height: unset;
+	padding: 40px 0 90px;
+}
+
 #services .row {
 	max-width: 1165px;
 	margin: 120px auto;
@@ -137,6 +143,17 @@ main {
 	font-size: 15px;
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+#services .main_container .row {
+	max-width: 1165px;
+	margin: 80px auto 10px;
+}
+
+#services .text {
+	width: 1030px;
+	margin: auto;
+	text-align: center;
 }
 
 #gallery_home {
@@ -281,7 +298,7 @@ footer .col-md-12 {
 	padding-bottom: 10px;
 }
 
-.form_container {
+.main_container {
 	max-width: 1170px;
 	margin: auto;
 }
@@ -295,8 +312,8 @@ form input {
 }
 
 #contact form {
-    margin: 70px 0 85px;
-    height: 350px;
+	margin: 70px 0 85px;
+	height: 350px;
 }
 
 #contact form textarea {
@@ -363,11 +380,24 @@ form input {
 	#welcame p {
 		width: unset;
 	}
-	.form_container {
+	.main_container {
 		padding: 0 10px;
 	}
 	#contact form textarea {
 		width: 100%;
+	}
+	#services .row {
+		margin: 50px auto 0;
+	}
+	#services .main_container .row {
+		margin: 50px auto 0;
+	}
+	#contact form {
+		height: unset;
+	}
+	#bottom {
+		height: unset;
+		padding: 0 0 30px;
 	}
 }
 

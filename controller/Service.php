@@ -7,6 +7,23 @@
  */
 class Service {
 	
+	public function showServices()
+	{
+		$manager = new LayoutManager();
+		$menu = $manager->getMenu();
+		$footer = $manager->getFooter();
+		
+		$manager = new ServicesManager();
+		$services = $manager->getServices(true);
+		
+		$manager = new LayoutManager();
+		$page = $manager->getPage("services");
+		
+		$myView = new View('services');
+		$myView->render(array('menu' => $menu, 'footer' => $footer, 'page' => $page, 'services' => $services));
+		
+	}
+	
 	/**
 	 *
 	 * @param unknown $params        	
@@ -53,7 +70,7 @@ class Service {
 			$manager = new ServicesManager ();
 			$manager->setService ( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
 			$myView = new View ();
-			$myView->redirect ( 'services' );
+			$myView->redirect ( 'services_admin' );
 		} else {
 			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('services');</script>";
 		}
@@ -69,14 +86,14 @@ class Service {
 		$manager = new ServicesManager ();
 		$manager->setPage( $values );
 		$myView = new View ();
-		$myView->redirect ( 'services' );
+		$myView->redirect ( 'services_admin' );
 	}
 	
 	/**
 	 */
 	public function getPage($params) {
 		extract ( $params );
-		$manager = new ServicesManager ();
+		$manager = new LayoutManager();
 		$page = $manager->getPage( $id );
 		return $page;
 	}
@@ -101,7 +118,7 @@ class Service {
 		$manager->delete ( $id );
 		
 		$myView = new View ();
-		$myView->redirect ( 'services' );
+		$myView->redirect ( 'services_admin' );
 	}
 	
 	/**

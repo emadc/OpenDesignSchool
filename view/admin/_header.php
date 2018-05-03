@@ -25,13 +25,13 @@
 						</a>
 					</li>
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-						<a class="nav-link" href="#">
+						<a class="nav-link" href="about">
 							<i class="fa fa-hand-o-right"></i>
 							<span class="nav-link-text">Qui sommes nous</span>
 						</a>
 					</li>
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-						<a  class="nav-link" href="services" >
+						<a  class="nav-link" href="services_admin" >
 							<i class="fa fa-fw fa-handshake-o"></i>
 							<span class="nav-link-text">Services</span>
 						</a>

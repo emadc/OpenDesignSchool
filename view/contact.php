@@ -1,5 +1,5 @@
 				<section id="contact" class="col-12 ">
-					<div class="form_container">
+					<div class="main_container">
 						<?php if ($valid):?>
 							<div class="alert alert-primary alert-dismissible fade show" role="alert">
 							  <strong>Holy guacamole!</strong> You should check in on some of those fields below.

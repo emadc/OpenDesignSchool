@@ -70,6 +70,32 @@ class ServicesManager
 		$req->execute();
 	}
 	
+	public function getPage($item_alias)
+	{
+		$bdd = $this->bdd;
+		
+		$query = "SELECT *
+					FROM menu
+					LEFT JOIN pages USING (id)
+					WHERE item_alias=:item_alias";
+		$req = $bdd->prepare($query);
+		$req->bindParam(':item_alias', $item_alias);
+		$req->execute();
+		
+		$results = $req->fetchAll(PDO::FETCH_ASSOC);
+		
+		$page = new ServiceObj();
+		$page->setId($results[0]['id']);
+		$page->setTitle($results[0]['title']);
+		$page->setText($results[0]['text']);
+		$page->setImage($results[0]['image']);
+		$page->setDateModif($results[0]['date_modif']);
+		
+		// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
+		
+		return $page;
+	}
+	
 	/**
 	 *
 	 * @param unknown $values
@@ -94,32 +120,6 @@ class ServicesManager
 		$req->bindValue(':text',	$values['text'], PDO::PARAM_STR);
 		$req->bindValue(':image',	'');
 		$req->execute();
-	}
-	
-	public function getPage($item_alias)
-	{
-		$bdd = $this->bdd;
-		
-		$query = "SELECT * 
-					FROM menu 
-					LEFT JOIN pages USING (id)
-					WHERE item_alias=:item_alias";
-		$req = $bdd->prepare($query);
-		$req->bindParam(':item_alias', $item_alias);
-		$req->execute();
-		
-		$results = $req->fetchAll(PDO::FETCH_ASSOC);
-		
-		$page = new ServiceObj();
-		$page->setId($results[0]['id']);
-		$page->setTitle($results[0]['title']);
-		$page->setText($results[0]['text']);
-		$page->setImage($results[0]['image']);
-		$page->setDateModif($results[0]['date_modif']);
-		
-// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
-		
-		return $page;
 	}
 	
 	public function find($id)

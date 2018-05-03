@@ -44,6 +44,36 @@ class LayoutManager
         return $menu;
     }
 
+    public function getPage($item_alias)
+    {
+    	$bdd = $this->bdd;
+    	
+    	$query = "SELECT *
+					FROM menu
+					LEFT JOIN pages USING (id)
+					WHERE item_alias=:item_alias";
+    	$req = $bdd->prepare($query);
+    	$req->bindParam(':item_alias', $item_alias);
+    	$req->execute();
+    	
+    	$results = $req->fetchAll(PDO::FETCH_ASSOC);
+    	
+    	$page = new ServiceObj();
+    	$page->setId($results[0]['id']);
+    	$page->setTitle($results[0]['title']);
+    	
+    	$text = $results[0]['text'];
+    	$text = preg_replace("/\r|\n/", "<br>", $text);
+    	
+    	$page->setText($text);
+    	$page->setImage($results[0]['image']);
+    	$page->setDateModif($results[0]['date_modif']);
+    	
+    	// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
+    	
+    	return $page;
+    }
+    
     /**
      * restituisce un oggetto footer
      * @return ArrayObject FooterItem

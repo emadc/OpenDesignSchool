@@ -35,7 +35,7 @@
 	          </div>
 	          <div class="modal-body">
 				<section id="contact" class="col-12 ">
-					<div class="form_container">
+					<div class="main_container">
 						<form name="contact" class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'set_contact');?>" method="post">
 							<div class="form-group col-12">
 								<input type="text" class="form-control" id="nom_prenom" name="values[nom_prenom]" aria-describedby="emailHelp" placeholder="Nom & prénom" autocomplete="off" required>
@@ -65,7 +65,7 @@
 	            </button>
 	          </div>
 	          <div class="modal-body">
-				<div class="form_container">
+				<div class="main_container">
 					<form name="services" class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'service_upload');?>" method="post" enctype="multipart/form-data">
 						<div class="form-group col-12">
 							<img alt="service" src="" style="display: none;" id="image">
