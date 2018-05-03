@@ -76,11 +76,14 @@ $('#table')	.DataTable(
 		}else if(source == "messages-del"){
 			src_txt = "message";
 			modal.find('.modal-body form').attr('action', 'message_delete');
-		}
+		}else if(source == "services-del"){
+			src_txt = "service";
+			modal.find('.modal-body form').attr('action', 'service_delete');
+		}		
 		modal.find('.modal-title').text('soupprimer le '+src_txt+' n° ' + id + ' ?')
 		modal.find('.modal-body #id').val(id)
 	}).on('hidden.bs.modal', function (e) {
-		 $(this).find('.modal-body form').action = "";
+		 $(this).find('.modal-body form').arrt = "";
 	});
 
 	$('#edit_contact').on('show.bs.modal', function(event) {
@@ -99,7 +102,7 @@ $('#table')	.DataTable(
 				});
 			});
 		} else if (source == "contacts-edit") {
-			modal.find('.modal-title').text("Modifier un contact");
+			modal.find('.modal-title').text("Modifier le contact");
 			modal.find('.modal-body #id').val(id);
 			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
 			$.getJSON("get_contact/id/" + id, function(resp) {
@@ -130,5 +133,39 @@ $('#table')	.DataTable(
 		 $(this).find('#message').remove();
 		 $(this).find('#id').remove();
 		 $(this).find('.modal-footer .btn-primary').show();
+	});
+	$('#edit_service').on('show.bs.modal', function(event) {
+		var button = $(event.relatedTarget) // Button that triggered the modal
+		var id = button.data('id') // Extract info from data-* attributes
+		var source = button.data('source') // Extract info from data-*
+		// attributes
+		var modal = $(this);
+		if (source == "service-add") {
+			modal.find('.modal-title').text("Ajouter un nouveau service");
+		} else if (source == "service-edit") {
+			modal.find('.modal-title').text("Modifier le service");
+			modal.find('.modal-body #id').val(id);
+			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
+			$.getJSON("get_service/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						if(key=="image"){
+							modal.find('.modal-body #' + key).attr('src', 'assets/img/uploads/services/'+value);
+							modal.find('.modal-body #' + key).attr('style', 'max-width:100px;');
+						}else{
+							modal.find('.modal-body #' + key).val(value);							
+						}
+					});
+				});
+			});
+		} else {
+			modal.find('.modal-title #n_msg').text(id);
+		}
+	}).on('hidden.bs.modal', function (e) {
+		 $(this).find('.modal-body #image').attr('src', '');
+		 $(this).find('.modal-body #image').attr('style', 'display:none;');
+		 $(this).find('.modal-body #title').val('');
+		 $(this).find('.modal-body #text').val('');
+		 $(this).find('#id').remove();
 	});
 })(jQuery); // End of use strict

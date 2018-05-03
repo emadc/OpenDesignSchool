@@ -54,7 +54,36 @@
 	        </div>
 	      </div>
 	    </div>
-	   <!-- Logout Modal 3-->
+	    <!-- Logout Modal 3-->
+	    <div class="modal fade" id="edit_service" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="exampleModalLabel">Voulez vous enregistrer le contact du message n° <span id="n_msg"></span> ?</h5>
+	            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+	              <span aria-hidden="true">×</span>
+	            </button>
+	          </div>
+	          <div class="modal-body">
+				<div class="form_container">
+					<form name="services" class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'service_upload');?>" method="post" enctype="multipart/form-data">
+						<div class="form-group col-12">
+							<img alt="service" src="" style="display: none;" id="image">
+							<input type="text" class="form-control" id="title" name="values[title]" aria-describedby="emailHelp" placeholder="Titre" autocomplete="off" required>
+							<textarea id="text" name='values[text]' class='form-control' style='height: 200px;'></textarea>
+							<input class='form-control' name="fileToUpload" type="file" >
+						</div>
+					</form>
+				</div>
+			  </div>
+	          <div class="modal-footer">
+	            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+	            <button class="btn btn-primary" type="button" onclick="document.services.submit()">Enregistrer</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	   <!-- Logout Modal 4-->
 	    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	      <div class="modal-dialog modal-dialog-centered" role="document">
 	        <div class="modal-content">

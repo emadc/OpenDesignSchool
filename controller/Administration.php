@@ -61,7 +61,7 @@ class Administration {
 			$_SESSION['role']     = $role;
 			$_SESSION['username'] = $username;
 			$myView = new View ( $template, 'admin/' );
-			$myView->render ( array ('role' => $role) );
+			$myView->render ( array ('role' => $role, 'newMsgs' => $this->newMsgs) );
 		}
 		else{
 			$myView = new View();
@@ -90,6 +90,17 @@ class Administration {
 		
 		$myView = new View ( 'contacts', 'admin/' );
 		$myView->render ( array ('role' => $_SESSION['role'], 'contacts' => $contacts, 'newMsgs' => $this->newMsgs) );
+	}
+	
+	/**
+	 *
+	 */
+	public function showServices(){
+		$manager= new ServicesManager();
+		$services = $manager->getServices();
+		
+		$myView = new View ( 'services', 'admin/' );
+		$myView->render ( array ('role' => $_SESSION['role'], 'services' => $services, 'newMsgs' => $this->newMsgs) );
 	}
 	
 	/**

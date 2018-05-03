@@ -7,36 +7,13 @@
 				</section>
 				<section id="services" class="col-12">
 					<div class="row">
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>
-						<div class="text-center col-xl-4 col-md-6 col-12">
-							<img alt="Easily customised" src="<?php echo ASSETS;?>/img/custom.png" />
-							<h3>Easily customised</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						</div>																														
+						<?php foreach ($services AS $service):?>
+							<div class="text-center col-xl-4 col-md-6 col-12">
+								<img alt="Easily customised" src="<?php echo UPOLOAD_URL.'services/'.$service->getImage();?>" />
+								<h3><?php echo $service->getTitle();?></h3>
+								<p><?php echo $service->getText();?></p>
+							</div>
+						<?php endforeach;?>
 					</div>
 				</section>
 				<section id="gallery_home" class="col-12">

@@ -24,8 +24,9 @@ class Routeur
     		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',		"area" => 'PUBLIC',	"role" => ''],
     		"messages"	     	=> ["controller" => 'Administration', 	"method" => 'showMessages',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"contacts"	     	=> ["controller" => 'Administration', 	"method" => 'showContacts',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"services"	     	=> ["controller" => 'Administration', 	"method" => 'showServices',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',	"area" => 'PRIVATE',"role" => 'ADMIN'],
-    		"gallery-upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"gallery_upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"ajout"            	=> ["controller" => 'Home', 			"method" => 'addDev',		"area" => 'PRIVATE',"role" => ''],
     		"delete"           	=> ["controller" => 'Home', 			"method" => 'delDev',		"area" => 'PRIVATE',"role" => ''],
     		"modification"     	=> ["controller" => 'Home', 			"method" => 'editDev',		"area" => 'PRIVATE',"role" => ''],
@@ -35,6 +36,9 @@ class Routeur
     		"set_contact"	    => ["controller" => 'Contact', 			"method" => 'setContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"count_msgs"	    => ["controller" => 'Contact', 			"method" => 'countNewMsgs',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"set_read"	   		=> ["controller" => 'Contact', 			"method" => 'setAsRead',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"service_upload"	=> ["controller" => 'Service', 			"method" => 'serviceUpload',"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"get_service"		=> ["controller" => 'Service', 			"method" => 'getService',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"service_delete"	=> ["controller" => 'Service', 			"method" => 'deleteService',"area" => 'PRIVATE',"role" => 'ADMIN'],
 
     ];
 

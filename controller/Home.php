@@ -22,8 +22,11 @@ class Home
 	
     public function showHome($params)
     {
+    	$manager = new ServicesManager();
+    	$services = $manager->getServices(true);
+    	
         $myView = new View('home');
-        $myView->render(array('menu' => $this->menu, 'footer' => $this->footer));
+        $myView->render(array('menu' => $this->menu, 'footer' => $this->footer, 'services' => $services));
 
     }
 

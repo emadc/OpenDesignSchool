@@ -1,6 +1,6 @@
 <div class="content-wrapper">
 	<div class="container-fluid">
-		<form action="gallery-upload" method="post" enctype="multipart/form-data">
+		<form action="gallery_upload" method="post" enctype="multipart/form-data">
 			Select image to upload:
 			<input type="file" name="fileToUpload" id="fileToUpload">
 			<div class="form-group col-md-4 col-12">

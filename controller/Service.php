@@ -1,48 +1,26 @@
 <?php
 
 /**
- * Class Contact
+ * Class Service
  *
  * use to show the contact page
  */
-class Gallery {
-	
-	/**
-	 *
-	 * @param unknown $params        	
-	 */
-	public function edit($params) {
-		extract ( $params );
-		
-		if (isset ( $id )) {
-			
-			$manager = new ContactManager ();
-			$contact = $manager->find ( $id );
-		} else {
-			$contact = new ContactObj ();
-		}
-		
-		$myView = new View ( 'edit' );
-		$myView->render ( array (
-				'contact' => $contact 
-		) );
-	}
+class Service {
 	
 	/**
 	 *
 	 * @param unknown $params
 	 */
-	public function galleyUpload($params) {
+	public function serviceUpload($params) {
 		extract ( $params );
 // 		echo "values<pre>"; var_dump ( $params); exit ();
-		echo $values['title']." - ".$values['desc'];
-		$target_dir = UPOLOADS."gallery/";
+		$target_dir = UPOLOADS."/services/";
 		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 		$uploadOk = 1;
 		
 		// Check if file already exists
 		if (file_exists($target_file)) {
-			echo "<script>alert('Sorry, file already exists.'); location.assign('gallery');</script>";
+			echo "<script>alert('Sorry, file already exists.'); location.assign('services');</script>";
 			die();
 			exit();
 			$uploadOk = 0;
@@ -79,10 +57,10 @@ class Gallery {
 				} else {
 					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 						echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-						$manager = new GalleryManager();
-						$manager->setImage($values, basename( $_FILES["fileToUpload"]["name"]));
+						$manager = new ServicesManager();
+						$manager->setService($values, basename( $_FILES["fileToUpload"]["name"]));
 						$myView = new View ();
-						$myView->redirect ( 'gallery' );
+						$myView->redirect ( 'services' );
 					} else {
 						echo "Sorry, there was an error uploading your file.";
 					}
@@ -121,10 +99,10 @@ class Gallery {
 	/**
 	 *
 	 */
-	public function getMessage($params){
+	public function getService($params){
 		extract ( $params );
 		
-		$manager = new MessageManager ();
+		$manager = new ServicesManager();
 		echo $manager->find($id);
 	}
 	
@@ -132,14 +110,14 @@ class Gallery {
 	 * 
 	 * @param unknown $id
 	 */
-	public function delete($params) {
+	public function deleteService($params) {
 		extract ( $params );
 		
-		$manager = new ContactManager ();
+		$manager = new ServicesManager();
 		$manager->delete($id);
 		
 		$myView = new View ();
-		$myView->redirect ( 'contacts' );
+		$myView->redirect ( 'services' );
 	}
 	
 	/**

@@ -30,7 +30,7 @@
 								<td><?php echo $message->getSociete()?></td>
 								<td><?php echo date('d-m-Y H\h m', strtotime($message->getDateCreation()))?></td>
 								<td style="vertical-align: middle; text-align: center; cursor: pointer;">
-									<i data-target="#edit_contact" data-toggle="modal" title="Lire le message" class="fa fa-envelope-open fa-2x" aria-hidden="true" data-source="message-read" data-id="<?php echo $message->getId()?>" style="color:<?php echo $message->isRead() == 0 ? '#28a745;' : '#007bff;'?>"></i>
+									<i data-target="#edit_contact" data-toggle="modal" title="Lire le message" class="fa <?php echo $message->isRead() == 0 ? 'fa-envelope' : 'fa-envelope-open'?> fa-2x" aria-hidden="true" data-source="message-read" data-id="<?php echo $message->getId()?>" style="color:<?php echo $message->isRead() == 0 ? '#28a745;' : '#007bff;'?>"></i>
 									<i data-target="#edit_contact" data-toggle="modal" title="Ajouter le contact" class="fa fa-address-card fa-2x" aria-hidden="true" data-source="contacts-add" data-id="<?php echo $message->getId()?>" style="color:#007bff;"></i>
 									<i data-target="#delete" data-toggle="modal" title="supprimer" class="fa fa-trash fa-2x" aria-hidden="true" data-source="messages-del" data-id="<?php echo $message->getId()?>" style="color: red;"></i>									
 								</td>
