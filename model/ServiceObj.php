@@ -76,7 +76,7 @@ class ServiceObj
     /**
      * @return mixed
      */
-    public function GetDateModif()
+    public function getDateModif()
     {
     	return $this->dateModif;
     }
