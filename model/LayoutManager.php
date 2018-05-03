@@ -1,6 +1,5 @@
 <?php
 
-
 class LayoutManager
 {
 
@@ -39,7 +38,7 @@ class LayoutManager
 
         };
 
-//         echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
+//      echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
         
         return $menu;
     }
@@ -58,7 +57,7 @@ class LayoutManager
     	
     	$results = $req->fetchAll(PDO::FETCH_ASSOC);
     	
-    	$page = new ServiceObj();
+    	$page = new PageObj();
     	$page->setId($results[0]['id']);
     	$page->setTitle($results[0]['title']);
     	
@@ -68,8 +67,9 @@ class LayoutManager
     	$page->setText($text);
     	$page->setImage($results[0]['image']);
     	$page->setDateModif($results[0]['date_modif']);
+    	$page->setItemAlias($results[0]['item_alias']);
     	
-    	// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
+// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
     	
     	return $page;
     }

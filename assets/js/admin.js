@@ -133,6 +133,10 @@ $('#table')	.DataTable(
 		 $(this).find('#message').remove();
 		 $(this).find('#id').remove();
 		 $(this).find('.modal-footer .btn-primary').show();
+		 $(this).find('#nom_prenom').val("");
+		 $(this).find('#email').val("");
+		 $(this).find('#tel').val("");
+		 $(this).find('#societe').val("");
 	});
 	$('#edit_service').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget) // Button that triggered the modal

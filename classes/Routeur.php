@@ -9,24 +9,29 @@ class Routeur
 {
     private $request;
 
+    /**
+     * elenro delle routes disponibili con indicazione del ruolo e dell'area per gestire gli accessi
+     * @var array
+     */
     private $routes = [
-    		""					=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => ''],
-    		"home"             	=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => ''],
-    		"404"     			=> ["controller" => 'Home',				"method" => 'notFound',		"area" => 'PUBLIC',	"role" => ''],
-    		"contact"          	=> ["controller" => 'Contact', 			"method" => 'showContact',	"area" => 'PUBLIC',	"role" => ''],
-    		"message"     		=> ["controller" => 'Contact', 			"method" => 'setMessage',	"area" => 'PUBLIC',	"role" => ''],
+    		""					=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"home"             	=> ["controller" => 'Home', 			"method" => 'showHome',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"404"     			=> ["controller" => 'Home',				"method" => 'notFound',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"contact"          	=> ["controller" => 'Contact', 			"method" => 'showContact',	"area" => 'PUBLIC',	"role" => 'USER'],
+    		"message"     		=> ["controller" => 'Contact', 			"method" => 'setMessage',	"area" => 'PUBLIC',	"role" => 'USER'],
     		"contact_delete"    => ["controller" => 'Contact', 			"method" => 'deleteContact',"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"messag_delete"		=> ["controller" => 'Contact', 			"method" => 'deleteMessage',"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"admin"		     	=> ["controller" => 'Administration', 	"method" => 'showAdmin',	"area" => 'PRIVATE',"role" => 'ADMIN'],
-    		"login"		     	=> ["controller" => 'Administration', 	"method" => 'login',		"area" => 'PUBLIC',	"role" => ''],
-    		"register"		    => ["controller" => 'Administration', 	"method" => 'register',		"area" => 'PUBLIC',	"role" => ''],
-    		"forgot"		    => ["controller" => 'Administration', 	"method" => 'forgot',		"area" => 'PUBLIC',	"role" => ''],
-    		"auth"		     	=> ["controller" => 'Administration', 	"method" => 'checkUser',	"area" => 'PUBLIC',	"role" => ''],
-    		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',		"area" => 'PUBLIC',	"role" => ''],
+    		"login"		     	=> ["controller" => 'Administration', 	"method" => 'login',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"register"		    => ["controller" => 'Administration', 	"method" => 'register',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"forgot"		    => ["controller" => 'Administration', 	"method" => 'forgot',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"auth"		     	=> ["controller" => 'Administration', 	"method" => 'checkUser',	"area" => 'PUBLIC',	"role" => 'USER'],
+    		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',		"area" => 'PUBLIC',	"role" => 'USER'],
     		"messages"	     	=> ["controller" => 'Administration', 	"method" => 'showMessages',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"contacts"	     	=> ["controller" => 'Administration', 	"method" => 'showContacts',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"services_admin"   	=> ["controller" => 'Administration', 	"method" => 'showServices',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"about"	     		=> ["controller" => 'Administration', 	"method" => 'showAbout',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery_upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"get_contact"  		=> ["controller" => 'Contact',			"method" => 'getContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"get_message" 		=> ["controller" => 'Contact',			"method" => 'getMessage',	"area" => 'PRIVATE',"role" => 'ADMIN'],
@@ -37,7 +42,9 @@ class Routeur
     		"get_service"		=> ["controller" => 'Service', 			"method" => 'getService',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_delete"	=> ["controller" => 'Service', 			"method" => 'deleteService',"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_page"		=> ["controller" => 'Service', 			"method" => 'setPage',		"area" => 'PRIVATE',"role" => 'ADMIN'],
-    		"services"			=> ["controller" => 'Service', 			"method" => 'showServices',	"area" => 'PUBLIC',"role" => ''],
+    		"services"			=> ["controller" => 'Service', 			"method" => 'showServices',	"area" => 'PUBLIC',	"role" => 'USER'],
+    		"about_page"		=> ["controller" => 'Page', 			"method" => 'pageUpload',	"area" => 'PUBLIC',	"role" => 'USER'],
+    		"page"				=> ["controller" => 'Page', 			"method" => 'showPage',		"area" => 'PUBLIC',	"role" => 'USER'],
     ];
 
     private $username;

@@ -1,42 +1,42 @@
 <?php
 
 /**
- * Class Service
+ * Class Page
  *
  * use to show the contact page
  */
-class Service {
-	
-	public function showServices()
+class Page {
+
+	/**
+	 *questa funzione puo mostrare una pagina generica associata ad un item di menu
+	 */
+	public function showPage($params)
 	{
 		$manager = new LayoutManager();
 		$menu = $manager->getMenu();
 		$footer = $manager->getFooter();
 		
-		$manager = new ServicesManager();
-		$services = $manager->getServices(true);
-		
 		$manager = new LayoutManager();
-		$page = $manager->getPage("services");
+		$page = $manager->getPage($params['id']);
 		
-		$myView = new View('services');
-		$myView->render(array('menu' => $menu, 'footer' => $footer, 'page' => $page, 'services' => $services));
-		
+		$myView = new View($params['id']);
+		$myView->render(array('menu' => $menu, 'footer' => $footer, 'page' => $page));
 	}
+	
 	
 	/**
 	 *
 	 * @param unknown $params        	
 	 */
-	public function serviceUpload($params) {
+	public function pageUpload($params) {
 		extract ( $params );
 		// echo "values<pre>"; var_dump ( $params); exit ();
-		$target_dir = UPOLOADS . "services/";
+		$target_dir = UPOLOADS;
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		
 		// Check if file already exists
 		if (file_exists ( $target_file )) {
-			echo "<script>alert('Sorry, file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " already exists.'); location.assign('services');</script>";
+			echo "<script>alert('Sorry, file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " already exists.'); location.assign('".$values['item_alias']."');</script>";
 			die ();
 			exit ();
 		}
@@ -47,46 +47,41 @@ class Service {
 			$check = getimagesize ( $_FILES ["fileToUpload"] ["tmp_name"] );
 			if ($check !== false) {
 			} else {
-				echo "<script>alert('File " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is not an image.'); location.assign('services');</script>";
+				echo "<script>alert('File " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is not an image.'); location.assign('".$values['item_alias']."');</script>";
 				die ();
 				exit ();
 			}
 		}
 		
 		// Check file size
-		if ($_FILES ["fileToUpload"] ["size"] > 500000) {
-			echo "<script>alert('Sorry, your file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is too large.'); location.assign('services');</script>";
+		if ($_FILES ["fileToUpload"] ["size"] > 5000000) {
+			echo "<script>alert('Sorry, your file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is too large.'); location.assign('".$values['item_alias']."');</script>";
 			die ();
 			exit ();
 		}
 		// Allow certain file formats
 		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-			echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.'); location.assign('services');</script>";
+			echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.'); location.assign('".$values['item_alias']."');</script>";
 			die ();
 			exit ();
 		}
 		// Check if $uploadOk is set to 0 by an error
 		if (move_uploaded_file ( $_FILES ["fileToUpload"] ["tmp_name"], $target_file )) {
-			$manager = new ServicesManager ();
-			$manager->setService ( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
+			$manager = new PageManager();
+			$manager->setPage( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
 			$myView = new View ();
-			$myView->redirect ( 'services_admin' );
+			$myView->redirect ( $values['item_alias'] );
 		} else {
-			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('services');</script>";
+			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('".$values['item_alias']."');</script>";
 		}
 	}
 	
 	/**
-	 *
-	 * @param unknown $params        	
 	 */
-	public function setPage($params) {
-		extract ( $params );
-		
-		$manager = new ServicesManager ();
-		$manager->setPage( $values );
-		$myView = new View ();
-		$myView->redirect ( 'services_admin' );
+	public function getPage($item_alias) {
+		$manager = new LayoutManager();
+		$page = $manager->getPage( $item_alias);
+		return $page;
 	}
 	
 	/**

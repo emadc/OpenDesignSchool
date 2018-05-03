@@ -8,6 +8,7 @@ class PAgeObj
     private $texte;
     private $image;
     private $dateModif;
+    private $itemAlias;
 
     /**
      * @return mixed
@@ -87,5 +88,21 @@ class PAgeObj
     public function setDateModif($dateModif)
     {
     	$this->dateModif = $dateModif;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getItemAlias()
+    {
+    	return $this->itemAlias;
+    }
+    
+    /**
+     * @param mixed $itemAlias
+     */
+    public function setItemAlias($itemAlias)
+    {
+    	$this->itemAlias = $itemAlias;
     }
 }
