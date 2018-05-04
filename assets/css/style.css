@@ -202,6 +202,7 @@ main {
 	max-width: 470px;
 	right: 0;
 	margin: auto;
+	cursor: pointer;
 }
 
 #gallery_home .row div div>* {

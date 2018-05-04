@@ -66,10 +66,12 @@
 								<a href="gallery"><i class="fa fa-picture-o"></i> preview</a>
 							</li>
 							<li>
-								<a href="gallery-grid"><i class="fa fa-table"></i> list</a>
+								<a href="gallery_grid"><i class="fa fa-table"></i> list</a>
 							</li>
 							<li>
-								<a href="gallery"><i class="fa fa-cloud-upload"></i> Téléverser</a>
+								<a href="#" data-target="#edit_uploads" data-toggle="modal" data-source="media-add">
+									<i class="fa fa-cloud-upload"></i> Téléverser
+								</a>
 							</li>
 						</ul>
 					</li>

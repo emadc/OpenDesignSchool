@@ -59,7 +59,7 @@ class Gallery {
 			$manager = new GalleryManager();
 			$manager->setMedia( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
 			$myView = new View ();
-			$myView->redirect ( 'gallery' );
+			$myView->redirect ( $params['grid'] ? 'gallery_grid' : 'gallery' );
 		} else {
 			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('gallery');</script>";
 		}

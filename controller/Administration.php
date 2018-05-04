@@ -127,13 +127,25 @@ class Administration {
 	 */
 	public function showGallery() {
 		$manager = new GalleryManager ();
-		$gallery = $manager->getGallery ();
 		
 		$myView = new View ( 'gallery', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'gallery' => $gallery,
+				'gallery' => $manager->getGallery (),
 				'newMsgs' => $this->newMsgs 
+		) );
+	}
+	
+	/**
+	 */
+	public function showGalleryGrid() {
+		$manager = new GalleryManager ();
+		
+		$myView = new View ( 'gallery_grid', 'admin/' );
+		$myView->render ( array (
+				'role' => $_SESSION ['role'],
+				'gallery' => $manager->getGallery (),
+				'newMsgs' => $this->newMsgs
 		) );
 	}
 	

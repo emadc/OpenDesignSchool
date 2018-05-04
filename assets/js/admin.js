@@ -90,9 +90,9 @@ $('#table')	.DataTable(
 	});
 
 	$('#edit_contact').on('show.bs.modal', function(event) {
-		var button = $(event.relatedTarget) // Button that triggered the modal
-		var id = button.data('id') // Extract info from data-* attributes
-		var source = button.data('source') // Extract info from data-*
+		var button = $(event.relatedTarget) 
+		var id = button.data('id') 
+		var source = button.data('source') 
 		// attributes
 		var modal = $(this);
 		if (source == "contacts-add") {
@@ -142,9 +142,10 @@ $('#table')	.DataTable(
 		 $(this).find('#societe').val("");
 	});
 	$('#edit_uploads').on('show.bs.modal', function(event) {
-		var button = $(event.relatedTarget) // Button that triggered the modal
-		var id = button.data('id') // Extract info from data-* attributes
-		var source = button.data('source') // Extract info from data-*
+		var button = $(event.relatedTarget) 
+		var id = button.data('id') 
+		var source = button.data('source') 
+		var section = button.data('section')
 		// attributes
 		var modal = $(this);
 		if (source == "service-add") {
@@ -170,8 +171,14 @@ $('#table')	.DataTable(
 		}else if (source == "media-add") {
 			modal.find('.modal-title').text("Ajouter un nouveau media");
 			modal.find('.modal-body form').attr('action', 'gallery_upload');
+			if (section=="grid") {
+				modal.find('.modal-body form').attr('action', 'gallery_upload/grid/true');
+			}
 		} else if (source == "media-edit") {
 			modal.find('.modal-body form').attr('action', 'gallery_upload');
+			if (section=="grid") {
+				modal.find('.modal-body form').attr('action', 'gallery_upload/grid/true');
+			}
 			modal.find('.modal-title').text("Modifier le media");
 			modal.find('.modal-body #id').val(id);
 			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
