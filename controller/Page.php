@@ -34,13 +34,6 @@ class Page {
 		$target_dir = UPOLOADS;
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		
-		// Check if file already exists
-		if (file_exists ( $target_file )) {
-			echo "<script>alert('Sorry, file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " already exists.'); location.assign('".$values['item_alias']."');</script>";
-			die ();
-			exit ();
-		}
-		
 		$imageFileType = strtolower ( pathinfo ( $target_file, PATHINFO_EXTENSION ) );
 		// Check if image file is a actual image or fake image
 		if (isset ( $_POST ["submit"] )) {

@@ -1,5 +1,6 @@
 function resizeHeaderOnScroll() {
-	const distanceY = window.pageYOffset || document.documentElement.scrollTop, shrinkOn = 50, headerEl = document.getElementById('target');
+	const distanceY = window.pageYOffset || document.documentElement.scrollTop, shrinkOn = 50, headerEl = document
+			.getElementById('target');
 
 	if (distanceY > shrinkOn) {
 		headerEl.classList.add("header_s");
@@ -28,3 +29,12 @@ function initMap() {
 		map : map
 	});
 }
+
+$('#galleryModal').on('show.bs.modal', function(event) {
+	var button = $(event.relatedTarget) 
+	var source = button.data('source') 
+	var title = button.data('title') 
+	var modal = $(this)
+	modal.find('.modal-title').text(title)
+	modal.find('.modal-body img').attr('src', source);
+})

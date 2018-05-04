@@ -17,62 +17,15 @@
 					</div>
 				</section>
 				<section id="gallery_home" class="col-12">
-					<div class="row no-gutters">
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_4.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_3.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_2.jpg" />
-    					</div>
-    					<div class="text-center col-xl-3 col-md-6 col-12">
-    						<div>
-        						<h3>Project name</h3>
-        						<p>User Interface Design</p>    						
-    						</div>
-    						<img class="img-fluid" alt="" src="<?php echo ASSETS;?>img/gal_1.jpg" />
-    					</div>    										    					    					
-					</div>
+						<div class="row no-gutters">
+							<?php foreach ($medias AS $media):?>
+								<div class="text-center col-xl-3 col-md-6 col-12">
+									<div data-toggle="modal" data-target="#galleryModal" data-title="<?php echo $media->getTitle()?>" data-source="<?php echo UPOLOAD_URL."gallery/".$media->getFileName();?>">
+										<h3><?php echo $media->getTitle()?></h3>
+										<p><?php echo $media->getText()?></p>
+									</div>
+									<img class="img-fluid" alt="<?php echo $media->getTitle()?>" src="<?php echo UPOLOAD_URL."gallery/".$media->getFileName();?>" />
+								</div>
+							<?php endforeach;?>
+						</div>
 				</section>

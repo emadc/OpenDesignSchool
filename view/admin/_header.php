@@ -59,7 +59,7 @@
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
 						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#navbarAccordion">
 							<i class="fa fa-fw fa-camera"></i>
-							<span class="nav-link-text">Gallery</span>
+							<span class="nav-link-text">Galerie</span>
 						</a>
 						<ul class="sidenav-second-level collapse" id="collapseComponents">
 							<li>

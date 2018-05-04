@@ -79,11 +79,14 @@ $('#table')	.DataTable(
 		}else if(source == "services-del"){
 			src_txt = "service";
 			modal.find('.modal-body form').attr('action', 'service_delete');
+		}else if(source == "media-del"){
+			src_txt = "media";
+			modal.find('.modal-body form').attr('action', 'gallery_delete');
 		}		
 		modal.find('.modal-title').text('soupprimer le '+src_txt+' n° ' + id + ' ?')
 		modal.find('.modal-body #id').val(id)
 	}).on('hidden.bs.modal', function (e) {
-		 $(this).find('.modal-body form').arrt = "";
+		modal.find('.modal-body form').attr('action', '');
 	});
 
 	$('#edit_contact').on('show.bs.modal', function(event) {
@@ -138,7 +141,7 @@ $('#table')	.DataTable(
 		 $(this).find('#tel').val("");
 		 $(this).find('#societe').val("");
 	});
-	$('#edit_service').on('show.bs.modal', function(event) {
+	$('#edit_uploads').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget) // Button that triggered the modal
 		var id = button.data('id') // Extract info from data-* attributes
 		var source = button.data('source') // Extract info from data-*
@@ -146,7 +149,9 @@ $('#table')	.DataTable(
 		var modal = $(this);
 		if (source == "service-add") {
 			modal.find('.modal-title').text("Ajouter un nouveau service");
+			modal.find('.modal-body form').attr('action', 'service_upload');
 		} else if (source == "service-edit") {
+			modal.find('.modal-body form').attr('action', 'service_upload');
 			modal.find('.modal-title').text("Modifier le service");
 			modal.find('.modal-body #id').val(id);
 			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
@@ -162,10 +167,31 @@ $('#table')	.DataTable(
 					});
 				});
 			});
-		} else {
+		}else if (source == "media-add") {
+			modal.find('.modal-title').text("Ajouter un nouveau media");
+			modal.find('.modal-body form').attr('action', 'gallery_upload');
+		} else if (source == "media-edit") {
+			modal.find('.modal-body form').attr('action', 'gallery_upload');
+			modal.find('.modal-title').text("Modifier le media");
+			modal.find('.modal-body #id').val(id);
+			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
+			$.getJSON("get_media/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						if(key=="file_name"){
+							modal.find('.modal-body #image').attr('src', 'assets/img/uploads/gallery/'+value);
+							modal.find('.modal-body #image').attr('style', 'max-width:100px;');
+						}else{
+							modal.find('.modal-body #' + key).val(value);							
+						}
+					});
+				});
+			});
+		}else {
 			modal.find('.modal-title #n_msg').text(id);
 		}
 	}).on('hidden.bs.modal', function (e) {
+		 $(this).find('.modal-body form').attr('action', '');
 		 $(this).find('.modal-body #image').attr('src', '');
 		 $(this).find('.modal-body #image').attr('style', 'display:none;');
 		 $(this).find('.modal-body #title').val('');

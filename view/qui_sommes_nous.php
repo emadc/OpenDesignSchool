@@ -1,4 +1,4 @@
-				<section id="services" class="col-12 page" style="padding-top: 40px;">
+				<section id="services" class="col-12 page" >
 					<div class="main_container">
 						<h1 class="h1_title"><?php echo $page->getTitle();?></h1>
 						<div class="row">

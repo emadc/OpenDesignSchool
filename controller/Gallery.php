@@ -7,24 +7,16 @@
  */
 class Gallery {
 	
-	/**
-	 *
-	 * @param unknown $params        	
-	 */
-	public function edit($params) {
-		extract ( $params );
+	public function showGallery($params) {
+		$manager = new LayoutManager ();
 		
-		if (isset ( $id )) {
-			
-			$manager = new ContactManager ();
-			$contact = $manager->find ( $id );
-		} else {
-			$contact = new ContactObj ();
-		}
+		$gallery = new GalleryManager();
 		
-		$myView = new View ( 'edit' );
+		$myView = new View ( 'gallery' );
 		$myView->render ( array (
-				'contact' => $contact 
+				'menu' => $manager->getMenu (),
+				'footer' => $manager->getFooter (),
+				'medias'=> $gallery->getGallery(),
 		) );
 	}
 	
@@ -34,97 +26,52 @@ class Gallery {
 	 */
 	public function galleyUpload($params) {
 		extract ( $params );
-// 		echo "values<pre>"; var_dump ( $params); exit ();
-		echo $values['title']." - ".$values['desc'];
-		$target_dir = UPOLOADS."gallery/";
-		$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-		$uploadOk = 1;
+// 		echo "params<pre>"; var_dump ( $params); var_dump( $_FILES ["fileToUpload"] ); exit ();
+		$target_dir = UPOLOADS . "gallery/";
+		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		
-		// Check if file already exists
-		if (file_exists($target_file)) {
-			echo "<script>alert('Sorry, file already exists.'); location.assign('gallery');</script>";
-			die();
-			exit();
-			$uploadOk = 0;
-		}
-		
-		$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+		$imageFileType = strtolower ( pathinfo ( $target_file, PATHINFO_EXTENSION ) );
 		// Check if image file is a actual image or fake image
-		if(isset($_POST["submit"])) {
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-			if($check !== false) {
-				echo "File is an image - " . $check["mime"] . ".";
-				$uploadOk = 1;
+		if (isset ( $_POST ["submit"] )) {
+			$check = getimagesize ( $_FILES ["fileToUpload"] ["tmp_name"] );
+			if ($check !== false) {
 			} else {
-				echo "File is not an image.";
-				$uploadOk = 0;
+				echo "<script>alert('File " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is not an image.'); location.assign('gallery');</script>";
+				die ();
+				exit ();
 			}
 		}
-
+		
 		// Check file size
-		if ($_FILES["fileToUpload"]["size"] > 500000) {
-			echo "Sorry, your file is too large.";
-			$uploadOk = 0;
+		if ($_FILES ["fileToUpload"] ["size"] > 5000000) {
+			echo "<script>alert('Sorry, your file " . basename ( $_FILES ["fileToUpload"] ["name"] ) . " is too large.'); location.assign('gallery');</script>";
+			die ();
+			exit ();
 		}
 		// Allow certain file formats
-		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif" ) {
-					echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-					$uploadOk = 0;
-				}
-				// Check if $uploadOk is set to 0 by an error
-				if ($uploadOk == 0) {
-					echo "Sorry, your file was not uploaded.";
-					// if everything is ok, try to upload file
-				} else {
-					if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-						echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-						$manager = new GalleryManager();
-						$manager->setImage($values, basename( $_FILES["fileToUpload"]["name"]));
-						$myView = new View ();
-						$myView->redirect ( 'gallery' );
-					} else {
-						echo "Sorry, there was an error uploading your file.";
-					}
-				}
-	}
-	
-	/**
-	 *
-	 * @param unknown $params
-	 */
-	public function setContact($params) {
-		extract ( $params );
-		
-		while ( $value = current ( $values ) ) {
-			$valuesClean [key ( $values )] = $this->test_input ( $value );
-			next ( $values );
+		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+			echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.'); location.assign('gallery');</script>";
+			die ();
+			exit ();
 		}
-		
-		$manager = new ContactManager ();
-		$manager->setContact( $valuesClean );
-		
-		$myView = new View ();
-		$myView->redirect ( 'contacts' );
+		// Check by an error
+		if (move_uploaded_file ( $_FILES ["fileToUpload"] ["tmp_name"], $target_file )) {
+			$manager = new GalleryManager();
+			$manager->setMedia( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
+			$myView = new View ();
+			$myView->redirect ( 'gallery' );
+		} else {
+			echo "<script>alert('Sorry, there was an error uploading your file.'); location.assign('gallery');</script>";
+		}
 	}
 	
 	/**
 	 * 
 	 */
-	public function getGallery($params){
+	public function getMedia($params){
 		extract ( $params );
 		
 		$manager = new GalleryManager();
-		echo $manager->getGallery();
-	}
-	
-	/**
-	 *
-	 */
-	public function getMessage($params){
-		extract ( $params );
-		
-		$manager = new MessageManager ();
 		echo $manager->find($id);
 	}
 	
@@ -132,14 +79,14 @@ class Gallery {
 	 * 
 	 * @param unknown $id
 	 */
-	public function delete($params) {
+	public function deleteMedia($params) {
 		extract ( $params );
 		
-		$manager = new ContactManager ();
+		$manager = new GalleryManager();
 		$manager->delete($id);
 		
 		$myView = new View ();
-		$myView->redirect ( 'contacts' );
+		$myView->redirect ( 'gallery' );
 	}
 	
 	/**

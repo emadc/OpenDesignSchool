@@ -23,10 +23,11 @@ class Home
     public function showHome($params)
     {
     	$manager = new ServicesManager();
-    	$services = $manager->getServices(true);
+    	
+    	$gallery = new GalleryManager();
     	
         $myView = new View('home');
-        $myView->render(array('menu' => $this->menu, 'footer' => $this->footer, 'services' => $services));
+        $myView->render(array('menu' => $this->menu, 'footer' => $this->footer, 'services' => $manager->getServices(true), 'medias' => $gallery->getGallery(true)));
 
     }
 

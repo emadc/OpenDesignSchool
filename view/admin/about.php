@@ -10,7 +10,7 @@
 					<form class="form_about" name="about" action="<?php echo htmlspecialchars(HOST.'about_page');?>" method="post" enctype="multipart/form-data">
 						<div>
 							<input type="hidden" name="values[id]" value="<?php echo $page->getId();?>">
-							<input type="hidden" name="values[item_alias]" value="<?php echo $page->getItemAlias();?>">
+							<input type="hidden" name="values[item_alias]" value="about">
 							<input style="margin-bottom: 10px;" type="text" class="form-control" id="title" name="values[title]" aria-describedby="emailHelp" placeholder="Titre" value="<?php echo $page->getTitle();?>" autocomplete="off" required>
 							<textarea id="text" name='values[text]' class='form-control' style='height: 200px;' placeholder="Presentation"><?php echo $page->getText();?></textarea>
 						</div>
@@ -18,7 +18,9 @@
 							<input class='form-control' name="fileToUpload" type="file" autocomplete="off" required>
 						</div>
 						<div>
-							<img src="<?php echo ASSETS."img/uploads/".$page->getImage();?>" style="width: 100px;">
+							<a target="_blanck" href="<?php echo ASSETS."img/uploads/".$page->getImage();?>">
+								<img src="<?php echo ASSETS."img/uploads/".$page->getImage();?>" style="max-width: 300px;">
+							</a>
 						</div>
 						<div style="text-align: right;">
 							<input class="btn btn-primary" type="submit" value="Enregistrer">

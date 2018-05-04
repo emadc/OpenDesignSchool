@@ -6,8 +6,9 @@ class GalleryObj
     private $id;
     private $fileName;
     private $title;
-    private $description;
-
+    private $text;
+    private $dateModif;
+    
     /**
      * @return mixed
      */
@@ -59,16 +60,32 @@ class GalleryObj
     /**
      * @return mixed
      */
-    public function getDescription()
+    public function getText()
     {
-        return $this->description;
+    	return $this->texte;
     }
-
+    
     /**
-     * @param mixed $description
+     * @param mixed $texte
      */
-    public function setDescription($description)
+    public function setText($texte)
     {
-    	$this->description = $description;
+    	$this->texte = $texte;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getDateModif()
+    {
+    	return $this->dateModif;
+    }
+    
+    /**
+     * @param mixed $dateModif
+     */
+    public function setDateModif($dateModif)
+    {
+    	$this->dateModif = $dateModif;
     }
 }
