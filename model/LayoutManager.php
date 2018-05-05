@@ -22,7 +22,7 @@ class LayoutManager
         $menu = new ArrayObject();
         
         /*** accès au model ***/
-        $query = "SELECT * FROM menu";
+        $query = "SELECT * FROM sections WHERE menu = 1";
 
         $req = $bdd->prepare($query);
         $req->execute();
@@ -48,7 +48,7 @@ class LayoutManager
     	$bdd = $this->bdd;
     	
     	$query = "SELECT *
-					FROM menu
+					FROM sections
 					LEFT JOIN pages USING (id)
 					WHERE item_alias=:item_alias";
     	$req = $bdd->prepare($query);
@@ -66,6 +66,7 @@ class LayoutManager
     	
     	$page->setText($text);
     	$page->setImage($results[0]['image']);
+    	$page->setLink($results[0]['link']);
     	$page->setDateModif($results[0]['date_modif']);
     	$page->setItemAlias($results[0]['item_alias']);
     	

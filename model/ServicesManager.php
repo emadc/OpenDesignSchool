@@ -75,7 +75,7 @@ class ServicesManager
 		$bdd = $this->bdd;
 		
 		$query = "SELECT *
-					FROM menu
+					FROM sections
 					LEFT JOIN pages USING (id)
 					WHERE item_alias=:item_alias";
 		$req = $bdd->prepare($query);

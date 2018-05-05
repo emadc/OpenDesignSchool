@@ -1,8 +1,8 @@
 				<section id="welcame" class="col-12">
 					<div class="text-center align-middle">
-						<h1>Your favorite buisiness site multi purpose template</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-						<button>Find out more</button>
+						<h1><?php echo $welcame->getTitle();?></h1>
+						<p><?php echo $welcame->getText();?></p>
+						<?php if (!empty($welcame->getImage())) echo "<a href='".HOST.$welcame->getLink()."'><img alt='welcame' src='".UPOLOAD_URL.$welcame->getImage()."'></a>";?>
 					</div>
 				</section>
 				<section id="services" class="col-12">

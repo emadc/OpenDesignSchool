@@ -20,7 +20,7 @@ class PageManager
     	$bdd = $this->bdd;
     	
     	$query = "SELECT *
-					FROM menu
+					FROM sections
 					LEFT JOIN pages USING (id)
 					WHERE item_alias=:item_alias";
     	$req = $bdd->prepare($query);
@@ -33,6 +33,7 @@ class PageManager
     	$page->setId($results[0]['id']);
     	$page->setTitle($results[0]['title']);
     	$page->setText($results[0]['text']);
+    	$page->setLink($results[0]['link']);
     	$page->setImage($results[0]['image']);
     	$page->setDateModif($results[0]['date_modif']);
     	$page->setItemAlias($results[0]['item_alias']);
@@ -51,19 +52,21 @@ class PageManager
     	// 		echo "setPage <pre>"; var_dump($values); exit();
     	$bdd = $this->bdd;
     	
-    	$query = "INSERT INTO pages (id, title, text, image)
-	            VALUES (:id, :title, :text, :image)
-				ON DUPLICATE KEY UPDATE  title = :title, text = :text, image = :image,  date_modif = CURRENT_TIMESTAMP ";
+    	$query = "INSERT INTO pages (id, title, text, link, image)
+	            VALUES (:id, :title, :text, :link, :image)
+				ON DUPLICATE KEY UPDATE  title = :title, text = :text, link = :link, image = :image,  date_modif = CURRENT_TIMESTAMP ";
     	
     	$req = $bdd->prepare($query);
     	
     	$req->bindValue(':id', 		$values['id'], PDO::PARAM_INT);
     	$req->bindValue(':title',	$values['title'], PDO::PARAM_STR);
     	$req->bindValue(':text',	$values['text'], PDO::PARAM_STR);
-    	$req->bindValue(':image',	'');
+    	$req->bindValue(':link',	$values['link'], PDO::PARAM_STR);
+    	$req->bindValue(':image',	$fileName);
     	
     	$req->bindValue(':title',	$values['title'], PDO::PARAM_STR);
     	$req->bindValue(':text',	$values['text'], PDO::PARAM_STR);
+    	$req->bindValue(':link',	$values['link'], PDO::PARAM_STR);
     	$req->bindValue(':image',	$fileName);
     	$req->execute();
     }

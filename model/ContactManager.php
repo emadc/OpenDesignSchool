@@ -52,35 +52,6 @@ class ContactManager
     }
     
     /**
-     * restituisce un oggetto footer
-     * @return ArrayObject FooterItem
-     */
-    public function getFooter()
-    {
-    	$bdd = $this->bdd;
-    	$footer = new ArrayObject();
-    	
-    	/*** accès au model ***/
-    	$query = "SELECT * FROM footer";
-    	
-    	$req = $bdd->prepare($query);
-    	$req->execute();
-    	while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
-    		
-    		$footerItem = new FooterItem();  
-    		$footerItem->setId($row['id']);
-    		$footerItem->setTitle($row['title']);
-    		$footerItem->setText($row['text']);
-    		$footerItem->setSocials($row['socials']);
-    		
-    		$footer[] = $footerItem; // tableau d'objet
-    		
-    	};
-
-    	return $footer;
-    }
-
-    /**
      * 
      * @param unknown $values
      */

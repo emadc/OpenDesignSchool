@@ -26,27 +26,6 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $params        	
-	 */
-	public function edit($params) {
-		extract ( $params );
-		
-		if (isset ( $id )) {
-			
-			$manager = new ContactManager ();
-			$contact = $manager->find ( $id );
-		} else {
-			$contact = new ContactObj ();
-		}
-		
-		$myView = new View ( 'edit' );
-		$myView->render ( array (
-				'contact' => $contact 
-		) );
-	}
-	
-	/**
-	 *
 	 * @param unknown $params
 	 */
 	public function setMessage($params) {

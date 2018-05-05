@@ -33,6 +33,8 @@ class Routeur
     		"gallery"	     	=> ["controller" => 'Administration', 	"method" => 'showGallery',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery_grid"	    => ["controller" => 'Administration', 	"method" => 'showGalleryGrid',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"about"	     		=> ["controller" => 'Administration', 	"method" => 'showAbout',		"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"welcame"	     	=> ["controller" => 'Administration', 	"method" => 'showWelcame',		"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"sections"	     	=> ["controller" => 'Administration', 	"method" => 'showSections',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"galerie"			=> ["controller" => 'Gallery', 			"method" => 'showGallery',		"area" => 'PUBLIC',	"role" => 'USER'],
     		"gallery_upload"   	=> ["controller" => 'Gallery',		 	"method" => 'galleyUpload',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"gallery_delete"	=> ["controller" => 'Gallery', 			"method" => 'deleteMedia',		"area" => 'PRIVATE',"role" => 'ADMIN'],
@@ -47,8 +49,12 @@ class Routeur
     		"service_delete"	=> ["controller" => 'Service', 			"method" => 'deleteService',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"service_page"		=> ["controller" => 'Service', 			"method" => 'setPage',			"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"services"			=> ["controller" => 'Service', 			"method" => 'showServices',		"area" => 'PUBLIC',	"role" => 'USER'],
-    		"about_page"		=> ["controller" => 'Page', 			"method" => 'pageUpload',		"area" => 'PUBLIC',	"role" => 'USER'],
+    		"about_page"		=> ["controller" => 'Page', 			"method" => 'pageUpload',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"page"				=> ["controller" => 'Page', 			"method" => 'showPage',			"area" => 'PUBLIC',	"role" => 'USER'],
+    		"welcame_page"		=> ["controller" => 'Page', 			"method" => 'pageUpload',		"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"sections_delete"   => ["controller" => 'Sections',			"method" => 'deleteSection',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"get_section"		=> ["controller" => 'Sections',			"method" => 'getSection',		"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"set_section"		=> ["controller" => 'Sections',			"method" => 'setSection',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     ];
 
     private $username;
@@ -80,7 +86,7 @@ class Routeur
 
         for($i = 1; $i<count($elements); $i++)
         {
-            $params[$elements[$i]] = $elements[$i+1];  //delete/id/4 => id/4
+            $params[$elements[$i]] = $elements[$i+1];
             $i++;
         }
 

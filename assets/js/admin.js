@@ -82,7 +82,10 @@ $('#table')	.DataTable(
 		}else if(source == "media-del"){
 			src_txt = "media";
 			modal.find('.modal-body form').attr('action', 'gallery_delete');
-		}		
+		}else if(source == "sections-del"){
+			src_txt = "section";
+			modal.find('.modal-body form').attr('action', 'sections_delete');
+		}	
 		modal.find('.modal-title').text('soupprimer le '+src_txt+' n° ' + id + ' ?')
 		modal.find('.modal-body #id').val(id)
 	}).on('hidden.bs.modal', function (e) {
@@ -195,7 +198,7 @@ $('#table')	.DataTable(
 				});
 			});
 		}else {
-			modal.find('.modal-title #n_msg').text(id);
+			$(this).find('.modal-title #n_msg').text(id);
 		}
 	}).on('hidden.bs.modal', function (e) {
 		 $(this).find('.modal-body form').attr('action', '');
@@ -203,6 +206,48 @@ $('#table')	.DataTable(
 		 $(this).find('.modal-body #image').attr('style', 'display:none;');
 		 $(this).find('.modal-body #title').val('');
 		 $(this).find('.modal-body #text').val('');
+		 $(this).find('#id').remove();
+	});
+	$('#edit_section').on('show.bs.modal', function(event) {
+		var button = $(event.relatedTarget) 
+		var id = button.data('id') 
+		var source = button.data('source') 
+		var section = button.data('section')
+		// attributes
+		var modal = $(this);
+		if (source == "section-add") {
+			modal.find('.modal-title').text("Ajouter une nouvelle section");
+		} else if (source == "section-edit") {
+			modal.find('.modal-title').text("Modifier la section");
+			modal.find('.modal-body #id').val(id);
+			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
+			$.getJSON("get_section/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						if(key=="menu"&&value==1){
+							modal.find('.modal-body #' + key).prop('checked', true);
+						}else if (key=="editable"&&value==0){
+							modal.find('.modal-body #item_alias').hide();
+							modal.find('.modal-body #item_link').hide();
+							modal.find('.modal-body #parent').hide();
+						}else{
+							modal.find('.modal-body #' + key).val(value);
+						}
+					});
+				});
+			});
+		}else {
+			modal.find('.modal-title #n_msg').text(id);
+		}
+	}).on('hidden.bs.modal', function (e) {
+		 $(this).find('.modal-body #item_text').val('');
+		 $(this).find('.modal-body #item_alias').val('');
+		 $(this).find('.modal-body #item_alias').show();
+		 $(this).find('.modal-body #item_link').val('');
+		 $(this).find('.modal-body #item_link').show();
+		 $(this).find('.modal-body #parent').val('');
+		 $(this).find('.modal-body #parent').show();
+		 $(this).find('.modal-body #menu').prop('checked', false);
 		 $(this).find('#id').remove();
 	});
 })(jQuery); // End of use strict

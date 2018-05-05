@@ -18,7 +18,7 @@
 						</div>
 					</form>
 				</div>
-				<div class="card-footer small text-muted">Publié le <?php echo date('d-m-Y H\h m', strtotime($page->getDateModif()));?></div>
+				<div class="card-footer small text-muted"><?php if (!empty($page->getDateModif())) echo "Publié le ".date('d-m-Y H\h m', strtotime($page->getDateModif()));?></div>
 			</div>
 			<!-- DataTables services -->
 			<div class="card mb-3">

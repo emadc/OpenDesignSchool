@@ -112,16 +112,8 @@ main {
 	margin: 30px auto 50px;
 }
 
-#welcame button {
-	border: none;
-	background-color: #e84546;
-	color: #fff;
-	text-transform: uppercase;
-	width: 200px;
+#welcame img {
 	border-radius: 3px;
-	height: 40px;
-	font-size: 13px;
-	font-weight: bold;
 }
 
 #services {
@@ -231,7 +223,45 @@ main {
 #gallery_home .row div div:hover {
 	background-color: #ff000080;
 }
+/***about***/
+#about {
+	background-color: #fff;
+	max-height: 690px;
+}
 
+#about.page {
+	max-height: unset;
+	padding: 40px 0 90px;
+}
+
+#about .row {
+	max-width: 1165px;
+	margin: 120px auto;
+}
+
+#about .row div {
+	margin-bottom: 55px;
+}
+
+#about h3 {
+	margin: 30px 0 15px;
+	font-size: 15px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#about .main_container .row {
+	max-width: 1165px;
+	margin: 80px auto 10px;
+}
+
+#about .text {
+	width: 1030px;
+	margin: auto;
+	text-align: center;
+}
+
+/****/
 .modal-lg {
 	max-width: 90%;
 	text-align: center;

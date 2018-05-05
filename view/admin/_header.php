@@ -39,20 +39,20 @@
 					<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
 						<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#navbarAccordion">
 							<i class="fa fa-fw fa-sitemap"></i>
-							<span class="nav-link-text">Page accueil</span>
+							<span class="nav-link-text">Apparence</span>
 						</a>
 						<ul class="sidenav-second-level collapse" id="collapseMulti">
 							<li>
-								<a href="#">menu</a>
+								<a href="sections">Menu</a>
 							</li>
 							<li>
-								<a href="#">banner</a>
+								<a href="welcame">Bannière</a>
 							</li>
 							<li>
-								<a href="#">bottom</a>
+								<a href="#">Bas de page</a>
 							</li>
 							<li>
-								<a href="#collapseMulti2">footer</a>
+								<a href="#">Pieds de page</a>
 							</li>
 						</ul>
 					</li>										

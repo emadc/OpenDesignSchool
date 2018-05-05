@@ -66,10 +66,10 @@ CREATE TABLE `gallery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menu`
+-- Table structure for table `sections`
 --
 
-CREATE TABLE `menu` (
+CREATE TABLE `sections` (
   `id` int(11) NOT NULL,
   `item_text` varchar(255) NOT NULL,
   `item_alias` varchar(255) DEFAULT NULL,
@@ -159,9 +159,9 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menu`
+-- Indexes for table `sections`
 --
-ALTER TABLE `menu`
+ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -208,9 +208,9 @@ ALTER TABLE `footer`
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `menu`
+-- AUTO_INCREMENT for table `sections`
 --
-ALTER TABLE `menu`
+ALTER TABLE `sections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `messages`

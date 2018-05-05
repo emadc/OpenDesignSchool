@@ -6,11 +6,20 @@
  * use to show the contact page
  */
 class Administration {
+	
 	private $newMsgs;
+	 /**
+	  * 
+	  */
 	public function __construct() {
 		$newMsgs = new MessageManager ();
 		$this->newMsgs = $newMsgs->getMessages ( true );
 	}
+	
+		/**
+	 * 
+	 * @param unknown $params
+	 */
 	public function showAdmin($params) {
 		$myView = new View ( 'admin', 'admin/' );
 		$myView->render ( array (
@@ -81,12 +90,10 @@ class Administration {
 	 */
 	public function showMessages() {
 		$manager = new MessageManager ();
-		$messages = $manager->getMessages ();
-		
 		$myView = new View ( 'messages', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'messages' => $messages,
+				'messages' => $manager->getMessages (),
 				'newMsgs' => $this->newMsgs 
 		) );
 	}
@@ -95,12 +102,11 @@ class Administration {
 	 */
 	public function showContacts() {
 		$manager = new ContactManager ();
-		$contacts = $manager->getContacts ();
 		
 		$myView = new View ( 'contacts', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'contacts' => $contacts,
+				'contacts' => $manager->getContacts (),
 				'newMsgs' => $this->newMsgs 
 		) );
 	}
@@ -109,16 +115,11 @@ class Administration {
 	 */
 	public function showServices() {
 		$manager = new ServicesManager ();
-		$services = $manager->getServices ();
-		
-		$manager = new ServicesManager ();
-		$page = $manager->getPage ( 'services' );
-		
 		$myView = new View ( 'services', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'services' => $services,
-				'page' => $page,
+				'services' => $manager->getServices (),
+				'page' => $manager->getPage ( 'services' ),
 				'newMsgs' => $this->newMsgs 
 		) );
 	}
@@ -127,7 +128,6 @@ class Administration {
 	 */
 	public function showGallery() {
 		$manager = new GalleryManager ();
-		
 		$myView = new View ( 'gallery', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
@@ -140,7 +140,6 @@ class Administration {
 	 */
 	public function showGalleryGrid() {
 		$manager = new GalleryManager ();
-		
 		$myView = new View ( 'gallery_grid', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
@@ -153,13 +152,35 @@ class Administration {
 	 */
 	public function showAbout() {
 		$manager = new PageManager ();
-		$page = $manager->getPage ( 'qui_sommes_nous' );
-		
 		$myView = new View ( 'about', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'page' => $page,
+				'page' => $manager->getPage ( 'qui_sommes_nous' ),
 				'newMsgs' => $this->newMsgs 
+		) );
+	}
+	
+	/**
+	 */
+	public function showWelcame() {
+		$manager = new PageManager ();
+		$myView = new View ( 'welcame', 'admin/' );
+		$myView->render ( array (
+				'role' => $_SESSION ['role'],
+				'page' => $manager->getPage ( 'welcame' ),
+				'newMsgs' => $this->newMsgs
+		) );
+	}
+	
+	/**
+	 */
+	public function showSections() {
+		$sections = new SectionManager();
+		$myView = new View ( 'sections', 'admin/' );
+		$myView->render ( array (
+				'role' => $_SESSION ['role'],
+				'sections' => $sections->getSections(),
+				'newMsgs' => $this->newMsgs
 		) );
 	}
 }

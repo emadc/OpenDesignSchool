@@ -85,6 +85,41 @@
 	        </div>
 	      </div>
 	    </div>
+	    <!-- Sections Modal -->
+	    <div class="modal fade" id="edit_section" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+	      <div class="modal-dialog modal-dialog-centered" role="document">
+	        <div class="modal-content">
+	          <div class="modal-header">
+	            <h5 class="modal-title" id="contactModalLabel"></h5>
+	            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+	              <span aria-hidden="true">×</span>
+	            </button>
+	          </div>
+	          <div class="modal-body">
+				<section id="contact" class="col-12 ">
+					<div class="main_container">
+						<form name="sections" class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'set_section');?>" method="post">
+							<div class="form-group col-12">
+								<input type="text" class="form-control" id="item_text" name="values[item_text]" placeholder="Title" autocomplete="off" required>
+								<input type="text" class="form-control" id="item_alias" name="values[item_alias]" placeholder="Alias" >
+								<input type="text" class="form-control" id="item_link" name="values[item_link]" placeholder="Lien">
+								<input type="number" class="form-control" id="parent" name="values[parent]" placeholder="# parent">
+								<div class="custom-control custom-checkbox">
+								  <input type="checkbox" class="custom-control-input" id="menu" name="values[menu]" value="1">
+								  <label class="custom-control-label" for="menu">Visible</label>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			  </div>
+	          <div class="modal-footer">
+	            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+	            <button class="btn btn-primary" type="button" onclick="document.sections.submit()">Enregistrer</button>
+	          </div>
+	        </div>
+	      </div>
+	    </div>	    
 	   <!-- Delete Modal -->
 	    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
 	      <div class="modal-dialog modal-dialog-centered" role="document">
