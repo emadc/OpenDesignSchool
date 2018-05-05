@@ -85,10 +85,15 @@ $('#table')	.DataTable(
 		}else if(source == "sections-del"){
 			src_txt = "section";
 			modal.find('.modal-body form').attr('action', 'sections_delete');
-		}	
+		}else if(source == "social-del"){
+			src_txt = "social";
+			modal.find('.modal-body form').attr('action', 'page_delete');
+			modal.find('.modal-body form').append("<input type='hidden' id='item_alias' name='values[item_alias]' value='social_1'>");
+		}		
 		modal.find('.modal-title').text('soupprimer le '+src_txt+' n° ' + id + ' ?')
 		modal.find('.modal-body #id').val(id)
 	}).on('hidden.bs.modal', function (e) {
+		$(this).find('#item_alias').remove();
 		modal.find('.modal-body form').attr('action', '');
 	});
 
@@ -197,6 +202,35 @@ $('#table')	.DataTable(
 					});
 				});
 			});
+		}else if (source == "social-add") {
+			modal.find('#text').remove();
+			modal.find('.modal-body #link_holder').append("<input id='link' type='text' name='values[link]' class='form-control' placeholder='Lien'>" +
+					"<input type='hidden' name='values[item_alias]' value='social_1'>" +
+					"<input id='id' type='hidden' name='values[id]' value='"+id+"'>" +
+					"<input id='id' type='hidden' name='values[id_section]' value='55'>");
+			modal.find('.modal-title').text("Ajouter un nouveau social");
+			modal.find('.modal-body form').attr('action', 'page_upload');
+		} else if (source == "social-edit") {
+			modal.find('#text').remove();
+			modal.find('.modal-body #link_holder').append("<input id='link' type='text' name='values[link]' class='form-control' placeholder='Lien'>" +
+					"<input type='hidden' name='values[item_alias]' value='social_1'>" +
+					"<input id='id' type='hidden' name='values[id]' value='"+id+"'>" +
+					"<input id='id' type='hidden' name='values[id_section]' value='55'>");
+			modal.find('.modal-body form').attr('action', 'page_upload');
+			modal.find('.modal-title').text("Modifier le social");
+			modal.find('.modal-body #id').val(id);
+			$.getJSON("page_find/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						if(key=="image"){
+							modal.find('.modal-body #image').attr('src', 'assets/img/uploads/'+value);
+							modal.find('.modal-body #image').attr('style', 'max-width:100px;');
+						}else{
+							modal.find('.modal-body #' + key).val(value);							
+						}
+					});
+				});
+			});
 		}else {
 			$(this).find('.modal-title #n_msg').text(id);
 		}
@@ -207,6 +241,8 @@ $('#table')	.DataTable(
 		 $(this).find('.modal-body #title').val('');
 		 $(this).find('.modal-body #text').val('');
 		 $(this).find('#id').remove();
+		 $(this).find('#id_section').remove();
+		 $(this).find('#link').remove();
 	});
 	$('#edit_section').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget) 

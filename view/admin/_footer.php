@@ -70,6 +70,7 @@
 						<div class="form-group col-12">
 							<img alt="service" src="" style="display: none;" id="image">
 							<input type="text" class="form-control" id="title" name="values[title]" aria-describedby="emailHelp" placeholder="Titre" autocomplete="off" required>
+							<div id="link_holder"></div>
 							<textarea id="text" name='values[text]' class='form-control' style='height: 200px;'></textarea>
 							<input class='form-control' name="fileToUpload" type="file" autocomplete="off">
 						</div>

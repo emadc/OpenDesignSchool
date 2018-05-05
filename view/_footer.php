@@ -5,21 +5,25 @@
 				</section>			
 			</main>
 			<footer class="row justify-content-center text-center no-gutters">
-<?php	foreach ($footer as $footerItem):
-			if ($footerItem->getTitle()!="<%>copyright<%>"):?>
 				<div class="col-md-2 col-sm-12">
-					<h3><?php echo $footerItem->getTitle();?></h3>
-					<p><?php echo $footerItem->getText();?></p>
-					<p><?php echo $footerItem->getSocials();?></p>
+					<h3><?php echo $zone1->getTitle();?></h3>
+					<p><?php echo $zone1->getText();?></p>
 				</div>
-			<?php else:?>
+				<div class="col-md-2 col-sm-12">
+					<h3><?php echo $zone2_social1->getTitle();?></h3>
+					<a href="<?php echo $zone2_social1->getLink();?>"><img alt="facebook" src="<?php echo UPOLOAD_URL.$zone2_social1->getImage();?>"/></a>
+					<a href="<?php echo $zone2_social2->getLink();?>"><img alt="twitter" src="<?php echo UPOLOAD_URL.$zone2_social2->getImage();?>"/></a>
+					<a href="<?php echo $zone2_social3->getLink();?>"><img alt="linkedin" src="<?php echo UPOLOAD_URL.$zone2_social3->getImage();?>"/></a>
+				</div>
+				<div class="col-md-2 col-sm-12">
+					<h3><?php echo $zone3->getTitle();?></h3>
+					<p><?php echo $zone3->getText();?></p>
+				</div>
 				<div class="col-md-12 text-center">
 				    <div class="copy">
-				    	<p><?php echo $footerItem->getText();?></p>
+				    	<p><?php echo $zone4->getTitle();?></p>
 				    </div>
 				</div>
-<?php 		endif;
-		endforeach;?>
 			</footer>
 		</div>
 		<!-- Modal -->

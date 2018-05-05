@@ -7,9 +7,10 @@
 					<span class="nav-link-text">Qui sommes nous</span>
 				</div>
 				<div>
-					<form class="form_about" name="about" action="<?php echo htmlspecialchars(HOST.'about_page');?>" method="post" enctype="multipart/form-data">
+					<form class="form_admin" name="about" action="<?php echo htmlspecialchars(HOST.'page_upload');?>" method="post" enctype="multipart/form-data">
 						<div>
 							<input type="hidden" name="values[id]" value="<?php echo $page->getId();?>">
+							<input type="hidden" name="values[id_section]" value="<?php echo $page->getIdSection();?>">
 							<input type="hidden" name="values[item_alias]" value="about">
 							<input style="margin-bottom: 10px;" type="text" class="form-control" id="title" name="values[title]" aria-describedby="emailHelp" placeholder="Titre" value="<?php echo $page->getTitle();?>" autocomplete="off" required>
 							<textarea id="text" name='values[text]' class='form-control' style='height: 200px;' placeholder="Presentation"><?php echo $page->getText();?></textarea>

@@ -17,7 +17,12 @@ class Page {
 		$myView->render ( array (
 				'menu' => $manager->getMenu (),
 				'bottom' => $manager->getPage ( 'bottom' ),
-				'footer' => $manager->getFooter (),
+				'zone1' => $manager->getPage ( 'zone_1' ),
+				'zone2_social1' => $manager->getPage ( 'social_1' ),
+				'zone2_social2' => $manager->getPage ( 'social_2' ),
+				'zone2_social3' => $manager->getPage ( 'social_3' ),
+				'zone3' => $manager->getPage ( 'zone_3' ),
+				'zone4' => $manager->getPage ( 'zone_4' ),
 				'page' => $manager->getPage ( $params ['id'] )
 		) );
 	}
@@ -31,7 +36,7 @@ class Page {
 		// echo "values<pre>"; var_dump ( $params); exit ();
 		$target_dir = UPOLOADS;
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
-		
+		$values['file_name='] = basename ( $_FILES ["fileToUpload"] ["name"] );
 		$imageFileType = strtolower ( pathinfo ( $target_file, PATHINFO_EXTENSION ) );
 		// Check if image file is a actual image or fake image
 		if (isset ( $_POST ["submit"] )) {
@@ -59,7 +64,7 @@ class Page {
 		// Check if $uploadOk is set to 0 by an error
 		if (move_uploaded_file ( $_FILES ["fileToUpload"] ["tmp_name"], $target_file )) {
 			$manager = new PageManager ();
-			$manager->setPage ( $values, basename ( $_FILES ["fileToUpload"] ["name"] ) );
+			$manager->setPage ( $values, basename ( $_FILES ["fileToUpload"] ["name"] ));
 			$myView = new View ();
 			$myView->redirect ( $values ['item_alias'] );
 		} else {
@@ -68,46 +73,48 @@ class Page {
 	}
 	
 	/**
+	 *
+	 * @param unknown $params
+	 */
+	public function setPage($params) {
+		extract ( $params );
+		
+		$manager = new PageManager();
+		$manager->setPage ( $values );
+		$myView = new View ();
+		$myView->redirect ( $values['item_alias'] );
+	}
+	
+	/**
 	 */
 	public function getPage($item_alias) {
-		$manager = new LayoutManager ();
+		$manager = new PageManager();
 		$page = $manager->getPage ( $item_alias );
 		return $page;
 	}
 	
 	/**
+	 *
 	 */
-	public function getService($params) {
+	public function findPage($params){
 		extract ( $params );
 		
-		$manager = new ServicesManager ();
-		echo $manager->find ( $id );
+		$manager = new PageManager();
+		echo $manager->find($id);
 	}
 	
 	/**
 	 *
-	 * @param unknown $id        	
+	 * @param unknown $id
 	 */
-	public function deleteService($params) {
+	public function deletePage($params) {
 		extract ( $params );
 		
-		$manager = new ServicesManager ();
-		$manager->delete ( $id );
+		$manager = new PageManager();
+		$manager->delete($id);
 		
 		$myView = new View ();
-		$myView->redirect ( 'services_admin' );
+		$myView->redirect ( $values['item_alias'] );
 	}
 	
-	/**
-	 *
-	 * @param unknown $data        	
-	 * @return string
-	 */
-	public function test_input($data) {
-		$data = trim ( $data );
-		$data = stripslashes ( $data );
-		$data = filter_var ( $data, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
-		$data = filter_var ( $data, FILTER_SANITIZE_STRING );
-		return $data;
-	}
 }

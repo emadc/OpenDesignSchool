@@ -46,6 +46,7 @@ class LayoutManager
     public function getPage($item_alias)
     {
     	$bdd = $this->bdd;
+    	$page = new PageObj();
     	
     	$query = "SELECT *
 					FROM sections
@@ -57,51 +58,24 @@ class LayoutManager
     	
     	$results = $req->fetchAll(PDO::FETCH_ASSOC);
     	
-    	$page = new PageObj();
-    	$page->setId($results[0]['id']);
-    	$page->setTitle($results[0]['title']);
-    	
-    	$text = $results[0]['text'];
-    	$text = preg_replace("/\r|\n/", "<br>", $text);
-    	
-    	$page->setText($text);
-    	$page->setImage($results[0]['image']);
-    	$page->setLink($results[0]['link']);
-    	$page->setDateModif($results[0]['date_modif']);
-    	$page->setItemAlias($results[0]['item_alias']);
+    	if (!empty($results)) {
+    		$page->setId($results[0]['id']);
+    		$page->setIdSection($results[0]['id_section']);
+    		$page->setTitle($results[0]['title']);
+    		
+    		$text = $results[0]['text'];
+    		$text = preg_replace("/\r|\n/", "<br>", $text);
+    		
+    		$page->setText($text);
+    		$page->setImage($results[0]['image']);
+    		$page->setLink($results[0]['link']);
+    		$page->setDateModif($results[0]['date_modif']);
+    		$page->setItemAlias($results[0]['item_alias']);
+    	}
     	
 // 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
     	
     	return $page;
-    }
-    
-    /**
-     * restituisce un oggetto footer
-     * @return ArrayObject FooterItem
-     */
-    public function getFooter()
-    {
-    	$bdd = $this->bdd;
-    	$footer = new ArrayObject();
-    	
-    	/*** accès au model ***/
-    	$query = "SELECT * FROM footer";
-    	
-    	$req = $bdd->prepare($query);
-    	$req->execute();
-    	while ($row = $req->fetch(PDO::FETCH_ASSOC)) {
-    		
-    		$footerItem = new FooterItem();  
-    		$footerItem->setId($row['id']);
-    		$footerItem->setTitle($row['title']);
-    		$footerItem->setText($row['text']);
-    		$footerItem->setSocials($row['socials']);
-    		
-    		$footer[] = $footerItem; // tableau d'objet
-    		
-    	};
-
-    	return $footer;
     }
     
 }

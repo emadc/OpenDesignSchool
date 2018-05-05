@@ -576,16 +576,18 @@ h5#exampleModalLabel {
 
 .container-fluid {
 	margin-bottom: 75px;
+	margin-top: 25px;
 }
 
 #navbarAccordion {
 	padding-top: 20px;
 }
 
-.form_services div {
+.form_admin div {
 	margin: 25px;
 }
 
-.form_admin div {
-	margin: 25px;
+.social_caard div {
+	max-width: 235px;
+	margin: auto;
 }

@@ -29,7 +29,12 @@ class Home {
 				'menu' => $this->manager->getMenu (),
 				'welcame' => $this->manager->getPage ( 'welcame' ),
 				'bottom' => $this->manager->getPage ( 'bottom' ),
-				'footer' => $this->manager->getFooter (),
+				'zone1' => $this->manager->getPage ( 'zone_1' ),
+				'zone2_social1' => $this->manager->getPage ( 'social_1' ),
+				'zone2_social2' => $this->manager->getPage ( 'social_2' ),
+				'zone2_social3' => $this->manager->getPage ( 'social_3' ),
+				'zone3' => $this->manager->getPage ( 'zone_3' ),
+				'zone4' => $this->manager->getPage ( 'zone_4' ),
 				'services' => $manager->getServices ( true ),
 				'medias' => $gallery->getGallery ( true ) 
 		) );
@@ -42,7 +47,12 @@ class Home {
 		$myView->render ( array (
 				'menu' => $this->manager->getMenu (),
 				'bottom' => $this->manager->getPage ( 'bottom' ),
-				'footer' => $this->manager->getFooter () 
+				'zone1' => $this->manager->getPage ( 'zone_1' ),
+				'zone2_social1' => $this->manager->getPage ( 'social_1' ),
+				'zone2_social2' => $this->manager->getPage ( 'social_2' ),
+				'zone2_social3' => $this->manager->getPage ( 'social_3' ),
+				'zone3' => $this->manager->getPage ( 'zone_3' ),
+				'zone4' => $this->manager->getPage ( 'zone_4' ),
 		) );
 	}
 }

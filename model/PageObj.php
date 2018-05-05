@@ -1,6 +1,7 @@
 <?php
 class PAgeObj {
 	private $id;
+	private $idSection;
 	private $title;
 	private $texte;
 	private $image;
@@ -22,6 +23,22 @@ class PAgeObj {
 	 */
 	public function setId($id) {
 		$this->id = $id;
+	}
+	
+	/**
+	 *
+	 * @return mixed
+	 */
+	public function getIdSection() {
+		return $this->idSection;
+	}
+	
+	/**
+	 *
+	 * @param mixed $idSection
+	 */
+	public function setIdSection($idSection) {
+		$this->idSection = $idSection;
 	}
 	
 	/**

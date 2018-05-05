@@ -7,9 +7,10 @@
 					<span class="nav-link-text">Bas de page</span>
 				</div>
 				<div>
-					<form class="form_admin" name="about" action="<?php echo htmlspecialchars(HOST.'admin_page');?>" method="post" enctype="multipart/form-data">
+					<form class="form_admin" name="bottom" action="<?php echo htmlspecialchars(HOST.'admin_page');?>" method="post" enctype="multipart/form-data">
 						<div>
 							<input type="hidden" name="values[id]" value="<?php echo $page->getId();?>">
+							<input type="hidden" name="values[id_section]" value="<?php echo $page->getIdSection();?>">
 							<input type="hidden" name="values[item_alias]" value="bottom">
 							<input style="margin-bottom: 10px;" type="text" class="form-control" id="title" name="values[title]"  placeholder="Titre" value="<?php echo $page->getTitle();?>" autocomplete="off" required>
 							<input style="margin-bottom: 10px;" type="text" class="form-control" id="link" name="values[link]"  placeholder="Lien" value="<?php echo $page->getLink();?>" autocomplete="off" >

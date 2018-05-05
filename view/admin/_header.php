@@ -52,7 +52,7 @@
 								<a href="bottom">Bas de page</a>
 							</li>
 							<li>
-								<a href="#">Pieds de page</a>
+								<a href="footer">Pieds de page</a>
 							</li>
 						</ul>
 					</li>										

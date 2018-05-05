@@ -113,11 +113,12 @@ class Administration {
 	 */
 	public function showServices() {
 		$manager = new ServicesManager ();
+		$page = new PageManager ();
 		$myView = new View ( 'services', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'services' => $manager->getServices (),
-				'page' => $manager->getPage ( 'services' ),
+				'page' => $page->getPage ( 'services' ),
 				'newMsgs' => $this->newMsgs 
 		) );
 	}
@@ -179,6 +180,23 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'bottom' ),
 				'newMsgs' => $this->newMsgs 
+		) );
+	}
+	
+	/**
+	 */
+	public function showFooter() {
+		$manager = new PageManager ();
+		$myView = new View ( 'footer', 'admin/' );
+		$myView->render ( array (
+				'role' => $_SESSION ['role'],
+				'zone1' => $manager->getPage ( 'zone_1' ),
+				'zone2_social1' => $manager->getPage ( 'social_1' ),
+				'zone2_social2' => $manager->getPage ( 'social_2' ),
+				'zone2_social3' => $manager->getPage ( 'social_3' ),
+				'zone3' => $manager->getPage ( 'zone_3' ),
+				'zone4' => $manager->getPage ( 'zone_4' ),
+				'newMsgs' => $this->newMsgs
 		) );
 	}
 	

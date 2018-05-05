@@ -20,8 +20,12 @@ class Contact {
 		$myView->render ( array (
 				'menu' => $manager->getMenu (),
 				'bottom' => $manager->getPage ( 'bottom' ),
-				'footer' => $manager->getFooter (),
-				'valid' => $valid 
+				'zone1' => $manager->getPage ( 'zone_1' ),
+				'zone2_social1' => $manager->getPage ( 'social_1' ),
+				'zone2_social2' => $manager->getPage ( 'social_2' ),
+				'zone2_social3' => $manager->getPage ( 'social_3' ),
+				'zone3' => $manager->getPage ( 'zone_3' ),
+				'zone4' => $manager->getPage ( 'zone_4' ),'valid' => $valid 
 		) );
 	}
 	
