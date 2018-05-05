@@ -49,7 +49,7 @@
 								<a href="welcame">Bannière</a>
 							</li>
 							<li>
-								<a href="#">Bas de page</a>
+								<a href="bottom">Bas de page</a>
 							</li>
 							<li>
 								<a href="#">Pieds de page</a>

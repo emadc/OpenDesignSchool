@@ -281,16 +281,8 @@ main {
 	font-size: 13px;
 }
 
-#bottom button {
-	border: none;
-	background-color: #e84546;
-	color: #fff;
-	text-transform: uppercase;
-	width: 280px;
+#bottom img {
 	border-radius: 3px;
-	height: 45px;
-	font-size: 13px;
-	font-weight: bold;
 }
 
 #bottom h2 {

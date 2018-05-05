@@ -1,7 +1,7 @@
 				<section id="bottom" class="text-center">
-					<h2>Découvrez l'expérience The Open Design School</h2>
-					<p>Apud has gentes, quarum exordiens initium</p>
-					<button>Demande de devis</button>
+					<h2><?php echo $bottom->getTitle();?></h2>
+					<p><?php echo $bottom->getText();?></p>
+					<?php if (!empty($bottom->getImage())) echo "<a href='".HOST.$bottom->getLink()."'><img alt='Bas de page' src='".UPOLOAD_URL.$bottom->getImage()."'></a>";?>
 				</section>			
 			</main>
 			<footer class="row justify-content-center text-center no-gutters">

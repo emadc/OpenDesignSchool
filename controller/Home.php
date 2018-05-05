@@ -6,13 +6,13 @@
  * use to show the home page
  */
 class Home {
+	
 	private $manager;
-	private $menu;
-	private $footer;
+	
+	/**
+	 */
 	public function __construct() {
 		$this->manager = new LayoutManager ();
-		$this->menu = $this->manager->getMenu ();
-		$this->footer = $this->manager->getFooter ();
 	}
 	
 	/**
@@ -24,13 +24,12 @@ class Home {
 		
 		$gallery = new GalleryManager ();
 		
-		$welcame = new LayoutManager ();
-		
 		$myView = new View ( 'home' );
 		$myView->render ( array (
-				'menu' => $this->menu,
-				'welcame' => $welcame->getPage ( 'welcame' ),
-				'footer' => $this->footer,
+				'menu' => $this->manager->getMenu (),
+				'welcame' => $this->manager->getPage ( 'welcame' ),
+				'bottom' => $this->manager->getPage ( 'bottom' ),
+				'footer' => $this->manager->getFooter (),
 				'services' => $manager->getServices ( true ),
 				'medias' => $gallery->getGallery ( true ) 
 		) );
@@ -41,8 +40,9 @@ class Home {
 	public function notFound() {
 		$myView = new View ( '404' );
 		$myView->render ( array (
-				'menu' => $this->menu,
-				'footer' => $this->footer 
+				'menu' => $this->manager->getMenu (),
+				'bottom' => $this->manager->getPage ( 'bottom' ),
+				'footer' => $this->manager->getFooter () 
 		) );
 	}
 }

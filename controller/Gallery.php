@@ -15,6 +15,7 @@ class Gallery {
 		$myView = new View ( 'gallery' );
 		$myView->render ( array (
 				'menu' => $manager->getMenu (),
+				'bottom' => $manager->getPage ( 'bottom' ),
 				'footer' => $manager->getFooter (),
 				'medias'=> $gallery->getGallery(),
 		) );

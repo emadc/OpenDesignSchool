@@ -7,21 +7,22 @@
  */
 class Service {
 	
-	public function showServices()
-	{
-		$manager = new LayoutManager();
-		$menu = $manager->getMenu();
-		$footer = $manager->getFooter();
+	/**
+	 */
+	public function showServices() {
+		$manager = new LayoutManager ();
 		
-		$manager = new ServicesManager();
-		$services = $manager->getServices();
+		$services = new ServicesManager ();
 		
-		$manager = new LayoutManager();
-		$page = $manager->getPage("services");
 		
-		$myView = new View('services');
-		$myView->render(array('menu' => $menu, 'footer' => $footer, 'page' => $page, 'services' => $services));
-		
+		$myView = new View ( 'services' );
+		$myView->render ( array (
+				'menu' => $manager->getMenu (),
+				'bottom' => $manager->getPage ( 'bottom' ),
+				'footer' => $manager->getFooter (),
+				'page' => $manager->getPage ( "services" ),
+				'services' => $services->getServices () 
+		) );
 	}
 	
 	/**
@@ -77,7 +78,7 @@ class Service {
 		extract ( $params );
 		
 		$manager = new ServicesManager ();
-		$manager->setPage( $values );
+		$manager->setPage ( $values );
 		$myView = new View ();
 		$myView->redirect ( 'services_admin' );
 	}
