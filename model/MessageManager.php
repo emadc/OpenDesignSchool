@@ -166,31 +166,12 @@ class MessageManager {
 		
 		return "ok";
 	}
-	
+
 	/**
 	 * 
-	 * @param unknown $values
+	 * @param unknown $id
+	 * @return string
 	 */
-	public function setContact($values) {
-		$bdd = $this->bdd;
-		
-		if (isset ( $values ['id'] )) {
-			$query = "UPDATE contacts SET nom_prenom = :nom_prenom, email = :email, tel = :tel, societe = :societe  WHERE id = :id; ";
-		} else {
-			$query = "INSERT INTO contacts (nom_prenom, email, tel, societe)
-            VALUES (:nom_prenom, :email, :tel, :societe);";
-		}
-		
-		$req = $bdd->prepare ( $query );
-		
-		if (isset ( $values ['id'] ))
-			$req->bindValue ( ':id', $values ['id'], PDO::PARAM_INT );
-		$req->bindValue ( ':nom_prenom', $values ['nom_prenom'], PDO::PARAM_STR );
-		$req->bindValue ( ':email', $values ['email'], PDO::PARAM_STR );
-		$req->bindValue ( ':tel', $values ['tel'], PDO::PARAM_STR );
-		$req->bindValue ( ':societe', $values ['societe'], PDO::PARAM_STR );
-		$req->execute ();
-	}
 	public function find($id) {
 		$bdd = $this->bdd;
 		

@@ -24,6 +24,7 @@ class Routeur
     		"contact_delete"    => ["controller" => 'Contact', 			"method" => 'deleteContact',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"devis_delete"    	=> ["controller" => 'Contact', 			"method" => 'deleteDevis',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"messag_delete"		=> ["controller" => 'Contact', 			"method" => 'deleteMessage',	"area" => 'PRIVATE',"role" => 'ADMIN'],
+    		"set_contact"		=> ["controller" => 'Contact', 			"method" => 'setContact',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"admin"		     	=> ["controller" => 'Administration', 	"method" => 'showAdmin',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"login"		     	=> ["controller" => 'Administration', 	"method" => 'login',			"area" => 'PUBLIC',	"role" => 'USER'],
     		"auth"		     	=> ["controller" => 'Administration', 	"method" => 'checkUser',		"area" => 'PUBLIC',	"role" => 'USER'],

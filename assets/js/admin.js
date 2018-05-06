@@ -112,7 +112,16 @@ $('#table')	.DataTable(
 					});
 				});
 			});
-		} else if (source == "contacts-edit") {
+		} else if (source == "devis-contacts-add") {
+			modal.find('.modal-title').text("Ajouter un nouveau contact");
+			$.getJSON("get_message/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						modal.find('.modal-body #' + key).val(value);
+					});
+				});
+			});
+		}else if (source == "contacts-edit") {
 			modal.find('.modal-title').text("Modifier le contact");
 			modal.find('.modal-body #id').val(id);
 			modal.find('.modal-body form').append("<input id='id' type='hidden' name='values[id]'>");
