@@ -26,8 +26,6 @@ class Routeur
     		"messag_delete"		=> ["controller" => 'Contact', 			"method" => 'deleteMessage',	"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"admin"		     	=> ["controller" => 'Administration', 	"method" => 'showAdmin',		"area" => 'PRIVATE',"role" => 'ADMIN'],
     		"login"		     	=> ["controller" => 'Administration', 	"method" => 'login',			"area" => 'PUBLIC',	"role" => 'USER'],
-    		"register"		    => ["controller" => 'Administration', 	"method" => 'register',			"area" => 'PUBLIC',	"role" => 'USER'],
-    		"forgot"		    => ["controller" => 'Administration', 	"method" => 'forgot',			"area" => 'PUBLIC',	"role" => 'USER'],
     		"auth"		     	=> ["controller" => 'Administration', 	"method" => 'checkUser',		"area" => 'PUBLIC',	"role" => 'USER'],
     		"logout"			=> ["controller" => 'Administration',	"method" => 'logout',			"area" => 'PUBLIC',	"role" => 'USER'],
     		"messages"	     	=> ["controller" => 'Administration', 	"method" => 'showMessages',		"area" => 'PRIVATE',"role" => 'ADMIN'],

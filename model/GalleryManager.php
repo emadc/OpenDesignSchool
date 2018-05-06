@@ -68,7 +68,6 @@ class GalleryManager {
 		$results = $req->fetchAll ( PDO::FETCH_ASSOC );
 		$json = '{ "data": ' . json_encode ( $results ) . '}';
 		
-		
 		return $json;
 	}
 	public function delete($id) {

@@ -41,22 +41,7 @@ class Administration {
 				'role' => null 
 		) );
 	}
-	/**
-	 */
-	public function register() {
-		$myView = new View ( 'register', 'admin/' );
-		$myView->render ( array (
-				'role' => null 
-		) );
-	}
-	/**
-	 */
-	public function forgot() {
-		$myView = new View ( 'forgot', 'admin/' );
-		$myView->render ( array (
-				'role' => null 
-		) );
-	}
+	
 	/**
 	 */
 	public function logout() {
@@ -79,12 +64,7 @@ class Administration {
 			$template = "admin";
 			$_SESSION ['role'] = $role;
 			$_SESSION ['username'] = $username;
-			$myView = new View ( $template, 'admin/' );
-			$myView->render ( array (
-					'role' => $role,
-					'newMsgs' => $this->newMsgs,
-					'newDevis' => $this->newDevis
-			) );
+			$this->showAdmin($params);
 		} else {
 			$myView = new View ();
 			$myView->redirect ( 'login' );

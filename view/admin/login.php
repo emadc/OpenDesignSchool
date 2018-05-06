@@ -7,31 +7,19 @@
 				</div>					
 			</header>	
 			<div class="card card-login mx-auto">
-				<div class="card-header">Login</div>
+				<div class="card-header">Connexion</div>
 				<div class="card-body">
 					<form action="<?php echo htmlspecialchars(HOST.'auth');?>" method="post">
 						<div class="form-group">
-							<label for="exampleInputEmail1">Login</label>
+							<label for="exampleInputEmail1">Utilisateur</label>
 							<input class="form-control" id="exampleInputEmail1" name="values[login]" type="text" aria-describedby="emailHelp" placeholder="Login">
 						</div>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
+							<label for="exampleInputPassword1">Mot de passe</label>
 							<input class="form-control" id="exampleInputPassword1" name="values[password]" type="password" placeholder="Password">
 						</div>
-						<div class="form-group">
-							<div class="form-check">
-								<label class="form-check-label">
-									<input class="form-check-input" type="checkbox">
-									Remember Password
-								</label>
-							</div>
-						</div>
-						<input class="btn btn-primary btn-block" type="submit" value="Login"/>
+						<input class="btn btn-primary btn-block" type="submit" value="Se connecter"/>
 					</form>
-					<div class="text-center">
-						<a class="d-block small mt-3" href="<?php echo HOST?>register">Register an Account</a>
-						<a class="d-block small" href="<?php echo HOST?>forgot">Forgot Password?</a>
-					</div>
 				</div>
 			</div>
 		</div>
