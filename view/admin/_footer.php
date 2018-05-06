@@ -104,7 +104,6 @@
 								<input type="text" class="form-control" id="item_text" name="values[item_text]" placeholder="Title" autocomplete="off" required>
 								<input type="text" class="form-control" id="item_alias" name="values[item_alias]" placeholder="Alias" >
 								<input type="text" class="form-control" id="item_link" name="values[item_link]" placeholder="Lien">
-								<input type="number" class="form-control" id="parent" name="values[parent]" placeholder="# parent">
 								<div class="custom-control custom-checkbox">
 								  <input type="checkbox" class="custom-control-input" id="menu" name="values[menu]" value="1">
 								  <label class="custom-control-label" for="menu">Visible</label>

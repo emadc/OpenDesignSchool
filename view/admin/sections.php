@@ -16,7 +16,6 @@
 								<th>Title</th>
 								<th>Alias</th>
 								<th>Lien</th>
-								<th># parent</th>
 								<th>Actif</th>
 								<th></th>
 							</tr>
@@ -27,8 +26,7 @@
 								<td><?php echo $section->getId()?></td>
 								<td><?php echo $section->getItemText()?></td>
 								<td><?php echo $section->getItemAlias()?></td>
-								<td><?php echo $section->getItemLink()?></td>
-								<td><?php echo $section->getParent()?></td>
+								<td><?php if ($section->getEditable()==1) echo $section->getItemLink();?></td>
 								<td><?php echo $section->getMenu() == 0 ? "non" : "oui"?></td>
 								<td style="vertical-align: middle; text-align: center; cursor: pointer;">
 									<i data-target="#edit_section" data-toggle="modal" title="modifier" class="fa fa-pencil fa-2x" aria-hidden="true" data-source="section-edit" data-id="<?php echo $section->getId()?>" style="color:#007bff;"></i>
