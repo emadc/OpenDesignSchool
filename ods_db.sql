@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 04, 2018 at 03:38 PM
+-- Generation Time: May 06, 2018 at 02:35 AM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -13,8 +13,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ods_db`
 --
-CREATE DATABASE IF NOT EXISTS `ods_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `ods_db`;
 
 -- --------------------------------------------------------
 
@@ -34,6 +32,23 @@ CREATE TABLE `contacts` (
   `tel` varchar(255) NOT NULL,
   `societe` varchar(255) NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devis`
+--
+
+CREATE TABLE `devis` (
+  `id` int(11) NOT NULL,
+  `nom_prenom` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `tel` varchar(255) NOT NULL,
+  `societe` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `is_read` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -66,20 +81,6 @@ CREATE TABLE `gallery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sections`
---
-
-CREATE TABLE `sections` (
-  `id` int(11) NOT NULL,
-  `item_text` varchar(255) NOT NULL,
-  `item_alias` varchar(255) DEFAULT NULL,
-  `item_link` varchar(255) NOT NULL,
-  `parent` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `messages`
 --
 
@@ -102,10 +103,29 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL,
+  `id_section` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `text` text,
   `image` varchar(255) DEFAULT NULL,
+  `link` varchar(255) DEFAULT NULL,
   `date_modif` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sections`
+--
+
+CREATE TABLE `sections` (
+  `id` int(11) NOT NULL,
+  `item_text` varchar(255) NOT NULL,
+  `item_alias` varchar(255) DEFAULT NULL,
+  `item_link` varchar(255) DEFAULT NULL,
+  `parent` int(11) DEFAULT NULL,
+  `menu` tinyint(1) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `editable` tinyint(1) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -159,12 +179,6 @@ ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sections`
---
-ALTER TABLE `sections`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -174,6 +188,12 @@ ALTER TABLE `messages`
 -- Indexes for table `pages`
 --
 ALTER TABLE `pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sections`
+--
+ALTER TABLE `sections`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -208,14 +228,14 @@ ALTER TABLE `footer`
 ALTER TABLE `gallery`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `sections`
---
-ALTER TABLE `sections`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `sections`
+--
+ALTER TABLE `sections`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `services`
