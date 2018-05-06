@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 06, 2018 at 02:35 AM
+-- Generation Time: May 06, 2018 at 01:12 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -167,6 +167,12 @@ ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `devis`
+--
+ALTER TABLE `devis`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `footer`
 --
 ALTER TABLE `footer`
@@ -216,6 +222,11 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `devis`
+--
+ALTER TABLE `devis`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `footer`
