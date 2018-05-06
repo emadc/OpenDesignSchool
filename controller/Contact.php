@@ -9,7 +9,7 @@ class Contact {
 	
 	/**
 	 * 
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function showContact($params) {
 		$manager = new LayoutManager ();
@@ -31,7 +31,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function showDevis($params) {
 		$manager = new LayoutManager ();
@@ -53,7 +53,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function setMessage($params) {
 		extract ( $params );
@@ -72,7 +72,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function setDevis($params) {
 		extract ( $params );
@@ -91,7 +91,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function setContact($params) {
 		extract ( $params );
@@ -155,7 +155,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $id        	
+	 * @param mixed $id        	
 	 */
 	public function deleteContact($params) {
 		extract ( $params );
@@ -169,7 +169,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $id
+	 * @param mixed $id
 	 */
 	public function deleteDevis($params) {
 		extract ( $params );
@@ -183,7 +183,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $id        	
+	 * @param mixed $id        	
 	 */
 	public function deleteMEssage($params) {
 		extract ( $params );
@@ -197,7 +197,7 @@ class Contact {
 	
 	/**
 	 *
-	 * @param unknown $data        	
+	 * @param mixed $data        	
 	 * @return string
 	 */
 	public function test_input($data) {

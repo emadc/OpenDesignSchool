@@ -18,7 +18,7 @@ class Administration {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function showAdmin($params) {
 		$manager = new GalleryManager ();

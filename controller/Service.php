@@ -32,7 +32,7 @@ class Service {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function serviceUpload($params) {
 		extract ( $params );
@@ -76,7 +76,7 @@ class Service {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function setPage($params) {
 		extract ( $params );
@@ -98,7 +98,7 @@ class Service {
 	
 	/**
 	 *
-	 * @param unknown $id        	
+	 * @param mixed $id        	
 	 */
 	public function deleteService($params) {
 		extract ( $params );
@@ -112,7 +112,7 @@ class Service {
 	
 	/**
 	 *
-	 * @param unknown $data        	
+	 * @param mixed $data        	
 	 * @return string
 	 */
 	public function test_input($data) {

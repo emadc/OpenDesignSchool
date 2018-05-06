@@ -29,7 +29,7 @@ class Page {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function pageUpload($params) {
 		extract ( $params );
@@ -73,7 +73,7 @@ class Page {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function setPage($params) {
 		extract ( $params );
@@ -104,7 +104,7 @@ class Page {
 	
 	/**
 	 *
-	 * @param unknown $id
+	 * @param mixed $id
 	 */
 	public function deletePage($params) {
 		extract ( $params );

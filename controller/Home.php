@@ -17,7 +17,7 @@ class Home {
 	
 	/**
 	 *
-	 * @param unknown $params        	
+	 * @param mixed $params        	
 	 */
 	public function showHome($params) {
 		$manager = new ServicesManager ();

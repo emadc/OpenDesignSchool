@@ -71,7 +71,7 @@ class ContactManager
     
     /**
      * 
-     * @param unknown $values
+     * @param mixed $values
      */
     public function setMessage($values)
     {
@@ -95,7 +95,7 @@ class ContactManager
     
     /**
      *
-     * @param unknown $values
+     * @param mixed $values
      */
     public function setDevis($values)
     {

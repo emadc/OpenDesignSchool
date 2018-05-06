@@ -9,7 +9,7 @@ class Sections {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function setSection($params) {
 		extract ( $params );
@@ -33,7 +33,7 @@ class Sections {
 	
 	/**
 	 * 
-	 * @param unknown $id
+	 * @param mixed $id
 	 */
 	public function deleteSection($params) {
 		extract ( $params );
@@ -47,7 +47,7 @@ class Sections {
 	
 	/**
 	 *
-	 * @param unknown $data        	
+	 * @param mixed $data        	
 	 * @return string
 	 */
 	public function test_input($data) {

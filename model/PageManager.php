@@ -46,7 +46,7 @@ class PageManager
     
     /**
      *
-     * @param unknown $values
+     * @param mixed $values
      */
     public function setPage($values, $fileName = null)
     {

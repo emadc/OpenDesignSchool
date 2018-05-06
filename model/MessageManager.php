@@ -90,7 +90,7 @@ class MessageManager {
 	
 	/**
 	 * 
-	 * @param unknown $values
+	 * @param mixed $values
 	 */
 	public function setMessage($values) {
 		$bdd = $this->bdd;
@@ -133,7 +133,7 @@ class MessageManager {
 	
 	/**
 	 * 
-	 * @param unknown $id
+	 * @param mixed $id
 	 * @return string
 	 */
 	public function setAsRead($id) {
@@ -151,7 +151,7 @@ class MessageManager {
 	
 	/**
 	 *
-	 * @param unknown $id
+	 * @param mixed $id
 	 * @return string
 	 */
 	public function setDevisAsRead($id) {
@@ -169,7 +169,7 @@ class MessageManager {
 
 	/**
 	 * 
-	 * @param unknown $id
+	 * @param mixed $id
 	 * @return string
 	 */
 	public function find($id) {

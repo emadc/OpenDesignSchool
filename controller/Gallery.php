@@ -28,7 +28,7 @@ class Gallery {
 	
 	/**
 	 *
-	 * @param unknown $params
+	 * @param mixed $params
 	 */
 	public function galleyUpload($params) {
 		extract ( $params );
@@ -82,7 +82,7 @@ class Gallery {
 	
 	/**
 	 * 
-	 * @param unknown $id
+	 * @param mixed $id
 	 */
 	public function deleteMedia($params) {
 		extract ( $params );
@@ -96,7 +96,7 @@ class Gallery {
 	
 	/**
 	 *
-	 * @param unknown $data        	
+	 * @param mixed $data        	
 	 * @return string
 	 */
 	public function test_input($data) {
