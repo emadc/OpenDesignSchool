@@ -7,9 +7,8 @@ class MessageManager {
 	}
 	
 	/**
-	 * restituisce un array di oggetti ContactObj
-	 * 
-	 * @return ArrayObject ContactObj
+	 * Returns an array of MessageObj objects
+	 * @return ArrayObject MessageObj
 	 */
 	public function getMessages($new = false) {
 		$bdd = $this->bdd;
@@ -48,7 +47,7 @@ class MessageManager {
 	}
 	
 	/**
-	 *
+	 * Returns an array of devis in a MessageObj objects
 	 * @param string $new        	
 	 * @return ArrayObject|MessageObj
 	 */
@@ -89,7 +88,7 @@ class MessageManager {
 	}
 	
 	/**
-	 * 
+	 * Insert a new mwssage
 	 * @param mixed $values
 	 */
 	public function setMessage($values) {
@@ -109,8 +108,7 @@ class MessageManager {
 	}
 	
 	/**
-	 * restituisce un array di oggetti ContactObj
-	 * 
+	 * Returns an array of new messages in MessageObj objects
 	 * @return ArrayObject ContactObj
 	 */
 	public function getNewMsgs() {
@@ -132,7 +130,7 @@ class MessageManager {
 	}
 	
 	/**
-	 * 
+	 * Mark as read a message
 	 * @param mixed $id
 	 * @return string
 	 */
@@ -150,7 +148,7 @@ class MessageManager {
 	}
 	
 	/**
-	 *
+	 * Mark as read a devis
 	 * @param mixed $id
 	 * @return string
 	 */
@@ -168,7 +166,7 @@ class MessageManager {
 	}
 
 	/**
-	 * 
+	 * Returns a message in json format
 	 * @param mixed $id
 	 * @return string
 	 */
@@ -186,6 +184,11 @@ class MessageManager {
 		
 		return $json;
 	}
+	
+	/**
+	 * delete a message
+	 * @param mixed $id
+	 */
 	public function delete($id) {
 		$bdd = $this->bdd;
 		$query = "DELETE FROM messages WHERE id = :id";

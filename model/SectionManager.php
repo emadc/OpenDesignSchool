@@ -13,7 +13,7 @@ class SectionManager
     }
 
     /**
-     * restituisce un array di oggetti SectionObj
+     * Returns an array of SectionObj objects
      * @return ArrayObject SectionObj
      */
     public function getSections()
@@ -44,6 +44,10 @@ class SectionManager
     	return $sections;
     }
     
+    /**
+     * Insert or edit a section
+     * @param mixed $values
+     */
     public function setSection($values)
     {
     	$bdd = $this->bdd;
@@ -68,6 +72,11 @@ class SectionManager
     	
     }
 
+    /**
+     * Get a section in json format
+     * @param mixed $id
+     * @return string
+     */
     public function find($id)
     {
     	$bdd = $this->bdd;
@@ -83,6 +92,10 @@ class SectionManager
     	return $json;
     }
     
+    /**
+     * delete a section
+     * @param mixed $id
+     */
     public function delete($id)
     {
         $bdd = $this->bdd;

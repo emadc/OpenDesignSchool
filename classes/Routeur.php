@@ -10,7 +10,7 @@ class Routeur
     private $request;
 
     /**
-     * elenro delle routes disponibili con indicazione del ruolo e dell'area per gestire gli accessi
+     * Array of the available routeses, role and area to manage the accesses
      * @var array
      */
     private $routes = [
@@ -82,12 +82,20 @@ class Routeur
         $this->role     = $this->getRole();
     }
 
+    /**
+     * Parsing of the url
+     * @return mixed
+     */
     public function getRoute()
     {
         $elements = explode('/', $this->request);
         return $elements[0];
     }
 
+    /**
+     * Parsing of the parameters
+     * @return mixed[]
+     */
     public function getParams()
     {
 
@@ -114,6 +122,9 @@ class Routeur
 
     }
 
+    /**
+     * Verification of the access rights and render of the controller
+     */
     public function renderController()
     {
         
@@ -155,12 +166,20 @@ class Routeur
 
     }
     
+    /**
+     * Get the user in the session
+     * @return mixed
+     */
     public function getUsername()
     {
     	if(!isset($_SESSION['username'])) return null;
     	return $_SESSION['username'];
     }
     
+    /**
+     * Get the role in the session
+     * @return mixed
+     */
     public function getRole()
     {
     	if(!isset($_SESSION['role'])) return null;

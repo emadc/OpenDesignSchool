@@ -13,6 +13,10 @@ class View
         $this->path = $path;
     }
 
+    /**
+     * Render of the view
+     * @param array $params
+     */
     public function render($params = array())
     {
         extract($params); 
@@ -23,6 +27,10 @@ class View
         include_once (VIEW.$this->path.'layout.php');
     }
 
+    /**
+     * Redirect toward another page
+     * @param mixed $route
+     */
     public function redirect($route)
     {
         header("Location: ".HOST.$route);

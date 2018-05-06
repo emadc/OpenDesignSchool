@@ -8,7 +8,8 @@
 class Page {
 	
 	/**
-	 * questa funzione puo mostrare una pagina generica associata ad un item di menu
+	 * Render of any page associate to a section
+	 * @param mixed $params
 	 */
 	public function showPage($params) {
 		$manager = new LayoutManager ();
@@ -28,7 +29,7 @@ class Page {
 	}
 	
 	/**
-	 *
+	 * Upload an image for a page
 	 * @param mixed $params        	
 	 */
 	public function pageUpload($params) {
@@ -72,7 +73,7 @@ class Page {
 	}
 	
 	/**
-	 *
+	 * Records a page
 	 * @param mixed $params
 	 */
 	public function setPage($params) {
@@ -85,6 +86,9 @@ class Page {
 	}
 	
 	/**
+	 *  Look for a page
+	 * @param mixed $item_alias
+	 * @return PageObj
 	 */
 	public function getPage($item_alias) {
 		$manager = new PageManager();
@@ -93,7 +97,7 @@ class Page {
 	}
 	
 	/**
-	 *
+	 *  Get a page in json format
 	 */
 	public function findPage($params){
 		extract ( $params );
@@ -103,7 +107,7 @@ class Page {
 	}
 	
 	/**
-	 *
+	 * Delete a page
 	 * @param mixed $id
 	 */
 	public function deletePage($params) {

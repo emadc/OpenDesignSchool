@@ -13,7 +13,7 @@ class UserManager
     }
 
     /**
-     * restituisce un oggetto user
+     * Returns an ServiceObj model
      * @return ArrayObject user
      */
     public function getUser($login, $password)

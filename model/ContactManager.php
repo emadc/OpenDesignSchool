@@ -13,7 +13,7 @@ class ContactManager
     }
 
     /**
-     * restituisce un array di oggetti ContactObj
+     * Returns an array of ContactObj objects
      * @return ArrayObject ContactObj
      */
     public function getContacts()
@@ -50,7 +50,7 @@ class ContactManager
     }
     
 	/**
-	 * 
+	 * Returns the total count of contacts
 	 * @return mixed
 	 */
     public function countContacts()
@@ -70,7 +70,7 @@ class ContactManager
     }
     
     /**
-     * 
+     * Insert a new message
      * @param mixed $values
      */
     public function setMessage($values)
@@ -94,7 +94,7 @@ class ContactManager
     }
     
     /**
-     *
+     *Insert a new devis
      * @param mixed $values
      */
     public function setDevis($values)
@@ -117,6 +117,10 @@ class ContactManager
     	
     }
     
+    /**
+     * Insert or edit a contact
+     * @param mixed $values
+     */
     public function setContact($values)
     {
     	
@@ -141,6 +145,11 @@ class ContactManager
     	
     }
 
+    /**
+     * Returns a contact in json format
+     * @param mixed $id
+     * @return string
+     */
     public function find($id)
     {
     	$bdd = $this->bdd;
@@ -157,6 +166,11 @@ class ContactManager
     	return $json;
     }
     
+    /**
+     * Returns a devis in json format
+     * @param mixed $id
+     * @return string
+     */
     public function findDevis($id)
     {
     	$bdd = $this->bdd;
@@ -172,6 +186,10 @@ class ContactManager
     	return $json;
     }
     
+    /**
+     * Delete a contact
+     * @param mixed $id
+     */
     public function delete($id)
     {
         $bdd = $this->bdd;
@@ -182,7 +200,11 @@ class ContactManager
 
         $req->execute();
     }
-
+    
+    /**
+     * Delete a devis
+     * @param mixed $id
+     */
     public function deleteDevis($id)
     {
     	$bdd = $this->bdd;

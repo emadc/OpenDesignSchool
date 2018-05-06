@@ -8,7 +8,7 @@
 class Contact {
 	
 	/**
-	 * 
+	 * Render of contact page
 	 * @param mixed $params
 	 */
 	public function showContact($params) {
@@ -30,7 +30,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Render of devis page
 	 * @param mixed $params
 	 */
 	public function showDevis($params) {
@@ -52,7 +52,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Records a mesage
 	 * @param mixed $params        	
 	 */
 	public function setMessage($params) {
@@ -71,7 +71,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Records a devis
 	 * @param mixed $params
 	 */
 	public function setDevis($params) {
@@ -90,7 +90,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Records a contact
 	 * @param mixed $params        	
 	 */
 	public function setContact($params) {
@@ -109,6 +109,8 @@ class Contact {
 	}
 	
 	/**
+	 * Get a contact
+	 * @param mixed $params
 	 */
 	public function getContact($params) {
 		extract ( $params );
@@ -118,6 +120,8 @@ class Contact {
 	}
 	
 	/**
+	 * Get a devis in json format
+	 * @param mixed $params
 	 */
 	public function getDevis($params) {
 		extract ( $params );
@@ -127,6 +131,8 @@ class Contact {
 	}
 	
 	/**
+	 * Mark as read a message
+	 * @param mixed $params
 	 */
 	public function setAsRead($params) {
 		extract ( $params );
@@ -136,6 +142,8 @@ class Contact {
 	}
 	
 	/**
+	 * Mark as read a devis
+	 * @param mixed $params
 	 */
 	public function setDevisAsRead($params) {
 		extract ( $params );
@@ -154,7 +162,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Delete a contact
 	 * @param mixed $id        	
 	 */
 	public function deleteContact($params) {
@@ -168,7 +176,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Delete a devis
 	 * @param mixed $id
 	 */
 	public function deleteDevis($params) {
@@ -182,7 +190,7 @@ class Contact {
 	}
 	
 	/**
-	 *
+	 * Delete a message
 	 * @param mixed $id        	
 	 */
 	public function deleteMEssage($params) {

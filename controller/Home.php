@@ -16,8 +16,8 @@ class Home {
 	}
 	
 	/**
-	 *
-	 * @param mixed $params        	
+	 * Render of home page
+	 * @param mixed $params
 	 */
 	public function showHome($params) {
 		$manager = new ServicesManager ();
@@ -41,6 +41,7 @@ class Home {
 	}
 	
 	/**
+	 * Render of 404 page
 	 */
 	public function notFound() {
 		$myView = new View ( '404' );

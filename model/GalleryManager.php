@@ -7,9 +7,9 @@ class GalleryManager {
 	}
 	
 	/**
-	 * restituisce un array di oggetti ContactObj
+	 * Returns an array of GalleryObj objects
 	 *
-	 * @return ArrayObject ContactObj
+	 * @return ArrayObject GalleryObj
 	 */
 	public function getGallery($home = false) {
 		$bdd = $this->bdd;
@@ -38,6 +38,12 @@ class GalleryManager {
 		
 		return $gallery;
 	}
+	
+	/**
+	 * Insert or edit a media
+	 * @param mixed $values
+	 * @param mixed $fileName
+	 */
 	public function setMedia($values, $fileName) {
 		$bdd = $this->bdd;
 		
@@ -57,6 +63,12 @@ class GalleryManager {
 		$req->bindValue ( ':file_name', $fileName, PDO::PARAM_STR );
 		$req->execute ();
 	}
+	
+	/**
+	 * Returns a media in json format
+	 * @param mixed $id
+	 * @return string
+	 */
 	public function find($id) {
 		$bdd = $this->bdd;
 		
@@ -70,6 +82,11 @@ class GalleryManager {
 		
 		return $json;
 	}
+	
+	/**
+	 * Delete a media
+	 * @param mixed $id
+	 */
 	public function delete($id) {
 		$bdd = $this->bdd;
 		$query = "DELETE FROM gallery WHERE id = :id";

@@ -12,8 +12,7 @@ class ServicesManager
 	}
 	
 	/**
-    /**
-     * restituisce un array di oggetti ServiceObj
+     * Returns an array of ServiceObj objects
      * @return ArrayObject ServiceObj
      */
     public function getServices($home = false)
@@ -42,8 +41,9 @@ class ServicesManager
     }
 	
 	/**
-	 *
+	 * 
 	 * @param mixed $values
+	 * @param mixed $fileName
 	 */
     public function setService($values,$fileName)
 	{
@@ -67,7 +67,11 @@ class ServicesManager
 		$req->execute();
 	}
 	
-	
+	/**
+	 * Get a service in json format
+	 * @param mixed $id
+	 * @return string
+	 */
 	public function find($id)
 	{
 		$bdd = $this->bdd;
@@ -83,6 +87,10 @@ class ServicesManager
 		return $json;
 	}
 	
+	/**
+	 * delete a service
+	 * @param mixed $id
+	 */
 	public function delete($id)
 	{
 		$bdd = $this->bdd;

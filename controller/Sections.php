@@ -8,12 +8,11 @@
 class Sections {
 	
 	/**
-	 *
+	 * Register a section
 	 * @param mixed $params
 	 */
 	public function setSection($params) {
 		extract ( $params );
-		echo "values<pre>"; var_dump($values); 
 		$manager = new SectionManager();
 		$manager->setSection( $values);
 		
@@ -22,7 +21,7 @@ class Sections {
 	}
 	
 	/**
-	 * 
+	 * Get a section in json format
 	 */
 	public function getSection($params){
 		extract ( $params );
@@ -32,7 +31,7 @@ class Sections {
 	}
 	
 	/**
-	 * 
+	 * Delete a section
 	 * @param mixed $id
 	 */
 	public function deleteSection($params) {
@@ -45,16 +44,4 @@ class Sections {
 		$myView->redirect ( 'sections' );
 	}
 	
-	/**
-	 *
-	 * @param mixed $data        	
-	 * @return string
-	 */
-	public function test_input($data) {
-		$data = trim ( $data );
-		$data = stripslashes ( $data );
-		$data = filter_var($data, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$data = filter_var($data, FILTER_SANITIZE_STRING);
-		return $data;
-	}
 }

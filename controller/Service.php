@@ -8,6 +8,7 @@
 class Service {
 	
 	/**
+	 * Render of services page
 	 */
 	public function showServices() {
 		$manager = new LayoutManager ();
@@ -31,7 +32,7 @@ class Service {
 	}
 	
 	/**
-	 *
+	 * Upload an image for a service
 	 * @param mixed $params        	
 	 */
 	public function serviceUpload($params) {
@@ -75,7 +76,7 @@ class Service {
 	}
 	
 	/**
-	 *
+	 * register the service page
 	 * @param mixed $params        	
 	 */
 	public function setPage($params) {
@@ -88,6 +89,8 @@ class Service {
 	}
 	
 	/**
+	 * Get services in json format
+	 * @param mixed $params
 	 */
 	public function getService($params) {
 		extract ( $params );
@@ -108,18 +111,5 @@ class Service {
 		
 		$myView = new View ();
 		$myView->redirect ( 'services_admin' );
-	}
-	
-	/**
-	 *
-	 * @param mixed $data        	
-	 * @return string
-	 */
-	public function test_input($data) {
-		$data = trim ( $data );
-		$data = stripslashes ( $data );
-		$data = filter_var ( $data, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
-		$data = filter_var ( $data, FILTER_SANITIZE_STRING );
-		return $data;
 	}
 }

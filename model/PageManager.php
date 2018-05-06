@@ -12,7 +12,9 @@ class PageManager
     }
 
     /**
-     *questa funzione puo chiamare una pagina generica associata ad un item di menu
+     * Returns any page associate to a section
+     * @param mixed $item_alias
+     * @return PageObj
      */
     public function getPage($item_alias)
     {
@@ -45,7 +47,7 @@ class PageManager
     }
     
     /**
-     *
+     * Insert or edit a page
      * @param mixed $values
      */
     public function setPage($values, $fileName = null)
@@ -73,6 +75,11 @@ class PageManager
     	
     }
     
+    /**
+     * Get a page in json format
+     * @param mixed $id
+     * @return string
+     */
     public function find($id) {
     	$bdd = $this->bdd;
     	
@@ -88,7 +95,8 @@ class PageManager
     }
     
     /**
-     * 
+     * delete a page
+     * @param mixed $id
      */
     public function delete($id) {
     	$bdd = $this->bdd;

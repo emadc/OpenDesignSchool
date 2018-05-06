@@ -17,7 +17,7 @@ class Administration {
 	}
 	
 	/**
-	 *
+	 * Render of administration default page
 	 * @param mixed $params        	
 	 */
 	public function showAdmin($params) {
@@ -34,6 +34,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of login page
 	 */
 	public function login() {
 		$myView = new View ( 'login', 'admin/' );
@@ -43,6 +44,7 @@ class Administration {
 	}
 	
 	/**
+	 * Logout function
 	 */
 	public function logout() {
 		session_unset ();
@@ -52,6 +54,11 @@ class Administration {
 				'role' => null 
 		) );
 	}
+	
+	/**
+	 * Looking for user in the database
+	 * @param unknown $params
+	 */
 	public function checkUser($params) {
 		extract ( $params );
 		$manager = new UserManager ();
@@ -72,6 +79,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of messages administration page
 	 */
 	public function showMessages() {
 		$manager = new MessageManager ();
@@ -85,6 +93,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of devis administration page
 	 */
 	public function showDevis() {
 		$manager = new MessageManager ();
@@ -98,6 +107,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of contacts administration page
 	 */
 	public function showContacts() {
 		$manager = new ContactManager ();
@@ -112,10 +122,11 @@ class Administration {
 	}
 	
 	/**
+	 * Render of services administration page
 	 */
 	public function showServices() {
 		$manager = new ServicesManager ();
-		$page = new PageManager ();
+		$page = new PageManager();
 		$myView = new View ( 'services', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
@@ -127,6 +138,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of gallery administration page
 	 */
 	public function showGallery() {
 		$manager = new GalleryManager ();
@@ -140,6 +152,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of gallery grid administration page
 	 */
 	public function showGalleryGrid() {
 		$manager = new GalleryManager ();
@@ -153,6 +166,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of about administration page
 	 */
 	public function showAbout() {
 		$manager = new PageManager ();
@@ -166,6 +180,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of welcame administration area
 	 */
 	public function showWelcame() {
 		$manager = new PageManager ();
@@ -179,6 +194,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of bottom administration area
 	 */
 	public function showBottom() {
 		$manager = new PageManager ();
@@ -192,6 +208,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of footer administration area
 	 */
 	public function showFooter() {
 		$manager = new PageManager ();
@@ -210,6 +227,7 @@ class Administration {
 	}
 	
 	/**
+	 * Render of sections administration area
 	 */
 	public function showSections() {
 		$sections = new SectionManager ();

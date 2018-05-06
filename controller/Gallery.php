@@ -7,6 +7,10 @@
  */
 class Gallery {
 	
+	/**
+	 * Render of gallery page
+	 * @param mixed $params
+	 */
 	public function showGallery($params) {
 		$manager = new LayoutManager ();
 		
@@ -27,7 +31,7 @@ class Gallery {
 	}
 	
 	/**
-	 *
+	 * Upload an image in the gallery
 	 * @param mixed $params
 	 */
 	public function galleyUpload($params) {
@@ -71,7 +75,7 @@ class Gallery {
 	}
 	
 	/**
-	 * 
+	 *  Look for a media
 	 */
 	public function getMedia($params){
 		extract ( $params );
@@ -81,7 +85,7 @@ class Gallery {
 	}
 	
 	/**
-	 * 
+	 * Delete a media
 	 * @param mixed $id
 	 */
 	public function deleteMedia($params) {
@@ -94,16 +98,4 @@ class Gallery {
 		$myView->redirect ( 'gallery' );
 	}
 	
-	/**
-	 *
-	 * @param mixed $data        	
-	 * @return string
-	 */
-	public function test_input($data) {
-		$data = trim ( $data );
-		$data = stripslashes ( $data );
-		$data = filter_var($data, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-		$data = filter_var($data, FILTER_SANITIZE_STRING);
-		return $data;
-	}
 }

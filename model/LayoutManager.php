@@ -12,7 +12,7 @@ class LayoutManager
     }
 
     /**
-     * restituisce un array di oggetti menuItem
+     * Returns an array of MenuItem objects
      * @return ArrayObject MenuItem
      */
     public function getMenu()
@@ -41,6 +41,11 @@ class LayoutManager
         return $menu;
     }
 
+    /**
+     * Returns a Page objects
+     * @param mixed $item_alias
+     * @return PageObj
+     */
     public function getPage($item_alias)
     {
     	$bdd = $this->bdd;
