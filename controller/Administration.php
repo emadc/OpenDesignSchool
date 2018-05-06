@@ -7,11 +7,13 @@
  */
 class Administration {
 	private $newMsgs;
+	private $newDevis;
 	/**
 	 */
 	public function __construct() {
 		$newMsgs = new MessageManager ();
 		$this->newMsgs = $newMsgs->getMessages ( true );
+		$this->newDevis = $newMsgs->getDeviss( true );
 	}
 	
 	/**
@@ -19,10 +21,15 @@ class Administration {
 	 * @param unknown $params        	
 	 */
 	public function showAdmin($params) {
+		$manager = new GalleryManager ();
+		$contact = new ContactManager();
 		$myView = new View ( 'admin', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'newMsgs' => $this->newMsgs 
+				'gallery' => $manager->getGallery (true),
+				'newMsgs' => $this->newMsgs, 
+				'newDevis' => $this->newDevis,
+				'prospects' => $contact->countContacts()
 		) );
 	}
 	
@@ -76,7 +83,8 @@ class Administration {
 			$myView = new View ( $template, 'admin/' );
 			$myView->render ( array (
 					'role' => $role,
-					'newMsgs' => $this->newMsgs 
+					'newMsgs' => $this->newMsgs,
+					'newDevis' => $this->newDevis
 			) );
 		} else {
 			$myView = new View ();
@@ -92,7 +100,21 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'messages' => $manager->getMessages (),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
+		) );
+	}
+	
+	/**
+	 */
+	public function showDevis() {
+		$manager = new MessageManager ();
+		$myView = new View ( 'devis', 'admin/' );
+		$myView->render ( array (
+				'role' => $_SESSION ['role'],
+				'deviss' => $manager->getDeviss(),
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -105,7 +127,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'contacts' => $manager->getContacts (),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -119,7 +142,8 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'services' => $manager->getServices (),
 				'page' => $page->getPage ( 'services' ),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -131,7 +155,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'gallery' => $manager->getGallery (),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -143,7 +168,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'gallery' => $manager->getGallery (),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -155,7 +181,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'qui_sommes_nous' ),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -167,7 +194,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'welcame' ),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -179,7 +207,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'bottom' ),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -196,7 +225,8 @@ class Administration {
 				'zone2_social3' => $manager->getPage ( 'social_3' ),
 				'zone3' => $manager->getPage ( 'zone_3' ),
 				'zone4' => $manager->getPage ( 'zone_4' ),
-				'newMsgs' => $this->newMsgs
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 	
@@ -208,7 +238,8 @@ class Administration {
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'sections' => $sections->getSections (),
-				'newMsgs' => $this->newMsgs 
+				'newMsgs' => $this->newMsgs,
+				'newDevis' => $this->newDevis
 		) );
 	}
 }

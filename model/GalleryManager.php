@@ -19,7 +19,7 @@ class GalleryManager {
 		/**
 		 * * accès au model **
 		 */
-		$query = "SELECT * FROM gallery ".($home ? "limit 0,8" : "");
+		$query = "SELECT * FROM gallery ".($home ? "ORDER BY id DESC limit 0,8" : "");
 		
 		$req = $bdd->prepare ( $query );
 		$req->execute ();

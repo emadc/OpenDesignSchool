@@ -41,11 +41,8 @@ $('#table')	.DataTable(
 					function(e) {
 						e.preventDefault();
 						$("body").toggleClass("sidenav-toggled");
-						$(".navbar-sidenav .nav-link-collapse").addClass(
-								"collapsed");
-						$(
-								".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level")
-								.removeClass("show");
+						$(".navbar-sidenav .nav-link-collapse").addClass("collapsed");
+						$(".navbar-sidenav .sidenav-second-level, .navbar-sidenav .sidenav-third-level").removeClass("show");
 					});
 
 	// Force the toggled class to be removed when a collapsible nav link is
@@ -63,7 +60,7 @@ $('#table')	.DataTable(
 				this.scrollTop += (delta < 0 ? 1 : -1) * 30;
 				e.preventDefault();
 			});
-
+	//modal effacements
 	$('#delete').on('show.bs.modal',function(event) {
 		var button = $(event.relatedTarget)
 		var id = button.data('id')
@@ -89,14 +86,17 @@ $('#table')	.DataTable(
 			src_txt = "social";
 			modal.find('.modal-body form').attr('action', 'page_delete');
 			modal.find('.modal-body form').append("<input type='hidden' id='item_alias' name='values[item_alias]' value='social_1'>");
+		}else if(source == "devis-del"){
+			src_txt = "devis";
+			modal.find('.modal-body form').attr('action', 'devis_delete');
 		}		
 		modal.find('.modal-title').text('soupprimer le '+src_txt+' n° ' + id + ' ?')
 		modal.find('.modal-body #id').val(id)
 	}).on('hidden.bs.modal', function (e) {
 		$(this).find('#item_alias').remove();
-		modal.find('.modal-body form').attr('action', '');
+		$(this).find('.modal-body form').attr('action', '');
 	});
-
+	//modal messages, devis et contact
 	$('#edit_contact').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget) 
 		var id = button.data('id') 
@@ -137,6 +137,20 @@ $('#table')	.DataTable(
 					});
 				});
 			});
+		}else if(source == "devis-read") {
+			modal.find('.modal-title').text("Message n° "+id);
+			modal.find('.modal-body').append("<textarea name='message' id='message' class='form-control' style='height: 200px;''>");
+			modal.find('.modal-footer .btn-primary').hide();
+			$.getJSON("get_devis/id/" + id, function(resp) {
+				$.each(resp.data, function(key, value) {
+					$.each(value, function(key, value) {
+						modal.find('.modal-body #' + key).val(value);
+					});
+					$.get( "set_devis_read/id/"+id, function( resp ) {
+					    console.log( "as_red: "+resp );
+					});
+				});
+			});
 		}else {
 			modal.find('.modal-title #n_msg').text(id);
 		}
@@ -148,7 +162,9 @@ $('#table')	.DataTable(
 		 $(this).find('#email').val("");
 		 $(this).find('#tel').val("");
 		 $(this).find('#societe').val("");
+		 
 	});
+	// modal uploads
 	$('#edit_uploads').on('show.bs.modal', function(event) {
 		var button = $(event.relatedTarget) 
 		var id = button.data('id') 

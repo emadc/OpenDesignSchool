@@ -51,6 +51,27 @@ class ContactManager
     	return $contacts;
     }
     
+	/**
+	 * 
+	 * @return mixed
+	 */
+    public function countContacts()
+    {
+    	$bdd = $this->bdd;
+    	$contacts = new ArrayObject();
+    	
+    	/*** accès au model ***/
+    	$query = "SELECT COUNT(id) AS nbr FROM contacts";
+    	
+    	$req = $bdd->prepare($query);
+    	$req->execute();
+    	$results = $req->fetchAll(PDO::FETCH_ASSOC);
+    	
+//     	echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($results); exit();
+    	
+    	return $results[0]['nbr'];
+    }
+    
     /**
      * 
      * @param unknown $values
@@ -61,6 +82,30 @@ class ContactManager
     	$bdd = $this->bdd;
     	
     	$query = "INSERT INTO messages (nom_prenom, email, tel, societe, message)
+    		       VALUES (:nom_prenom, :email, :tel, :societe, :message);";
+    	
+    	$req = $bdd->prepare($query);
+    	
+    	if(isset($values['id'])) $req->bindValue(':id', $values['id'], PDO::PARAM_INT);
+    	$req->bindValue(':nom_prenom',	$values['nom_prenom'], PDO::PARAM_STR);
+    	$req->bindValue(':email',		$values['email'], PDO::PARAM_STR);
+    	$req->bindValue(':tel',			$values['tel'], PDO::PARAM_STR);
+    	$req->bindValue(':societe',		$values['societe'], PDO::PARAM_STR);
+    	$req->bindValue(':message',		$values['message'], PDO::PARAM_STR);
+    	$req->execute();
+    	
+    }
+    
+    /**
+     *
+     * @param unknown $values
+     */
+    public function setDevis($values)
+    {
+    	
+    	$bdd = $this->bdd;
+    	
+    	$query = "INSERT INTO devis (nom_prenom, email, tel, societe, message)
     		       VALUES (:nom_prenom, :email, :tel, :societe, :message);";
     	
     	$req = $bdd->prepare($query);
@@ -116,6 +161,23 @@ class ContactManager
     	return $json;
     }
     
+    public function findDevis($id)
+    {
+    	$bdd = $this->bdd;
+    	
+    	$query = "SELECT * FROM devis WHERE id=:id";
+    	$req = $bdd->prepare($query);
+    	$req->bindValue(':id', $id, PDO::PARAM_INT);
+    	$req->execute();
+    	
+    	$results = $req->fetchAll(PDO::FETCH_ASSOC);
+    	$json = '{ "data": '.json_encode($results).'}';
+    	
+    	//     	echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
+    	
+    	return $json;
+    }
+    
     public function delete($id)
     {
         $bdd = $this->bdd;
@@ -127,5 +189,15 @@ class ContactManager
         $req->execute();
     }
 
+    public function deleteDevis($id)
+    {
+    	$bdd = $this->bdd;
+    	$query = "DELETE FROM devis WHERE id = :id";
+    	
+    	$req = $bdd->prepare($query);
+    	$req->bindValue(':id', $id, PDO::PARAM_INT);
+    	
+    	$req->execute();
+    }
 
 }

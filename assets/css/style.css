@@ -387,11 +387,45 @@ form input {
 	margin-bottom: 15px;
 }
 
+/** page devis **/
+#devis {
+	background-color: #fff;
+	padding-top: 40px;
+}
+
+#devis form {
+	margin: 70px 0 85px;
+	height: 350px;
+}
+
+#devis form textarea {
+	width: 680px;
+	border-radius: 3px;
+	margin-left: 95px;
+	height: 240px;
+}
+
+#devis form button {
+	border: none;
+	background-color: #e84546;
+	color: #fff;
+	text-transform: uppercase;
+	width: 280px;
+	border-radius: 3px;
+	height: 45px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
 @media ( max-width : 1200px) {
 	#services {
 		max-height: unset;
 	}
 	#contact form textarea {
+		width: 95%;
+		margin-left: 10px;
+	}
+	#devis form textarea {
 		width: 95%;
 		margin-left: 10px;
 	}
@@ -433,6 +467,9 @@ form input {
 	#contact form textarea {
 		width: 100%;
 	}
+	#devis form textarea {
+		width: 100%;
+	}
 	#services .row {
 		margin: 50px auto 0;
 	}
@@ -440,6 +477,9 @@ form input {
 		margin: 50px auto 0;
 	}
 	#contact form {
+		height: unset;
+	}
+	#devis form {
 		height: unset;
 	}
 	#bottom {
@@ -453,6 +493,9 @@ form input {
 
 @media ( max-width : 768px) {
 	#contact form textarea {
+		margin-left: unset;
+	}
+	#devis form textarea {
 		margin-left: unset;
 	}
 	footer {
