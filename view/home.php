@@ -9,7 +9,7 @@
 					<div class="row">
 						<?php foreach ($services AS $service):?>
 							<div class="text-center col-xl-4 col-md-6 col-12">
-								<img alt="Easily customised" src="<?php echo UPOLOAD_URL.'services/'.$service->getImage();?>" />
+								<img alt="<?php echo $service->getTitle();?>" src="<?php echo UPOLOAD_URL.'services/'.$service->getImage();?>" />
 								<h3><?php echo $service->getTitle();?></h3>
 								<p><?php echo $service->getText();?></p>
 							</div>
