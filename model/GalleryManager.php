@@ -8,7 +8,6 @@ class GalleryManager {
 	
 	/**
 	 * Returns an array of GalleryObj objects
-	 *
 	 * @return ArrayObject GalleryObj
 	 */
 	public function getGallery($home = false) {
