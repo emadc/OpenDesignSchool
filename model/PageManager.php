@@ -8,7 +8,6 @@ class PageManager
     public function __construct()
     {
         $config = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true);
-//         echo "<pre>"; print_r($config); exit();
         $this->bdd = new PDO("mysql:host=".$config['sql']['ods']['host']."; dbname=".$config['sql']['ods']['base']."; charset=utf8", $config['sql']['ods']['user'], $config['sql']['ods']['pass']);
     }
 
@@ -41,7 +40,6 @@ class PageManager
     		$page->setItemAlias($results[0]['item_alias']);
     	}
     	
-// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
     	
     	return $page;
     }
@@ -52,7 +50,6 @@ class PageManager
      */
     public function setPage($values, $fileName = null)
     {
-    	// 		echo "setPage <pre>"; var_dump($values); exit();
     	$bdd = $this->bdd;
     	
     	$query = "INSERT INTO pages (id, id_section, title, text, link, image)
@@ -74,7 +71,6 @@ class PageManager
     	$req->bindValue(':image',		$fileName);
     	$req->execute();
     	
-//     	echo "setPage <pre>"; print_r($req->errorInfo()); var_dump($values); var_dump($fileName); exit();
     }
     
     public function find($id) {
@@ -87,8 +83,6 @@ class PageManager
     	
     	$results = $req->fetchAll ( PDO::FETCH_ASSOC );
     	$json = '{ "data": ' . json_encode ( $results ) . '}';
-    	
-    	// echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
     	
     	return $json;
     }

@@ -36,7 +36,6 @@ class Service {
 	 */
 	public function serviceUpload($params) {
 		extract ( $params );
-		// echo "values<pre>"; var_dump ( $params); exit ();
 		$target_dir = UPOLOADS . "services/";
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		

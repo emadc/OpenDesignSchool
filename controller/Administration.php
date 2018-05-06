@@ -69,7 +69,6 @@ class Administration {
 	}
 	public function checkUser($params) {
 		extract ( $params );
-		// echo "values<pre>"; var_dump ( $values ); exit ();
 		$manager = new UserManager ();
 		
 		$role = null;

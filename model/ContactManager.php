@@ -9,7 +9,6 @@ class ContactManager
     public function __construct()
     {
         $config = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true);
-//         echo "<pre>"; print_r($config); exit();
         $this->bdd = new PDO("mysql:host=".$config['sql']['ods']['host']."; dbname=".$config['sql']['ods']['base']."; charset=utf8", $config['sql']['ods']['user'], $config['sql']['ods']['pass']);
     }
 
@@ -46,7 +45,6 @@ class ContactManager
     		
     	};
     	
-    	//         echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
     	
     	return $contacts;
     }
@@ -67,7 +65,6 @@ class ContactManager
     	$req->execute();
     	$results = $req->fetchAll(PDO::FETCH_ASSOC);
     	
-//     	echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($results); exit();
     	
     	return $results[0]['nbr'];
     }
@@ -156,7 +153,6 @@ class ContactManager
     	$results = $req->fetchAll(PDO::FETCH_ASSOC);
     	$json = '{ "data": '.json_encode($results).'}';
     	
-//     	echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
     	
     	return $json;
     }
@@ -172,8 +168,6 @@ class ContactManager
     	
     	$results = $req->fetchAll(PDO::FETCH_ASSOC);
     	$json = '{ "data": '.json_encode($results).'}';
-    	
-    	//     	echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
     	
     	return $json;
     }

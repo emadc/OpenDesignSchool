@@ -8,7 +8,6 @@ class LayoutManager
     public function __construct()
     {
         $config = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true);
-//         echo "<pre>"; print_r($config); exit();
         $this->bdd = new PDO("mysql:host=".$config['sql']['ods']['host']."; dbname=".$config['sql']['ods']['base']."; charset=utf8", $config['sql']['ods']['user'], $config['sql']['ods']['pass']);
     }
 
@@ -34,11 +33,10 @@ class LayoutManager
 			$menuItem->setItemLink($row['item_link']);
 			$menuItem->setParent($row['parent']);
 
-            $menu[] = $menuItem; // tableau d'objet
+            $menu[] = $menuItem; 
 
         };
 
-//      echo "LayoutManager<pre>"; print_r($req->errorInfo()); var_dump($menu); exit();
         
         return $menu;
     }
@@ -72,8 +70,6 @@ class LayoutManager
     		$page->setDateModif($results[0]['date_modif']);
     		$page->setItemAlias($results[0]['item_alias']);
     	}
-    	
-// 		echo $item_alias." <pre>"; print_r($req->errorInfo()); var_dump($results); exit();
     	
     	return $page;
     }

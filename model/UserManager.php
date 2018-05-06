@@ -9,7 +9,6 @@ class UserManager
     public function __construct()
     {
         $config = parse_ini_file(__DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true);
-//         echo "<pre>"; print_r($config); exit();
         $this->bdd = new PDO("mysql:host=".$config['sql']['ods']['host']."; dbname=".$config['sql']['ods']['base']."; charset=utf8", $config['sql']['ods']['user'], $config['sql']['ods']['pass']);
     }
 
@@ -32,8 +31,6 @@ class UserManager
         $req->execute();
         
         if(!$user = $req->fetch(PDO::FETCH_ASSOC)) return null;
-        
-//         echo print_r($req->errorInfo()); var_dump($login); var_dump($password); exit();
         
         return $user;
     }

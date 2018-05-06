@@ -32,7 +32,6 @@ class Gallery {
 	 */
 	public function galleyUpload($params) {
 		extract ( $params );
-// 		echo "params<pre>"; var_dump ( $params); var_dump( $_FILES ["fileToUpload"] ); exit ();
 		$target_dir = UPOLOADS . "gallery/";
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		

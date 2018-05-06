@@ -33,7 +33,6 @@ class Page {
 	 */
 	public function pageUpload($params) {
 		extract ( $params );
-		// echo "values<pre>"; var_dump ( $params); exit ();
 		$target_dir = UPOLOADS;
 		$target_file = $target_dir . basename ( $_FILES ["fileToUpload"] ["name"] );
 		$values['file_name='] = basename ( $_FILES ["fileToUpload"] ["name"] );

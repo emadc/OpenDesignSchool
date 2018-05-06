@@ -3,7 +3,6 @@ class GalleryManager {
 	private $bdd;
 	public function __construct() {
 		$config = parse_ini_file ( __DIR__ . DIRECTORY_SEPARATOR . '../db_config.php', true );
-		// echo "<pre>"; print_r($config); exit();
 		$this->bdd = new PDO ( "mysql:host=" . $config ['sql'] ['ods'] ['host'] . "; dbname=" . $config ['sql'] ['ods'] ['base'] . "; charset=utf8", $config ['sql'] ['ods'] ['user'], $config ['sql'] ['ods'] ['pass'] );
 	}
 	
@@ -36,7 +35,6 @@ class GalleryManager {
 		}
 		;
 		
-		// echo "getMessages<pre>"; print_r($req->errorInfo()); var_dump($messages); exit();
 		
 		return $gallery;
 	}
@@ -70,7 +68,6 @@ class GalleryManager {
 		$results = $req->fetchAll ( PDO::FETCH_ASSOC );
 		$json = '{ "data": ' . json_encode ( $results ) . '}';
 		
-		// echo "getContact<pre>"; print_r($req->errorInfo()); var_dump($json); exit();
 		
 		return $json;
 	}

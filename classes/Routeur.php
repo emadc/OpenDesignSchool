@@ -78,8 +78,7 @@ class Routeur
     public function __construct($request)
     {
         $this->request = $request;
-        // create the user session
-//         echo "Role<pre>"; var_dump($this->getRole()); exit();
+        // création de la session utilisateur
         $this->username = $this->getUsername();
         $this->role     = $this->getRole();
     }
@@ -95,7 +94,6 @@ class Routeur
 
         $params = array();
 
-        // extract GET params
         $elements = explode('/', $this->request);
         unset($elements[0]);
 
@@ -105,7 +103,6 @@ class Routeur
             $i++;
         }
 
-        // extract POST params
         if($_POST)
         {
             foreach($_POST as $key => $val)
@@ -123,10 +120,9 @@ class Routeur
         
         $route  = $this->getRoute();
         $params = $this->getParams();
-//         echo "<pre>"; var_dump($this->routes[$route]); exit();
         if(key_exists($route, $this->routes))
         {
-            // authorisation
+        	// vérification des droits utilisateur
         	if ($this->routes[$route]['area'] == "PUBLIC") 
         	{
         		$controller = $this->routes[$route]['controller'];
