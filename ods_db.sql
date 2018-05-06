@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 06, 2018 at 01:12 PM
+-- Generation Time: May 06, 2018 at 03:42 PM
 -- Server version: 10.1.26-MariaDB-0+deb9u1
 -- PHP Version: 7.0.27-0+deb9u1
 
@@ -49,19 +49,6 @@ CREATE TABLE `devis` (
   `message` text NOT NULL,
   `date_creation` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `is_read` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `footer`
---
-
-CREATE TABLE `footer` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `text` text,
-  `socials` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -173,12 +160,6 @@ ALTER TABLE `devis`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `footer`
---
-ALTER TABLE `footer`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
@@ -227,11 +208,6 @@ ALTER TABLE `contacts`
 -- AUTO_INCREMENT for table `devis`
 --
 ALTER TABLE `devis`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `footer`
---
-ALTER TABLE `footer`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `gallery`
