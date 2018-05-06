@@ -8,7 +8,7 @@
 							  </button>
 							</div>
 						<?php endif;?>
-						<h1 class="h1_title">Devis</h1>
+						<h1 class="h1_title">Demande de devis</h1>
 						<form class="row no-gutters" action="<?php echo htmlspecialchars(HOST.'demande_devis');?>" method="post">
 							<div class="form-group col-md-4 col-12">
 								<input type="text" class="form-control" name="values[nom_prenom]" aria-describedby="emailHelp" placeholder="Nom & prénom" autocomplete="off" required>
