@@ -10,10 +10,14 @@
 					<p><?php echo $zone1->getText();?></p>
 				</div>
 				<div class="col-md-2 col-sm-12">
-					<?php if (!empty($zone2_social1->getTitle())):?>
-						<h3><?php echo $zone2_social1->getTitle();?></h3>
+					<h3><?php echo $zone2_social1->getTitle();?></h3>
+					<?php if (!empty($zone2_social1->getImage())):?>
 						<a href="<?php echo $zone2_social1->getLink();?>"><img alt="social 1" src="<?php echo UPOLOAD_URL.$zone2_social1->getImage();?>"/></a>
+					<?php endif;?>
+					<?php if (!empty($zone2_social2->getImage())):?>
 						<a href="<?php echo $zone2_social2->getLink();?>"><img alt="social 2" src="<?php echo UPOLOAD_URL.$zone2_social2->getImage();?>"/></a>
+					<?php endif;?>
+					<?php if (!empty($zone2_social3->getImage())):?>
 						<a href="<?php echo $zone2_social3->getLink();?>"><img alt="social 3" src="<?php echo UPOLOAD_URL.$zone2_social3->getImage();?>"/></a>
 					<?php endif;?>
 				</div>
