@@ -1,6 +1,6 @@
 <section id="gallery_home" class="col-12 page" style="padding-top: 40px;">
 	<div class="main_container">
-		<h1 class="h1_title">Galerie photos></h1>
+		<h1 class="h1_title">Galerie photos</h1>
 	</div>
 	<div class="row no-gutters">
 		<?php foreach ($medias AS $media):?>
