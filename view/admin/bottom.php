@@ -7,7 +7,7 @@
 					<span class="nav-link-text">Bas de page</span>
 				</div>
 				<div>
-					<form class="form_admin" name="bottom" action="<?php echo htmlspecialchars(HOST.'admin_page');?>" method="post" enctype="multipart/form-data">
+					<form class="form_admin" name="bottom" action="<?php echo htmlspecialchars(HOST.'page_upload');?>" method="post" enctype="multipart/form-data">
 						<div>
 							<input type="hidden" name="values[id]" value="<?php echo $page->getId();?>">
 							<input type="hidden" name="values[id_section]" value="<?php echo $page->getIdSection();?>">
