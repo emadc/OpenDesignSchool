@@ -13,23 +13,24 @@ class Administration {
 	public function __construct() {
 		$newMsgs = new MessageManager ();
 		$this->newMsgs = $newMsgs->getMessages ( true );
-		$this->newDevis = $newMsgs->getDeviss( true );
+		$this->newDevis = $newMsgs->getDeviss ( true );
 	}
 	
 	/**
 	 * Render of administration default page
+	 * 
 	 * @param mixed $params        	
 	 */
 	public function showAdmin($params) {
 		$manager = new GalleryManager ();
-		$contact = new ContactManager();
+		$contact = new ContactManager ();
 		$myView = new View ( 'admin', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'gallery' => $manager->getGallery (true),
-				'newMsgs' => $this->newMsgs, 
+				'gallery' => $manager->getGallery ( true ),
+				'newMsgs' => $this->newMsgs,
 				'newDevis' => $this->newDevis,
-				'prospects' => $contact->countContacts()
+				'prospects' => $contact->countContacts () 
 		) );
 	}
 	
@@ -57,7 +58,8 @@ class Administration {
 	
 	/**
 	 * Looking for user in the database
-	 * @param unknown $params
+	 * 
+	 * @param unknown $params        	
 	 */
 	public function checkUser($params) {
 		extract ( $params );
@@ -65,13 +67,13 @@ class Administration {
 		
 		$role = null;
 		
-		if ($user = $manager->getUser ( $values ['login'], $values ['password'] )) {
+		if ($user = $manager->getUser ( $this->test_input( $values ['login'] ), $this->test_input( $values ['password'] ) )) {
 			$role = $user ['role'];
 			$username = $user ['username'];
 			$template = "admin";
 			$_SESSION ['role'] = $role;
 			$_SESSION ['username'] = $username;
-			$this->showAdmin($params);
+			$this->showAdmin ( $params );
 		} else {
 			$myView = new View ();
 			$myView->redirect ( 'login' );
@@ -88,7 +90,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'messages' => $manager->getMessages (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -100,9 +102,9 @@ class Administration {
 		$myView = new View ( 'devis', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
-				'deviss' => $manager->getDeviss(),
+				'deviss' => $manager->getDeviss (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -117,7 +119,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'contacts' => $manager->getContacts (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -126,14 +128,14 @@ class Administration {
 	 */
 	public function showServices() {
 		$manager = new ServicesManager ();
-		$page = new PageManager();
+		$page = new PageManager ();
 		$myView = new View ( 'services', 'admin/' );
 		$myView->render ( array (
 				'role' => $_SESSION ['role'],
 				'services' => $manager->getServices (),
 				'page' => $page->getPage ( 'services' ),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -147,7 +149,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'gallery' => $manager->getGallery (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -161,7 +163,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'gallery' => $manager->getGallery (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -175,7 +177,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'qui_sommes_nous' ),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -189,7 +191,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'welcame' ),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -203,7 +205,7 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'page' => $manager->getPage ( 'bottom' ),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -222,7 +224,7 @@ class Administration {
 				'zone3' => $manager->getPage ( 'zone_3' ),
 				'zone4' => $manager->getPage ( 'zone_4' ),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
 	}
 	
@@ -236,7 +238,20 @@ class Administration {
 				'role' => $_SESSION ['role'],
 				'sections' => $sections->getSections (),
 				'newMsgs' => $this->newMsgs,
-				'newDevis' => $this->newDevis
+				'newDevis' => $this->newDevis 
 		) );
+	}
+	
+	/**
+	 * Sanitize form data
+	 * @param mixed $data        	
+	 * @return string
+	 */
+	public function test_input($data) {
+		$data = trim ( $data );
+		$data = stripslashes ( $data );
+		$data = filter_var ( $data, FILTER_SANITIZE_FULL_SPECIAL_CHARS );
+		$data = filter_var ( $data, FILTER_SANITIZE_STRING );
+		return $data;
 	}
 }
